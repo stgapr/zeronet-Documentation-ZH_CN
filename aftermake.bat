@@ -1,2 +1,2 @@
-rename docs sites
+rename docs site
 rename doc docs
