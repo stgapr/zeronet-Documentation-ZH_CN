@@ -1,10 +1,10 @@
 # content.json的结构
 
-Every ZeroNet site will have a `content.json` file. ([Example content.json file](https://github.com/HelloZeroNet/ZeroTalk/blob/master/content.json))
+每一个ZeroNet站点都有一个 `content.json`文件. ([示例content.json文件](https://github.com/HelloZeroNet/ZeroTalk/blob/master/content.json))
 
-This file will carry, among other things, a list of all files on your site and a signature created with your private key. This is done to avoid file tampering (ie: only you, or people you trust, can update the site content).
+这个文件会记录一张记载有所有站点上的文件和用你的私钥签名后的列表。这种设计是为了防止文件非法篡改（也就是说，只有你，或者你信任的人，才能更新站点的内容）
 
-Here is a list of supported keys:
+这里是目前支持的keys:
 
 
 # 自动生成
@@ -16,7 +16,7 @@ Here is a list of supported keys:
 
 你的站点地址
 
-**Example**: 1TaLk3zM7ZRskJvrh3ZNCDVGXvkJusPKQ
+**举例**: 1TaLk3zM7ZRskJvrh3ZNCDVGXvkJusPKQ
 
 
 ---
@@ -24,7 +24,7 @@ Here is a list of supported keys:
 
 ### address_index
 
-The site's address BIP32 sub-key index of your BIP32 seed. Auto-added when you clone a site. It allows to recover the site privatekey from your BIP32 seed.
+The site's address BIP32 sub-key index  of BIP32 种子。在你克隆一个网站时自动生成。你可以从BIP32种子来还原推算出站点的私钥。
 
 **Example**: 30926910
 
@@ -33,7 +33,7 @@ The site's address BIP32 sub-key index of your BIP32 seed. Auto-added when you c
 
 ### cloned_from
 
-The site address where the site is cloned from.
+克隆来源的那个站点的地址
 
 **Example**: 1BLogC9LN4oPDcruNz3qo1ysa133E9AGg8
 
@@ -42,7 +42,7 @@ The site address where the site is cloned from.
 
 ### clone_root
 
-The sub-directory on source site where this site was cloned from.
+克隆来源站点的那个站点的顶层子目录
 
 **Example**: template-new
 
@@ -52,7 +52,7 @@ The sub-directory on source site where this site was cloned from.
 
 ### files
 
-Size and sha512 hash of automatically downloaded files contained in your site. Automatically added by the command `zeronet.py siteSign siteaddress privatekey`.
+当浏览你的站点时，会自动下载的那些文件的大小和SHA512哈希值。在执行 `zeronet.py siteSign siteaddress privatekey`操作时，自动生成。
 
 **Example**:
 ```json
@@ -67,7 +67,7 @@ Size and sha512 hash of automatically downloaded files contained in your site. A
 
 ### files_optional
 
-Size and sha512 hash of optional files contained in your site. Automatically added by the command `zeronet.py siteSign siteaddress privatekey`.
+当浏览你的站点时，可选下载的那些文件的大小和SHA512哈希值。在执行 `zeronet.py siteSign siteaddress privatekey`操作时，自动生成。
 
 **Example**:
 ```json
@@ -83,7 +83,7 @@ Size and sha512 hash of optional files contained in your site. Automatically add
 
 ### modified
 
-Time when the content.json was generated.
+content.json 的最近修改日期
 
 **Example**: 1425857522.076
 
@@ -91,9 +91,10 @@ Time when the content.json was generated.
 ---
 
 
-### sign (deprecated)
+### sign (已废用)
 
-ECDSA sign of the content.json file content. (keys sorted, without whitespace and the `sign` and `signers_sign` nodes). For backward compatibility, will be removed soon.
+content.json 文件内容的ECDSA签名 (按keys排序， without whitespace and the `sign` and `signers_sign` nodes)。
+这是为了版本向后兼容保留下来的。很快就会在新版本中移除。
 
 **Example**:
 ```json
@@ -127,7 +128,7 @@ The above signed message is signed using the address, "1PcxwuHYxuJEmM4ydtB1vbiAY
 
 ### signs
 
-ECDSA signs for the the content.json file content. (keys sorted, without whitespace and the `sign` and `signers_sign` nodes).
+content.json 文件内容的ECDSA签名 (keys sorted, without whitespace and the `sign` and `signers_sign` nodes).
 
 **Example**:
 ```json
@@ -142,7 +143,7 @@ ECDSA signs for the the content.json file content. (keys sorted, without whitesp
 
 ### zeronet_version
 
-ZeroNet version used to generate content.json file.
+生成 content.json 文件的ZeroNet版本号。
 
 **Example**: 0.2.5
 
@@ -155,7 +156,7 @@ ZeroNet version used to generate content.json file.
 
 ### background-color
 
-Background color of the wrapper
+装饰器的背景色
 
 **Example**: #F5F5F5
 
@@ -165,22 +166,19 @@ Background color of the wrapper
 
 ### cloneable
 
-Allow to clone the site if **true**.
+假如为**true**，则允许该站点被克隆
 
-To make your site properly cloneable you have to add data files for clean start (eg. without any blog posts).
-To do this you have to add **-default** postfix to your data files and directories.
-On the cloning process every file and directory is skipped if it has **-default** postfixed alternative and then the **-default** postfix will be removed from the affected files and directories.
-
-
+为了让你的站点结构能够被正确完整地克隆，你应该为了清洁启动而附上空的数据文件（例如：没有任何帖子记录的数据文件）。为此，你应该在这些空数据文件和目录前加上**-default** 前缀。
+在克隆的过程中，假如文件和目录有一个**-default**前缀，则它会被跳过（翻译注：个人觉得是保留下来）。然后这个前缀会在这些文件中移除。
 
 ---
 
 
 ### description
 
-Description of your site, displayed under site title on ZeroHello.
+你的站点的描述。在ZerHello的网站列表中作为标题来显示
 
-**Example**: Decentralized forum demo
+**举例**: 我的去中心化BBS demo
 
 
 ---
@@ -188,9 +186,9 @@ Description of your site, displayed under site title on ZeroHello.
 
 ### domain
 
-Namecoin domain name of your site. ZeroHello will link to this if the user has Zeroname plugin enabled.
+你的站点的Namecoin 域名。假如用户开启了ZeroName插件，ZeroHello 会把Namecoin域名作为跳转链接。
 
-**Example**: Blog.ZeroNetwork.bit
+**举例**: Blog.ZeroNetwork.bit
 
 
 
@@ -200,9 +198,10 @@ Namecoin domain name of your site. ZeroHello will link to this if the user has Z
 
 ### ignore
 
-Ignore files from signing matching this preg pattern
+在签署文件列表时，忽略部分文件的通配表达式
 
-**Example**: `((js|css)/(?!all.(js|css))|data/users/.*)` (ignore all js and css files except all.js and all.css and don't add anything from data/users/ directory)
+
+**举例**: `((js|css)/(?!all.(js|css))|data/users/.*)` (忽略所有JS和CSS 文件，除了all.js与all.css。并且不添加data/users/ 目录)
 
 
 ---
@@ -210,9 +209,9 @@ Ignore files from signing matching this preg pattern
 
 ### includes
 
-Include an another content.json
+包含另一个content.json文件
 
-**Example**:
+**举例**:
 
 ```json
 {
@@ -220,10 +219,10 @@ Include an another content.json
     "signers": [ # Possible signers address for the file
       "1LSxsKfC9S9TVXGGNSM3vPHjyW82jgCX5f"
     ],
-    "signers_required": 1 # The *number* of Valid signs required to accept the file (Multisig possibility),
-    "files_allowed": "data.json", # Preg pattern for the allowed files in the include file
-    "includes_allowed": false, # Nested includes allowed or not
-    "max_size": 10000, # Max sum filesize allowed in the include (in bytes)
+    "signers_required": 1 # 为了确认一个文件的真实性而需要的有效签名**数量**  (允许多签名)
+    "files_allowed": "data.json", # 通过include包含进来的文件类型的通配表达式
+    "includes_allowed": false, # 是否允许Nested includes
+    "max_size": 10000, # 通过include包含进来的最大文件大小 (按字节数计算)
   }
 }
 ```
@@ -234,9 +233,9 @@ Include an another content.json
 
 ### merged_type
 
-Data source for specified merger site type
+特殊的合并型站点的数据源
 
-**Example**: `ZeroMe`
+**举例**: `ZeroMe`
 
 
 ---
@@ -244,9 +243,9 @@ Data source for specified merger site type
 
 ### optional
 
-Preg pattern of optional files
+指定可选下载文件的通配表达式
 
-**Example**: `(data/mp4/.*|updater/.*)` (everything in data/mp4 and updater directory is optional)
+**Example**: `(data/mp4/.*|updater/.*)` (在data/mp4 和updater目录中的文件都是可选下载的)
 
 
 ---
@@ -254,10 +253,10 @@ Preg pattern of optional files
 
 ### signs_required
 
-The **number** of valid signs required to accept the file (Multisig possibility)
+为了确认一个文件的真实性而需要的有效签名**数量**  (允许多签名)
 
 
-**Example**: 1
+**举例**: 1
 
 
 ---
@@ -265,9 +264,9 @@ The **number** of valid signs required to accept the file (Multisig possibility)
 
 ### title
 
-Site's title, visible in browser title and on ZeroHello.
+站点标题。在浏览器标题栏显示，也会在ZeroHello里显示。
 
-**Example**: ZeroTalk
+**举例**: ZeroTalk
 
 
 ----
@@ -275,7 +274,7 @@ Site's title, visible in browser title and on ZeroHello.
 
 ### translate
 
-Files need be translated. (use language json files in `languages` dictionary)
+需要被翻译的文件. (`languages` 目录里有翻译用的json文件)
 
 **Example**: ["index.html", "js/all.js"]
 
@@ -285,9 +284,9 @@ Files need be translated. (use language json files in `languages` dictionary)
 
 ### favicon
 
-Site's favicon. Replace default ZeroNet favicon with a site-specific favicon.
+站点的logo。你可以手动设置它，以取代ZeroNet提供的默认站点logo。
 
-**Example**: favicon.ico
+**举例**: myfavicon.ico
 
 
 ----
@@ -295,15 +294,16 @@ Site's favicon. Replace default ZeroNet favicon with a site-specific favicon.
 
 ### user_contents
 
-Rules of allowed user content of current directory.
+本目录允许的用户内容的规则列表
 
-Node                   | Description
+
+json节点                | 描述
                   ---  | ---
-**cert_signers**       | Accepted domains and it's valid signer's addresses
-**permission_rules**   | Allowed file names and total directory size based on cert domain or authorization method
-**permissions**        | Per-user permissions. (false = banned user)
+**cert_signers**       | 接受的域名和其有效签署者的地址
+**permission_rules**   | 在域名通过认证和有授权的前提下，接受的文件名和总的目录大小。
+**permissions**        | 每用户的许可. (false = 拉黑用户)
 
-**Example**:
+**举例**:
 ```json
   "user_contents": {
     "cert_signers": {
@@ -329,6 +329,6 @@ Node                   | Description
 
 ### viewport
 
-Content for the viewport meta tag. (Used for mobile-friendly pages)
+viewport 元标签的内容. (用于想做移动版适配的页面)
 
-**Example**: width=device-width, initial-scale=1.0
+**例如**: width=device-width, initial-scale=1.0

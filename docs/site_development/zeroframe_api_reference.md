@@ -1,4 +1,4 @@
-# ZeroFrame API Reference
+# ZeroFrame API 参考文档
 
 
 
@@ -8,18 +8,18 @@ _These commands handled by wrapper frame and does not sent to UiServer using web
 
 
 #### wrapperConfirm _message, [button_caption]_
-Display a notification with confirm button
+按下确认键的时跳出提示消息
 
-Parameter              | Description
+参数                  | 描述
                   ---  | ---
-**message**            | The message you want to display
-**button_caption** (optional) | Caption of the confirmation button (default: OK)
+**message**            | 想要提示的消息
+**button_caption** (可选) | 确认键的显示文本 (默认为 OK)
 
-**Return**: True if clicked on button
+**返回值**: 假如点击了按钮，返回True
 
-**Example:**
+**举例：**
 ```coffeescript
-# Delete site
+# 删除站点
 siteDelete: (address) ->
 	site = @sites[address]
 	title = site.content.title
@@ -38,20 +38,20 @@ siteDelete: (address) ->
 
 #### wrapperInnerLoaded
 
-Applies the windows.location.hash to page url. Call when you page is fully loaded to jump to the desired anchor point.
+适用于页面URL的 windows.location.hash 。 当页面已经加载完成，要跳转到特定定位点时，该事件被触发。
 
 
 ---
 
 
 #### wrapperGetLocalStorage
-**Return**: Browser's local store for the site
+**返回**: 浏览器对本页面的本地存储内容
 
-**Example:**
+**举例：**
 ```coffeescript
 @cmd "wrapperGetLocalStorage", [], (res) =>
 	res ?= {}
-	@log "Local storage value:", res
+	@log "本地存储值:", res
 ```
 
 
@@ -59,22 +59,21 @@ Applies the windows.location.hash to page url. Call when you page is fully loade
 ---
 
 #### wrapperGetState
-**Return**: Browser's current history state object
-
+**返回值**: 浏览器的当前历史的状态对象
 ---
 
 #### wrapperNotification _type, message, [timeout]_
-Display a notification
+显示一条消息
 
-Parameter              | Description
+参数                   | 描述
                   ---  | ---
-**type**               | Possible values: info, error, done
-**message**            | The message you want to display
-**timeout** (optional) | Hide display after this interval (milliseconds)
+**type**               | 可能的值: info, error, done 
+**message**            | 你想要弹出的消息
+**timeout** (optional) | 在多少秒后自动隐藏消息（可选的）（以毫秒计） 
 
-**Return**: None
+**返回值：**: None
 
-**Example:**
+**举例：**
 ```coffeescript
 @cmd "wrapperNotification", ["done", "Your registration has been sent!", 10000]
 ```
@@ -84,15 +83,16 @@ Parameter              | Description
 
 #### wrapperOpenWindow _url, [target], [specs]
 
-Navigates or opens a new popup window.
+跳转，或者打开新弹出窗口
 
-Parameter              | Description
+
+参数              | 描述
                   ---  | ---
-**url**                | Url of the opened page
-**target** (optional)  | Target window name
-**specs** (optional)   | Special properties of the window (see: [window.open specs](http://www.w3schools.com/jsref/met_win_open.asp))
+**url**                | 已打开页面的URL
+**target** (可选)  | 目标窗口名称
+**specs** (可选)   | 打开的窗口的特定属性 (参见[window.open specs](http://www.w3schools.com/jsref/met_win_open.asp))
 
-**Example:**
+**举例：**
 ```coffeescript
 @cmd "wrapperOpenWindow", ["https://zeronet.io", "_blank", "width=550,height=600,location=no,menubar=no"]
 ```
@@ -102,51 +102,51 @@ Parameter              | Description
 
 #### wrapperPermissionAdd _permission_
 
-Request new permission for site
+为网站请求新的授权
 
 
-Parameter        | Description
+参数        | 描述
              --- | ---
-**permission**   | Name of permission (eg. Merger:ZeroMe)
+**permission**   | 授权名 (eg. Merger:ZeroMe)
 
 
 ---
 
 #### wrapperPrompt _message, [type]_
 
-Prompt text input from user
+用户输入时的提示文本
 
-Parameter           | Description
+参数           | 描述
                ---  | ---
-**message**         | The message you want to display
-**type** (optional) | Type of the input (default: text)
+**message**         | 想显示的消息
+**type** (optional) | 输入类型 (默认： text)
 
-**Return**: Text entered to input
+**返回值：**: 输入的文本
 
-**Example:**
+**举例：**
 ```coffeescript
-# Prompt the private key
-@cmd "wrapperPrompt", ["Enter your private key:", "password"], (privatekey) =>
+# 提示输入密钥
+@cmd "wrapperPrompt", ["输入你的密钥：", "password"], (privatekey) =>
     $(".publishbar .button").addClass("loading")
-    # Send sign content.json and publish request to server
+    # 签署 content.json，然后并且把请求发送给服务器
     @cmd "sitePublish", [privatekey], (res) =>
         $(".publishbar .button").removeClass("loading")
-        @log "Publish result:", res
+        @log "发送结果：", res
 ```
 
 
 ---
 
 #### wrapperPushState _state, title, url_
-Change the url and adds new entry to browser's history. See: [pushState JS method](https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method)
+改变URL，并且在浏览器历史记录中添加新的一行。 参加: [pushState JS 方法](https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method)
 
-Parameter           | Description
+参数           | 描述
                ---  | ---
 **state**           | State javascript object
-**title**           | Title of the page
-**url**             | Url of the page
+**title**           | 页面标题
+**url**             | 页面URL
 
-**Return**: None
+**返回值**: None
 
 ```coffeescript
 @cmd "wrapperPushState", [{"scrollY": 100}, "Profile page", "Profile"]
@@ -156,15 +156,15 @@ Parameter           | Description
 ---
 
 #### wrapperReplaceState _state, title, url_
-Change the url without adding new entry to browser's history. See: [replaceState JS method](https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method)
+改变URL，然而不在浏览器历史记录中添加新的一行。 参加: [replaceState JS 方法](https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method)
 
-Parameter           | Description
+参数           | 描述
                ---  | ---
 **state**           | State javascript object
-**title**           | Title of the page
-**url**             | Url of the page
+**title**           | 页面标题
+**url**             | 页面URL
 
-**Return**: None
+**返回值**: None
 
 ```coffeescript
 @cmd "wrapperReplaceState", [{"scrollY": 100}, "Profile page", "Profile"]
@@ -174,15 +174,16 @@ Parameter           | Description
 ---
 
 #### wrapperSetLocalStorage _data_
-Set browser's local store data stored for the site
+为该网站设置浏览器的本地存储数据
 
-Parameter              | Description
+
+参数              | 描述
                   ---  | ---
-**data**               | Any data structure you want to store for the site
+**data**               | 你想要保存的任何数据结构
 
-**Return**: None
+**返回值**: None
 
-**Example:**
+**举例：**
 ```coffeescript
 Page.local_storage["topic.#{@topic_id}_#{@topic_user_id}.visited"] = Time.timestamp()
 Page.cmd "wrapperSetLocalStorage", Page.local_storage
@@ -192,15 +193,15 @@ Page.cmd "wrapperSetLocalStorage", Page.local_storage
 ---
 
 #### wrapperSetTitle _title_
-Set browser's title
+设置浏览器标题
 
-Parameter              | Description
+参数              | 描述
                   ---  | ---
 **title**              | New browser tab title
 
-**Return**: None
+**返回值**: None
 
-**Example:**
+**举例：**
 ```coffeescript
 Page.cmd "wrapperSetTitle", "newtitle"
 ```
@@ -210,18 +211,18 @@ Page.cmd "wrapperSetTitle", "newtitle"
 
 #### wrapperSetViewport _viewport_
 
-Set sites's viewport meta tag content (required for mobile sites)
+ 设置viewport 元标签的内容 (在适配移动版网页时有用)
 
 
-Parameter           | Description
+参数           | 描述
                ---  | ---
-**viewport**        | The viewport meta tag content
+**viewport**        | viewport元标签内容
 
-**Return**: None
+**返回值**: None
 
-**Example:**
+**举例：**
 ```coffeescript
-# Prompt the private key
+# 提示输入私钥
 @cmd "wrapperSetViewport", "width=device-width, initial-scale=1.0"
 ```
 
@@ -241,16 +242,16 @@ The UiServer will do all the 'backend' work (eg: querying the DB, accessing file
 #### certAdd _domain, auth_type, auth_user_name, cert_
 Add a new certificate to current user.
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **domain**           | Certificate issuer domain
 **auth_type**        | Auth type used on registration
 **auth_user_name**   | User name used on registration
 **cert**             | The cert itself: `auth_address#auth_type/auth_user_name` string signed by the cert site owner
 
-**Return**: "ok", "Not changed" or {"error": error_message}
+**返回值**: "ok", "Not changed" or {"error": error_message}
 
-**Example:**
+**举例：**
 ```coffeescript
 @cmd "certAdd", ["zeroid.bit", auth_type, user_name, cert_sign], (res) =>
 	$(".ui").removeClass("flipped")
@@ -265,13 +266,13 @@ Parameter            | Description
 #### certSelect _accepted_domains_
 Display certificate selector.
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **accepted_domains** | List of domains that accepted by site as authorization provider
 
-**Return**: None
+**返回值**: None
 
-**Example:**
+**举例：**
 ```coffeescript
 @cmd "certSelect", {"accepted_domains": ["zeroid.bit"]}
 ```
@@ -284,11 +285,11 @@ Parameter            | Description
 
 Request notifications about sites's events.
 
-Parameter   | Description
+参数   | 描述
         --- | ---
 **channel** | Channel to join
 
-**Return**: None
+**返回值**: None
 
 **Channels**:
 
@@ -328,13 +329,13 @@ route: (cmd, data) ->
 #### dbQuery _query_
 Run a query on the sql cache
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **query**            | Sql query command
 
-**Return**: <list> Result of the query
+**返回值**: <list> Result of the query
 
-**Example:**
+**举例：**
 ```coffeescript
 @log "Updating user info...", @my_address
 Page.cmd "dbQuery", ["SELECT user.*, json.json_id AS data_json_id FROM user LEFT JOIN json USING(path) WHERE path='#{@my_address}/data.json'"], (res) =>
@@ -358,11 +359,11 @@ Page.cmd "dbQuery", ["SELECT user.*, json.json_id AS data_json_id FROM user LEFT
 #### fileDelete _inner_path_
 Delete a file
 
-Parameter        | Description
+参数        | 描述
              --- | ---
 **inner_path**   | The file you want to delete
 
-**Return**: "ok" on success else the error message
+**返回值**: "ok" on success else the error message
 
 
 ---
@@ -371,17 +372,17 @@ Parameter        | Description
 #### fileGet _inner_path, [required], [format], [timeout]_
 Get file content
 
-Parameter               | Description
+参数               | 描述
                     --- | ---
 **inner_path**          | The file you want to get
 **required** (optional) | Try and wait for the file if it's not exists. (default: True)
 **format** (optional)   | Encoding of returned data. (text or base64) (default: text)
 **timeout** (optional)  | Maximum wait time to data arrive (default: 300)
 
-**Return**: <string> The content of the file
+**返回值**: <string> The content of the file
 
 
-**Example:**
+**举例：**
 ```coffeescript
 # Upvote a topic on ZeroTalk
 submitTopicVote: (e) =>
@@ -421,11 +422,11 @@ submitTopicVote: (e) =>
 #### fileList _inner_path_
 List of files in a directory
 
-Parameter        | Description
+参数        | 描述
              --- | ---
 **inner_path**   | Directory you want to list
 
-**Return**: List of files in the directory (recursive)
+**返回值**: List of files in the directory (recursive)
 
 
 ---
@@ -434,12 +435,12 @@ Parameter        | Description
 #### fileQuery _dir_inner_path, query_
 Simple json file query command
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **dir_inner_path**   | Pattern of queried files
 **query**            | Query command (optional)
 
-**Return**: <list> Matched content
+**返回值**: <list> Matched content
 
 **Query examples:**
 
@@ -448,7 +449,7 @@ Parameter            | Description
  - `["data/users/*/data.json", ""]`: Returns all data from users files
  - `["data/users/*/data.json"]`: Returns all data from users files (same as above)
 
-**Example:**
+**举例：**
 ```coffeescript
 @cmd "fileQuery", ["data/users/*/data.json", "topics"], (topics) =>
 	topics.sort (a, b) -> # Sort by date
@@ -464,11 +465,11 @@ Parameter            | Description
 #### fileRules _inner_path_
 Return the rules for the file.
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **inner_path**       | File inner path
 
-**Return**: <list> Matched content
+**返回值**: <list> Matched content
 
 **Example result:**
 
@@ -483,7 +484,7 @@ Parameter            | Description
 }
 ```
 
-**Example:**
+**举例：**
 ```coffeescript
 @cmd "fileRules", "data/users/1J3rJ8ecnwH2EPYa6MrgZttBNc61ACFiCj/content.json", (rules) =>
 	@log rules
@@ -498,14 +499,14 @@ Parameter            | Description
 Write file content
 
 
-Parameter          | Description
+参数          | 描述
                --- | ---
 **inner_path**     | Inner path of the file you want to write
 **content_base64** | Content you want to write to file (base64 encoded)
 
-**Return**: "ok" on success else the error message
+**返回值**: "ok" on success else the error message
 
-**Example:**
+**举例：**
 ```coffeescript
 writeData: (cb=null) ->
 	# Encode to json, encode utf8
@@ -530,7 +531,7 @@ _Note:_ to write files that not in content.json yet, you must have `"own": true`
 
 **Return:** <dict> All information about the server
 
-**Example:**
+**举例：**
 ```coffeescript
 @cmd "serverInfo", {}, (server_info) =>
 	@log "Server info:", server_info
@@ -558,9 +559,9 @@ _Note:_ to write files that not in content.json yet, you must have `"own": true`
 
 #### siteInfo
 
-**Return**: <dict> All information about the site
+**返回值**: <dict> All information about the site
 
-**Example:**
+**举例：**
 ```coffeescript
 @cmd "siteInfo", {}, (site_info) =>
 	@log "Site info:", site_info
@@ -589,7 +590,7 @@ _Note:_ to write files that not in content.json yet, you must have `"own": true`
 	"workers": 0, # Current concurent downloads
 	"content": { # Root content.json
 		"files": 12, # Number of file, detailed file info removed to reduce data transfer and parse time
-		"description": "This site",
+		"描述": "This site",
 		"title": "ZeroHello",
 		"signs_required": 1,
 		"modified": 1425344149.365,
@@ -612,15 +613,15 @@ _Note:_ to write files that not in content.json yet, you must have `"own": true`
 #### sitePublish _[privatekey], [inner_path], [sign]_
 Publish a content.json of the site
 
-Parameter                 | Description
+参数                 | 描述
                       --- | ---
 **privatekey** (optional) | Private key used for signing (default: current user's privatekey)
 **inner_path** (optional) | Inner path of the content json you want to publish (default: content.json)
 **sign** (optional)       | If True then sign the content.json before publish (default: True)
 
-**Return**: "ok" on success else the error message
+**返回值**: "ok" on success else the error message
 
-**Example:**
+**举例：**
 ```coffeescript
 # Prompt the private key
 @cmd "wrapperPrompt", ["Enter your private key:", "password"], (privatekey) =>
@@ -638,17 +639,17 @@ Parameter                 | Description
 #### siteSign _[privatekey], [inner_path]_
 Sign a content.json of the site
 
-Parameter                 | Description
+参数                 | 描述
                       --- | ---
 **privatekey** (optional) | Private key used for signing (default: current user's privatekey)
 **inner_path** (optional) | Inner path of the content json you want to sign (default: content.json)
 
-**Return**: "ok" on success else the error message
+**返回值**: "ok" on success else the error message
 
 > __Note:__
 > Use "stored" as privatekey if its definied in users.json (eg. cloned sites)
 
-**Example:**
+**举例：**
 ```coffeescript
 if @site_info["privatekey"] # Private key stored in users.json
 	@cmd "siteSign", ["stored", "content.json"], (res) =>
@@ -664,13 +665,13 @@ if @site_info["privatekey"] # Private key stored in users.json
 
 Force check and download changed content from other peers (only necessary if user is in passive mode and using old version of Zeronet)
 
-Parameter     | Description
+参数     | 描述
           --- | ---
 **address**   | Address of site want to update (only current site allowed without site ADMIN permission)
 
 **Return:** None
 
-**Example:**
+**举例：**
 ```coffeescript
 # Manual site update for passive connections
 updateSite: =>
@@ -690,12 +691,12 @@ updateSite: =>
 
 Get user's site specific publickey
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **index** (optional) | Sub-publickey within site (default: 0)
 
 
-**Return**: base64 encoded publickey
+**返回值**: base64 encoded publickey
 
 ---
 
@@ -703,14 +704,14 @@ Parameter            | Description
 
 Encrypt a text using a publickey
 
-Parameter                      | Description
+参数                      | 描述
                            --- | ---
 **text**                       | Text to encrypt
 **publickey** (optional)       | User's publickey index (int) or base64 encoded publickey (default: 0)
 **return_aes_key** (optional)  | Get the AES key used in encryption (default: False)
 
 
-**Return**: Encrypted text in base64 format or [Encrypted text in base64 format, AES key in base64 format]
+**返回值**: Encrypted text in base64 format or [Encrypted text in base64 format, AES key in base64 format]
 
 ---
 
@@ -718,13 +719,13 @@ Parameter                      | Description
 
 Try to decrypt list of texts
 
-Parameter                      | Description
+参数                      | 描述
                            --- | ---
 **params**                     | A text or list of encrypted texts
 **privatekey** (optional)      | User's privatekey index (int) or base64 encoded privatekey (default: 0)
 
 
-**Return**: Decrypted text or list of decrypted texts (null for failed decodings)
+**返回值**: Decrypted text or list of decrypted texts (null for failed decodings)
 
 ---
 
@@ -732,14 +733,14 @@ Parameter                      | Description
 
 Encrypt a text using the key and the iv
 
-Parameter                      | Description
+参数                      | 描述
                            --- | ---
 **text**                       | A text encrypt using AES
 **key** (optional)             | Base64 encoded password (default: generate new)
 **iv** (optional)              | Base64 encoded iv (default: generate new)
 
 
-**Return**: [base64 encoded key, base64 encoded iv, base64 encoded encrypted text]
+**返回值**: [base64 encoded key, base64 encoded iv, base64 encoded encrypted text]
 
 
 ---
@@ -749,7 +750,7 @@ Parameter                      | Description
 
 Decrypt text using the IV and AES key
 
-Parameter                      | Description
+参数                      | 描述
                            --- | ---
 **iv**                         | IV in Base64 format
 **encrypted_text**             | Encrypted text in Base64 format
@@ -758,7 +759,7 @@ Parameter                      | Description
 **keys**                       | Keys for decoding (tries every one for every pairs)
 
 
-**Return**: Decoded text or list of decoded texts
+**返回值**: Decoded text or list of decoded texts
 
 
 ---
@@ -773,7 +774,7 @@ Set followed sql queries.
 
 The SQL query should result in rows with cols:
 
-Field          | Description
+Field          | 描述
            --- | ---
 **type**       | Type: post, article, comment, mention
 **date_added** | Event time
@@ -781,13 +782,13 @@ Field          | Description
 **body**       | Event's second and third line
 **url**        | Link to event's page
 
-Parameter      | Description
+参数      | 描述
            --- | ---
-**feeds**      | Format: {"query name": [SQL query, [param1, param2, ...], ...}, parameters will be escaped, joined by `,` inserted in place of `:params` in the Sql query.
+**feeds**      | Format: {"query name": [SQL query, [param1, param2, ...], ...}, 参数s will be escaped, joined by `,` inserted in place of `:params` in the Sql query.
 
-**Return**: ok
+**返回值**: ok
 
-**Example:**
+**举例：**
 ```coffeescript
 # Follow ZeroBlog posts
 query = "
@@ -811,7 +812,7 @@ Page.cmd feedFollow [{"Posts": [query, params]}]
 Return of current followed feeds
 
 
-**Return**: The currently followed feeds in the same format as in the feedFollow commands
+**返回值**: The currently followed feeds in the same format as in the feedFollow commands
 
 
 ---
@@ -821,9 +822,9 @@ Return of current followed feeds
 Execute all followed sql query
 
 
-**Return**: The result of the followed Sql queries
+**返回值**: The result of the followed Sql queries
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **limit**            | Limit of results per followed site (default: 10)
 **day_limit**        | Return no older than number of this days (default: 3)
@@ -837,7 +838,7 @@ Parameter            | Description
 
 Start downloading new merger site(s)
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **addresses**        | Site address or list of site addresses
 
@@ -848,7 +849,7 @@ Parameter            | Description
 
 Stop seeding and delete a merged site
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **address**           | Site address
 
@@ -859,7 +860,7 @@ Parameter            | Description
 
 Return merged sites.
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **query_site_info**  | If True, then gives back detailed site info for merged sites
 
@@ -874,15 +875,15 @@ Parameter            | Description
 
 Add new user to mute list. (Requires confirmation for non-ADMIN sites)
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **auth_address**     | Directory name of the user's data.
 **cert_user_id**     | Cert user name of the user
 **reason**           | Reason of the muting
 
-**Return**: ok if confirmed
+**返回值**: ok if confirmed
 
-**Example:**
+**举例：**
 ```coffeescript
 Page.cmd("muteAdd", ['1GJUaZMjTfeETdYUhchSkDijv6LVhjekHz','helloworld@kaffie.bit','Spammer'])
 ```
@@ -893,13 +894,13 @@ Page.cmd("muteAdd", ['1GJUaZMjTfeETdYUhchSkDijv6LVhjekHz','helloworld@kaffie.bit
 
 Remove a user from mute list. (Requires confirmation for non-ADMIN sites)
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **auth_address**     | Directory name of the user's data.
 
-**Return**: ok if confirmed
+**返回值**: ok if confirmed
 
-**Example:**
+**举例：**
 ```coffeescript
 Page.cmd("muteRemove", '1GJUaZMjTfeETdYUhchSkDijv6LVhjekHz')
 ```
@@ -910,7 +911,7 @@ Page.cmd("muteRemove", '1GJUaZMjTfeETdYUhchSkDijv6LVhjekHz')
 
 List muted users. (Requires ADMIN permission on site)
 
-**Return**: List of muted users
+**返回值**: List of muted users
 
 
 ---
@@ -922,13 +923,13 @@ List muted users. (Requires ADMIN permission on site)
 
 Return list of optional files
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **address**          | The site address you want to list optional files (default: current site)
 **orderby**          | Order of returned optional files (default: time_downloaded DESC)
 **limit**            | Max number of returned optional files (default: 10)
 
-**Return**: Database row of optional files: file_id, site_id, inner_path, hash_id, size, peer, uploaded, is_downloaded, is_pinned, time_added, time_downlaoded, time_accessed
+**返回值**: Database row of optional files: file_id, site_id, inner_path, hash_id, size, peer, uploaded, is_downloaded, is_pinned, time_added, time_downlaoded, time_accessed
 
 ---
 
@@ -936,11 +937,11 @@ Parameter            | Description
 
 Query optional file info from database
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **inner_path**       | The path of the file
 
-**Return**: Database row of optional file: file_id, site_id, inner_path, hash_id, size, peer, uploaded, is_downloaded, is_pinned, time_added, time_downlaoded, time_accessed
+**返回值**: Database row of optional file: file_id, site_id, inner_path, hash_id, size, peer, uploaded, is_downloaded, is_pinned, time_added, time_downlaoded, time_accessed
 
 ---
 
@@ -948,7 +949,7 @@ Parameter            | Description
 
 Pin (exclude from automatized optional file cleanup) downloaded optional file
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **inner_path**       | The path of the file
 **address**          | Address for the file (default: current site)
@@ -959,7 +960,7 @@ Parameter            | Description
 
 Remove pinning (include from automatized optional file cleanup) of downloaded optional file
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **inner_path**       | The path of the file
 **address**          | Address for the file (default: current site)
@@ -970,7 +971,7 @@ Parameter            | Description
 
 Query a downloaded optional file
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **inner_path**       | The path of the file
 **address**          | Address for the file (default: current site)
@@ -981,7 +982,7 @@ Parameter            | Description
 
 Return currently used disk space by optional files
 
-**Return**: limit, used and free space statistics
+**返回值**: limit, used and free space statistics
 
 ---
 
@@ -990,7 +991,7 @@ Return currently used disk space by optional files
 
 Set the optional file limit
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **limit**            | Max space used by the optional files in gb or percent of used space
 
@@ -1000,11 +1001,11 @@ Parameter            | Description
 
 List the auto-downloaded directories of optional files
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **address**          | Address of site you want to list helped directories (default: current site)
 
-**Return**: Dict of auto-downloaded directories and descriptions
+**返回值**: Dict of auto-downloaded directories and 描述s
 
 ---
 
@@ -1013,7 +1014,7 @@ Parameter            | Description
 
 Add directory to auto-download list
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **directory**        | Directory you want to add to auto-download list
 **title**            | Title for the entry (displayed on ZeroHello)
@@ -1025,7 +1026,7 @@ Parameter            | Description
 
 Remove an auto-download entry
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **directory**        | Directory you want to remove from auto-download list
 **address**          | Address of affected site (default: current site)
@@ -1036,7 +1037,7 @@ Parameter            | Description
 
 Help download every new uploaded optional file to the site
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **value**            | Enable or Disable the auto-download
 **address**          | Address of affected site (default: current site)
@@ -1056,13 +1057,13 @@ _(requires ADMIN permission in data/sites.json)_
 Create or update an entry in ZeroNet config file. (zeronet.conf by default)
 
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **key**              | Configuration entry name
 **value**            | Configuration entry new value
 
 
-**Return**: ok
+**返回值**: ok
 
 
 ---
@@ -1073,11 +1074,11 @@ Parameter            | Description
 
 Set the used certificate for current site.
 
-Parameter            | Description
+参数            | 描述
                  --- | ---
 **domain**           | Domain of the certificate issuer
 
-**Return**: None
+**返回值**: None
 
 
 ---
@@ -1087,11 +1088,11 @@ Parameter            | Description
 
 Request notifications about every site's events.
 
-Parameter           | Description
+参数           | 描述
                ---  | ---
 **channel**         | Channel to join (see channelJoin)
 
-**Return**: None
+**返回值**: None
 
 
 
@@ -1103,7 +1104,7 @@ Parameter           | Description
 
 Start checking if port is opened
 
-**Return**: True (port opened) or False (port closed)
+**返回值**: True (port opened) or False (port closed)
 
 
 ---
@@ -1113,7 +1114,7 @@ Start checking if port is opened
 
 Stop running ZeroNet client.
 
-**Return**: None
+**返回值**: None
 
 
 
@@ -1124,7 +1125,7 @@ Stop running ZeroNet client.
 
 Re-download ZeroNet from github.
 
-**Return**: None
+**返回值**: None
 
 
 ---
@@ -1138,12 +1139,12 @@ Every file and directory will be skipped if it has a `-default` subfixed version
 
 Eg. If you have a `data` and a `data-default` directory: The `data` directory will not be copied and the `data-default` directory will be renamed to data.
 
-Parameter           | Description
+参数           | 描述
                ---  | ---
 **address**         | Address of site want to clone
 **root_inner_path** | The source directory of the new site
 
-**Return**: None, automatically redirects to new site on completion
+**返回值**: None, automatically redirects to new site on completion
 
 
 ---
@@ -1151,7 +1152,7 @@ Parameter           | Description
 
 #### siteList
 
-**Return**: <list> SiteInfo list of all downloaded sites
+**返回值**: <list> SiteInfo list of all downloaded sites
 
 
 ---
@@ -1160,11 +1161,11 @@ Parameter           | Description
 #### sitePause _address_
 Pause site serving
 
-Parameter           | Description
+参数           | 描述
                ---  | ---
 **address**         | Address of site want to pause
 
-**Return**: None
+**返回值**: None
 
 
 ---
@@ -1173,10 +1174,10 @@ Parameter           | Description
 #### siteResume _address_
 Resume site serving
 
-Parameter           | Description
+参数           | 描述
                ---  | ---
 **address**         | Address of site want to resume
 
-**Return**: None
+**返回值**: None
 
 
