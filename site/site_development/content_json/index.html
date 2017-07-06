@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Structure of content.json - ZeroNet</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+
+  <link rel="stylesheet" href="../../css/fonts.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../docs.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Structure of content.json";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../docs.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ZeroNet</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">Frequently asked questions</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Start using ZeroNet</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/installing/">Installing</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/sample_sites/">Sample sites</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/create_new_site/">Create new site</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Site Development</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">Getting Started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../zeroframe_api_reference/">ZeroFrame API reference</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Structure of content.json</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#contentjson">content.json的结构</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_1">自动生成</a></li>
+                
+                    <li><a class="toctree-l4" href="#address">address</a></li>
+                
+                    <li><a class="toctree-l4" href="#address_index">address_index</a></li>
+                
+                    <li><a class="toctree-l4" href="#cloned_from">cloned_from</a></li>
+                
+                    <li><a class="toctree-l4" href="#clone_root">clone_root</a></li>
+                
+                    <li><a class="toctree-l4" href="#files">files</a></li>
+                
+                    <li><a class="toctree-l4" href="#files_optional">files_optional</a></li>
+                
+                    <li><a class="toctree-l4" href="#modified">modified</a></li>
+                
+                    <li><a class="toctree-l4" href="#sign">sign (已废用)</a></li>
+                
+                    <li><a class="toctree-l4" href="#signers_sign">signers_sign</a></li>
+                
+                    <li><a class="toctree-l4" href="#signs">signs</a></li>
+                
+                    <li><a class="toctree-l4" href="#zeronet_version">zeronet_version</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#settings">Settings</a></li>
+                
+                    <li><a class="toctree-l4" href="#background-color">background-color</a></li>
+                
+                    <li><a class="toctree-l4" href="#cloneable">cloneable</a></li>
+                
+                    <li><a class="toctree-l4" href="#description">description</a></li>
+                
+                    <li><a class="toctree-l4" href="#domain">domain</a></li>
+                
+                    <li><a class="toctree-l4" href="#ignore">ignore</a></li>
+                
+                    <li><a class="toctree-l4" href="#includes">includes</a></li>
+                
+                    <li><a class="toctree-l4" href="#merged_type">merged_type</a></li>
+                
+                    <li><a class="toctree-l4" href="#optional">optional</a></li>
+                
+                    <li><a class="toctree-l4" href="#signs_required">signs_required</a></li>
+                
+                    <li><a class="toctree-l4" href="#title">title</a></li>
+                
+                    <li><a class="toctree-l4" href="#translate">translate</a></li>
+                
+                    <li><a class="toctree-l4" href="#favicon">favicon</a></li>
+                
+                    <li><a class="toctree-l4" href="#user_contents">user_contents</a></li>
+                
+                    <li><a class="toctree-l4" href="#viewport">viewport</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../dbschema_json/">Structure of dbschema.json</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../cert_authority/">Certificate authority</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Help ZeroNet development</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../help_zeronet/contributing/">Contributing to ZeroNet</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../help_zeronet/network_protocol/">Network protocol</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../help_zeronet/donate/">Donation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ZeroNet</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Site Development &raquo;</li>
+        
+      
+    
+    <li>Structure of content.json</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/HelloZeroNet/ZeroNet" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="contentjson">content.json的结构</h1>
+<p>每一个ZeroNet站点都有一个 <code>content.json</code>文件. (<a href="https://github.com/HelloZeroNet/ZeroTalk/blob/master/content.json">示例content.json文件</a>)</p>
+<p>这个文件会记录一张记载有所有站点上的文件和用你的私钥签名后的列表。这种设计是为了防止文件非法篡改（也就是说，只有你，或者你信任的人，才能更新站点的内容）</p>
+<p>这里是目前支持的keys:</p>
+<h1 id="_1">自动生成</h1>
+<hr />
+<h3 id="address">address</h3>
+<p>你的站点地址</p>
+<p><strong>举例</strong>: 1TaLk3zM7ZRskJvrh3ZNCDVGXvkJusPKQ</p>
+<hr />
+<h3 id="address_index">address_index</h3>
+<p>The site's address BIP32 sub-key index  of BIP32 种子。在你克隆一个网站时自动生成。你可以从BIP32种子来还原推算出站点的私钥。</p>
+<p><strong>Example</strong>: 30926910</p>
+<hr />
+<h3 id="cloned_from">cloned_from</h3>
+<p>克隆来源的那个站点的地址</p>
+<p><strong>Example</strong>: 1BLogC9LN4oPDcruNz3qo1ysa133E9AGg8</p>
+<hr />
+<h3 id="clone_root">clone_root</h3>
+<p>克隆来源站点的那个站点的顶层子目录</p>
+<p><strong>Example</strong>: template-new</p>
+<hr />
+<h3 id="files">files</h3>
+<p>当浏览你的站点时，会自动下载的那些文件的大小和SHA512哈希值。在执行 <code>zeronet.py siteSign siteaddress privatekey</code>操作时，自动生成。</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="json">    &quot;css/all.css&quot;: {
+      &quot;sha512&quot;: &quot;869b09328f07bac538c313c4702baa5276544346418378199fa5cef644c139e8&quot;,
+      &quot;size&quot;: 148208
+</code></pre>
+
+<hr />
+<h3 id="files_optional">files_optional</h3>
+<p>当浏览你的站点时，可选下载的那些文件的大小和SHA512哈希值。在执行 <code>zeronet.py siteSign siteaddress privatekey</code>操作时，自动生成。</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="json">    &quot;data/myvideo.mp4&quot;: {
+      &quot;sha512&quot;: &quot;538c09328aa52765443464135cef644c144346418378199fa5cef61837819538&quot;,
+      &quot;size&quot;: 832103
+</code></pre>
+
+<hr />
+<h3 id="modified">modified</h3>
+<p>content.json 的最近修改日期</p>
+<p><strong>Example</strong>: 1425857522.076</p>
+<hr />
+<h3 id="sign">sign (已废用)</h3>
+<p>content.json 文件内容的ECDSA签名 (按keys排序， without whitespace and the <code>sign</code> and <code>signers_sign</code> nodes)。
+这是为了版本向后兼容保留下来的。很快就会在新版本中移除。</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="json">  &quot;sign&quot;: [
+    43117356513690007125104018825100786623580298637039067305407092800990252156956,
+    94139380599940414070721501960181245022427741524702752954181461080408625270000
+  ],
+</code></pre>
+
+<hr />
+<h3 id="signers_sign">signers_sign</h3>
+<p>Possible signers address for the root content.json signed using the site address private key. (Multisig possibility)</p>
+<p><strong>Format of the signed string</strong>: [number_of_signers_required]:[signer address],[signer address]</p>
+<p><strong>Example</strong>: <small>HKNDz9IUHcBc/l2Jm2Bl70XQDL9HYHhJ2hUdg8AMyunACLgxyXBr7EW1/ME4hGkaFZSFmIxlInmxH+BrMVXbnLw=</small></p>
+<p><em>Another Example</em>:</p>
+<pre><code>signs_required: 1:1PcxwuHYxuJEmM4ydtB1vbiAY6WkNgsz9G,1CK6KHY6MHgYvmRQ4PAafKYDrg1ejbH1cE
+signed message: MEUCIQDuz+CzOVvFkv1P2ra9i5E1p1G0/1cOGecm7GpLpMLhuwIgBIbCL0YHXD1S2+x48QS5VO/rISrkdLiUR+o+x1X0y1A=
+</code></pre>
+
+<p>The above signed message is signed using the address, "1PcxwuHYxuJEmM4ydtB1vbiAY6WkNgsz9G"</p>
+<hr />
+<h3 id="signs">signs</h3>
+<p>content.json 文件内容的ECDSA签名 (keys sorted, without whitespace and the <code>sign</code> and <code>signers_sign</code> nodes).</p>
+<p><strong>Example</strong>:</p>
+<pre><code class="json">  &quot;signs&quot;: {
+    &quot;1TaLk3zM7ZRskJvrh3ZNCDVGXvkJusPKQ&quot;: &quot;G6/QXFKvACPQ7LhoZG4fgqmeOSK99vGM2arVWkm9pV/WPCfc2ulv6iuQnuzw4v5z82qWswcRq907VPdBsdb9VRo=&quot;
+  },
+</code></pre>
+
+<hr />
+<h3 id="zeronet_version">zeronet_version</h3>
+<p>生成 content.json 文件的ZeroNet版本号。</p>
+<p><strong>Example</strong>: 0.2.5</p>
+<hr />
+<h1 id="settings">Settings</h1>
+<h3 id="background-color">background-color</h3>
+<p>装饰器的背景色</p>
+<p><strong>Example</strong>: #F5F5F5</p>
+<hr />
+<h3 id="cloneable">cloneable</h3>
+<p>假如为<strong>true</strong>，则允许该站点被克隆</p>
+<p>为了让你的站点结构能够被正确完整地克隆，你应该为了清洁启动而附上空的数据文件（例如：没有任何帖子记录的数据文件）。为此，你应该在这些空数据文件和目录前加上<strong>-default</strong> 前缀。
+在克隆的过程中，假如文件和目录有一个<strong>-default</strong>前缀，则它会被跳过（翻译注：个人觉得是保留下来）。然后这个前缀会在这些文件中移除。</p>
+<hr />
+<h3 id="description">description</h3>
+<p>你的站点的描述。在ZerHello的网站列表中作为标题来显示</p>
+<p><strong>举例</strong>: 我的去中心化BBS demo</p>
+<hr />
+<h3 id="domain">domain</h3>
+<p>你的站点的Namecoin 域名。假如用户开启了ZeroName插件，ZeroHello 会把Namecoin域名作为跳转链接。</p>
+<p><strong>举例</strong>: Blog.ZeroNetwork.bit</p>
+<hr />
+<h3 id="ignore">ignore</h3>
+<p>在签署文件列表时，忽略部分文件的通配表达式</p>
+<p><strong>举例</strong>: <code>((js|css)/(?!all.(js|css))|data/users/.*)</code> (忽略所有JS和CSS 文件，除了all.js与all.css。并且不添加data/users/ 目录)</p>
+<hr />
+<h3 id="includes">includes</h3>
+<p>包含另一个content.json文件</p>
+<p><strong>举例</strong>:</p>
+<pre><code class="json">{
+  &quot;data/users/content.json&quot;: {
+    &quot;signers&quot;: [ # Possible signers address for the file
+      &quot;1LSxsKfC9S9TVXGGNSM3vPHjyW82jgCX5f&quot;
+    ],
+    &quot;signers_required&quot;: 1 # 为了确认一个文件的真实性而需要的有效签名**数量**  (允许多签名)
+    &quot;files_allowed&quot;: &quot;data.json&quot;, # 通过include包含进来的文件类型的通配表达式
+    &quot;includes_allowed&quot;: false, # 是否允许Nested includes
+    &quot;max_size&quot;: 10000, # 通过include包含进来的最大文件大小 (按字节数计算)
+  }
+}
+</code></pre>
+
+<hr />
+<h3 id="merged_type">merged_type</h3>
+<p>特殊的合并型站点的数据源</p>
+<p><strong>举例</strong>: <code>ZeroMe</code></p>
+<hr />
+<h3 id="optional">optional</h3>
+<p>指定可选下载文件的通配表达式</p>
+<p><strong>Example</strong>: <code>(data/mp4/.*|updater/.*)</code> (在data/mp4 和updater目录中的文件都是可选下载的)</p>
+<hr />
+<h3 id="signs_required">signs_required</h3>
+<p>为了确认一个文件的真实性而需要的有效签名<strong>数量</strong>  (允许多签名)</p>
+<p><strong>举例</strong>: 1</p>
+<hr />
+<h3 id="title">title</h3>
+<p>站点标题。在浏览器标题栏显示，也会在ZeroHello里显示。</p>
+<p><strong>举例</strong>: ZeroTalk</p>
+<hr />
+<h3 id="translate">translate</h3>
+<p>需要被翻译的文件. (<code>languages</code> 目录里有翻译用的json文件)</p>
+<p><strong>Example</strong>: ["index.html", "js/all.js"]</p>
+<hr />
+<h3 id="favicon">favicon</h3>
+<p>站点的logo。你可以手动设置它，以取代ZeroNet提供的默认站点logo。</p>
+<p><strong>举例</strong>: myfavicon.ico</p>
+<hr />
+<h3 id="user_contents">user_contents</h3>
+<p>本目录允许的用户内容的规则列表</p>
+<table>
+<thead>
+<tr>
+<th>json节点</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>cert_signers</strong></td>
+<td>接受的域名和其有效签署者的地址</td>
+</tr>
+<tr>
+<td><strong>permission_rules</strong></td>
+<td>在域名通过认证和有授权的前提下，接受的文件名和总的目录大小。</td>
+</tr>
+<tr>
+<td><strong>permissions</strong></td>
+<td>每用户的许可. (false = 拉黑用户)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>举例</strong>:</p>
+<pre><code class="json">  &quot;user_contents&quot;: {
+    &quot;cert_signers&quot;: {
+      &quot;zeroid.bit&quot;: [ &quot;1iD5ZQJMNXu43w1qLB8sfdHVKppVMduGz&quot; ]
+    },
+    &quot;permission_rules&quot;: {
+      &quot;.*&quot;: {
+        &quot;files_allowed&quot;: &quot;data.json&quot;,
+        &quot;max_size&quot;: 10000
+      },
+      &quot;bitid/.*@zeroid.bit&quot;: { &quot;max_size&quot;: 40000 },
+      &quot;bitmsg/.*@zeroid.bit&quot;: { &quot;max_size&quot;: 15000 }
+    },
+    &quot;permissions&quot;: {
+      &quot;bad@zeroid.bit&quot;: false,
+      &quot;nofish@zeroid.bit&quot;: { &quot;max_size&quot;: 100000 }
+    }
+  }
+</code></pre>
+
+<hr />
+<h3 id="viewport">viewport</h3>
+<p>viewport 元标签的内容. (用于想做移动版适配的页面)</p>
+<p><strong>例如</strong>: width=device-width, initial-scale=1.0</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../dbschema_json/" class="btn btn-neutral float-right" title="Structure of dbschema.json"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../zeroframe_api_reference/" class="btn btn-neutral" title="ZeroFrame API reference"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../zeroframe_api_reference/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../dbschema_json/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Structure of dbschema.json - ZeroNet</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+
+  <link rel="stylesheet" href="../../css/fonts.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../docs.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Structure of dbschema.json";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../docs.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ZeroNet</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">Frequently asked questions</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Start using ZeroNet</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/installing/">Installing</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/sample_sites/">Sample sites</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/create_new_site/">Create new site</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Site Development</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">Getting Started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../zeroframe_api_reference/">ZeroFrame API reference</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../content_json/">Structure of content.json</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Structure of dbschema.json</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#dbschemajson">dbschema.json的结构</a></li>
+                
+                    <li><a class="toctree-l4" href="#datajson">data.json 的一个示例</a></li>
+                
+                    <li><a class="toctree-l4" href="#contentjson">content.json 的一个示例</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../cert_authority/">Certificate authority</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Help ZeroNet development</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../help_zeronet/contributing/">Contributing to ZeroNet</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../help_zeronet/network_protocol/">Network protocol</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../help_zeronet/donate/">Donation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ZeroNet</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Site Development &raquo;</li>
+        
+      
+    
+    <li>Structure of dbschema.json</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/HelloZeroNet/ZeroNet" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="dbschemajson">dbschema.json的结构</h1>
+<p><a href="https://github.com/HelloZeroNet/ZeroTalk/blob/master/dbschema.json"> dbschema.json 一个示例</a></p>
+<p>代码会做以下这些工作：</p>
+<ul>
+<li>假如收到了一个更新的 data/users/*/data.json 文件 (例如：某个用户发送了一条评论):</li>
+<li><code>data["topics"]</code> 的每一行都会载入到 <code>topic</code> 表中</li>
+<li><code>data["comment_votes"]</code> 的每一个key都会载入到 <code>comment_vote</code> 表中，而 <code>comment_hash</code> 的栏和值会储存到对应的 <code>vote</code>行。</li>
+<li>假如收到了一个更新的 data/users/content.json 文件 (例如：一个新用户完成注册):</li>
+<li><code>"user_id", "user_name", "max_size", "added"</code>的key 连同 <code>content["include"]</code>的值 会加载到 <code>user</code> 表中，而key会存储为 <code>path</code></li>
+</ul>
+<pre><code class="json">
+{
+  &quot;db_name&quot;: &quot;ZeroTalk&quot;, # Database name (only used for debugging)
+  &quot;db_file&quot;: &quot;data/users/zerotalk.db&quot;, # Database file relative to site's directory
+  &quot;version&quot;: 2, # 1 = Json table has path column that includes directory and filename
+                # 2 = Json table has seperate directory and file_name column
+                # 3 = Same as version 2, but also has site column (for merger sites)
+  &quot;maps&quot;: { # Json to database mappings
+    &quot;.*/data.json&quot;: { # Regex pattern of file relative to db_file
+      &quot;to_table&quot;: [ # Load values to table
+        {
+          &quot;node&quot;: &quot;topics&quot;, # Reading data.json[topics] key value
+          &quot;table&quot;: &quot;topic&quot; # Feeding data to topic table
+        },
+        {
+          &quot;node&quot;: &quot;comment_votes&quot;, # Reading data.json[comment_votes] key value
+          &quot;table&quot;: &quot;comment_vote&quot;, # Feeding data to comment_vote table
+          &quot;key_col&quot;: &quot;comment_hash&quot;,
+            # data.json[comment_votes] is a simple dict, the keys of the
+            # dict are loaded to comment_vote table comment_hash column
+
+          &quot;val_col&quot;: &quot;vote&quot;
+            # The data.json[comment_votes] dict values loaded to comment_vote table vote column
+
+        }
+      ],
+      &quot;to_keyvalue&quot;: [&quot;next_message_id&quot;, &quot;next_topic_id&quot;]
+        # Load data.json[next_topic_id] to keyvalues table
+        # (key: next_message_id, value: data.json[next_message_id] value)
+
+    },
+    &quot;content.json&quot;: {
+      &quot;to_table&quot;: [
+        {
+          &quot;node&quot;: &quot;includes&quot;,
+          &quot;table&quot;: &quot;user&quot;,
+          &quot;key_col&quot;: &quot;path&quot;,
+          &quot;import_cols&quot;: [&quot;user_id&quot;, &quot;user_name&quot;, &quot;max_size&quot;, &quot;added&quot;],
+            # Only import these columns to user table
+          &quot;replaces&quot;: {
+            &quot;path&quot;: {&quot;content.json&quot;: &quot;data.json&quot;}
+              # Replace content.json to data.json in the
+              # value of path column (required for joining)
+          }
+        }
+      ],
+      &quot;to_json_table&quot;: [ &quot;cert_auth_type&quot;, &quot;cert_user_id&quot; ]  # Save cert_auth_type and cert_user_id directly to json table (easier and faster data queries)
+    }
+  },
+  &quot;tables&quot;: { # Table definitions
+    &quot;topic&quot;: { # Define topic table
+      &quot;cols&quot;: [ # Cols of the table
+        [&quot;topic_id&quot;, &quot;INTEGER&quot;],
+        [&quot;title&quot;, &quot;TEXT&quot;],
+        [&quot;body&quot;, &quot;TEXT&quot;],
+        [&quot;type&quot;, &quot;TEXT&quot;],
+        [&quot;parent_topic_hash&quot;, &quot;TEXT&quot;],
+        [&quot;added&quot;, &quot;DATETIME&quot;],
+        [&quot;json_id&quot;, &quot;INTEGER REFERENCES json (json_id)&quot;]
+      ],
+      &quot;indexes&quot;: [&quot;CREATE UNIQUE INDEX topic_key ON topic(topic_id, json_id)&quot;],
+        # Indexes automatically created
+
+      &quot;schema_changed&quot;: 1426195822
+        # Last time of the schema changed, if the client's version is different then
+        # automatically destroy the old, create the new table then reload the data into it
+
+    },
+    &quot;comment_vote&quot;: {
+      &quot;cols&quot;: [
+        [&quot;comment_hash&quot;, &quot;TEXT&quot;],
+        [&quot;vote&quot;, &quot;INTEGER&quot;],
+        [&quot;json_id&quot;, &quot;INTEGER REFERENCES json (json_id)&quot;]
+      ],
+      &quot;indexes&quot;: [&quot;CREATE UNIQUE INDEX comment_vote_key ON comment_vote(comment_hash, json_id)&quot;, &quot;CREATE INDEX comment_vote_hash ON comment_vote(comment_hash)&quot;],
+      &quot;schema_changed&quot;: 1426195826
+    },
+    &quot;user&quot;: {
+      &quot;cols&quot;: [
+        [&quot;user_id&quot;, &quot;INTEGER&quot;],
+        [&quot;user_name&quot;, &quot;TEXT&quot;],
+        [&quot;max_size&quot;, &quot;INTEGER&quot;],
+        [&quot;path&quot;, &quot;TEXT&quot;],
+        [&quot;added&quot;, &quot;INTEGER&quot;],
+        [&quot;json_id&quot;, &quot;INTEGER REFERENCES json (json_id)&quot;]
+      ],
+      &quot;indexes&quot;: [&quot;CREATE UNIQUE INDEX user_id ON user(user_id)&quot;, &quot;CREATE UNIQUE INDEX user_path ON user(path)&quot;],
+      &quot;schema_changed&quot;: 1426195825
+    },
+    &quot;json&quot;: {  # Json table format only required if you have specified to_json_table pattern anywhere
+        &quot;cols&quot;: [
+            [&quot;json_id&quot;, &quot;INTEGER PRIMARY KEY AUTOINCREMENT&quot;],
+            [&quot;directory&quot;, &quot;TEXT&quot;],
+            [&quot;file_name&quot;, &quot;TEXT&quot;],
+            [&quot;cert_auth_type&quot;, &quot;TEXT&quot;],
+            [&quot;cert_user_id&quot;, &quot;TEXT&quot;]
+        ],
+        &quot;indexes&quot;: [&quot;CREATE UNIQUE INDEX path ON json(directory, site, file_name)&quot;],
+        &quot;schema_changed&quot;: 4
+    }
+  }
+}
+</code></pre>
+
+<h2 id="datajson">data.json 的一个示例</h2>
+<pre><code class="json">{
+  &quot;next_topic_id&quot;: 2,
+  &quot;topics&quot;: [
+    {
+      &quot;topic_id&quot;: 1,
+      &quot;title&quot;: &quot;Newtopic&quot;,
+      &quot;body&quot;: &quot;Topic!&quot;,
+      &quot;added&quot;: 1426628540,
+      &quot;parent_topic_hash&quot;: &quot;5@2&quot;
+    }
+  ],
+  &quot;next_message_id&quot;: 19,
+  &quot;comments&quot;: {
+    &quot;1@2&quot;: [
+      {
+        &quot;comment_id&quot;: 1,
+        &quot;body&quot;: &quot;New user test!&quot;,
+        &quot;added&quot;: 1423442049
+      }
+    ],
+    &quot;1@13&quot;: [
+      {
+        &quot;comment_id&quot;: 2,
+        &quot;body&quot;: &quot;hello&quot;,
+        &quot;added&quot;: 1424653288
+      },
+      {
+        &quot;comment_id&quot;: 13,
+        &quot;body&quot;: &quot;test 123&quot;,
+        &quot;added&quot;: 1426463715
+      }
+    ]
+  },
+  &quot;topic_votes&quot;: {
+    &quot;1@2&quot;: 1,
+    &quot;4@2&quot;: 1,
+    &quot;2@2&quot;: 1,
+    &quot;1@5&quot;: 1,
+    &quot;1@6&quot;: 1,
+    &quot;3@2&quot;: 1,
+    &quot;1@13&quot;: 1,
+    &quot;4@5&quot;: 1
+  },
+  &quot;comment_votes&quot;: {
+    &quot;5@5&quot;: 1,
+    &quot;2@12&quot;: 1,
+    &quot;1@12&quot;: 1,
+    &quot;33@2&quot;: 1,
+    &quot;45@2&quot;: 1,
+    &quot;12@5&quot;: 1,
+    &quot;34@2&quot;: 1,
+    &quot;46@2&quot;: 1
+  }
+}
+</code></pre>
+
+<h2 id="contentjson">content.json 的一个示例</h2>
+<pre><code class="json">{
+  &quot;files&quot;: {},
+  &quot;ignore&quot;: &quot;.*/.*&quot;,
+  &quot;includes&quot;: {
+    &quot;13v1FwKcq7dx2UPruFcRcqd8s7VBjvoWJW/content.json&quot;: {
+      &quot;added&quot;: 1426683897,
+      &quot;files_allowed&quot;: &quot;data.json&quot;,
+      &quot;includes_allowed&quot;: false,
+      &quot;max_size&quot;: 10000,
+      &quot;signers&quot;: [
+        &quot;13v1FwKcq7dx2UPruFcRcqd8s7VBjvoWJW&quot;
+      ],
+      &quot;signers_required&quot;: 1,
+      &quot;user_id&quot;: 15,
+      &quot;user_name&quot;: &quot;meginthelloka&quot;
+    },
+    &quot;15WGMVViswrF13sAKb7je6oX3UhXavBxxQ/content.json&quot;: {
+      &quot;added&quot;: 1426687209,
+      &quot;files_allowed&quot;: &quot;data.json&quot;,
+      &quot;includes_allowed&quot;: false,
+      &quot;max_size&quot;: 10000,
+      &quot;signers&quot;: [
+        &quot;15WGMVViswrF13sAKb7je6oX3UhXavBxxQ&quot;
+      ],
+      &quot;signers_required&quot;: 1,
+      &quot;user_id&quot;: 18,
+      &quot;user_name&quot;: &quot;habla&quot;
+    }
+  }
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cert_authority/" class="btn btn-neutral float-right" title="Certificate authority"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../content_json/" class="btn btn-neutral" title="Structure of content.json"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../content_json/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../cert_authority/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

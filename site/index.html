@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ZeroNet</title>
+  
+
+  <link rel="shortcut icon" href="./img/favicon.ico">
+
+  
+
+  <link rel="stylesheet" href="./css/fonts.css" type="text/css" />
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+  <link href="./docs.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "None";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script>
+  <script src="./js/theme.js"></script> 
+  <script src="./docs.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> ZeroNet</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href=".">Introduction</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#zeronet">什么是ZeroNet？</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#zeronet_1">为什么你们要创造ZeroNet？</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_1">特性</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_2">它是怎么工作的？</a></li>
+                
+                    <li><a class="toctree-l4" href="#zeronet_2">关于ZeroNet加密技术的幻灯片，包含内容更新机制和多用户站点说明 &raquo;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_3">截图</a></li>
+                
+                    <li><a class="toctree-l4" href="#_4">更多截图 &raquo;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_5">目前的不足</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#_6">帮助这个项目</a></li>
+                
+                    <li><a class="toctree-l4" href="#_7">谢谢你！</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="faq/">Frequently asked questions</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Start using ZeroNet</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="using_zeronet/installing/">Installing</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="using_zeronet/sample_sites/">Sample sites</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="using_zeronet/create_new_site/">Create new site</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Site Development</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="site_development/getting_started/">Getting Started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="site_development/zeroframe_api_reference/">ZeroFrame API reference</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="site_development/content_json/">Structure of content.json</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="site_development/dbschema_json/">Structure of dbschema.json</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="site_development/cert_authority/">Certificate authority</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Help ZeroNet development</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="help_zeronet/contributing/">Contributing to ZeroNet</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="help_zeronet/network_protocol/">Network protocol</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="help_zeronet/donate/">Donation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">ZeroNet</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Introduction</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/HelloZeroNet/ZeroNet" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="zeronet">什么是ZeroNet？</h1>
+<p>ZeroNet 使用了比特币（Bitcoin）的加密算法和BT软件的分布式技术来创建<strong>去中心化的抗审查网络系统</strong>.</p>
+<p>用户可以在ZeroNet上发布状态或制作动态网站，每个浏览者都可能作为网页的间接分发者。只要有一个该网页曾经的浏览者在线，这个网站就能够被访问。</p>
+<p>当一个网页被其所有者更新时，所有承担分发该网页的用户节点（也就是浏览过这个网页的人） 都会收到网页的增量更新数据。</p>
+<p>ZeroNet有一个内建的SQL数据库。这让那些依赖大量数据内容的网站布设起来变得简单。数据库和网页一样都会在每个负责分发该网页的节点间进行增量更新。</p>
+<h1 id="zeronet_1">为什么你们要创造ZeroNet？</h1>
+<ul>
+<li>我们追求开放、自由、无审查的通信。</li>
+<li>拒绝审查：只要某个东西被发布，它就无法被他人删除。</li>
+<li>避免单点脆弱：只要有一个节点在线，该节点缓存过的网页内容就可以被别人访问。</li>
+<li>永不下线的网站：整个ZeroNet的网站无所在，又无处不在。只要你愿意，你就可以帮助缓存和提供网页。</li>
+<li>快速： ZeroNet 使用BT技术来分发内容，比那些有中心服务器的网站更迅速。</li>
+<li>可以在非常环境下工作: 即使你无法连接到因特网，你也可以在局域网中的ZeroNet里浏览网站。</li>
+<li>安全: 网页的创建者是匿名的，我们使用比特币（Bitcoin）一样的加密技术。</li>
+</ul>
+<h1 id="_1">特性</h1>
+<ul>
+<li>便捷容易，无需配置即可启动</li>
+<li>不需要密码。因为我们采用了基于<a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP32</a>
+   的认证机制: 你的账户使用了和比特币钱包的那一套加密算法一样相同</li>
+<li>实时的页面更新</li>
+<li>Namecoin系统的 .bit 域名支持</li>
+<li>SQL 数据库支持：让站点开发更容易，页面加载时间更短</li>
+<li>匿名：对洋葱网络提供完整支持，可以通过.onion隐蔽服务来访问网站，而非传统的ipv4地址</li>
+<li>TLS 加密链接</li>
+<li>自动启用uPnP 端口支持</li>
+<li>多用户 (开放代理端口) 插件</li>
+<li>能在多种浏览器/操作系统上运行</li>
+</ul>
+<h1 id="_2">它是怎么工作的？</h1>
+<ul>
+<li>安装和运行ZeroNet后，你可以通过打开下面的网址来开始浏览:
+  <code>http://127.0.0.1:43110/{zeronet_site_address}</code>
+  (例如  <code>http://127.0.0.1:43110/1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D</code>).</li>
+<li>ZeroNet 会使用BT网络来寻找其他正在为你想要浏览的网页做种的用户节点，然后从他们那里取得网页文件(HTML, CSS, JS...) 。</li>
+<li>被你浏览过的网页以后也会由你（和别人）为新的浏览者来提供网页内容。</li>
+<li>每个站点都包含了一份该站点包含的所有文件的清单（并且用SHA512取了哈希值），这个文件清单由站点的拥有者使用他的私钥来签名，以保证这个清单文件的可靠性。</li>
+<li>假如站点的所有者更新了网页，他会签署一份新的文件清单，然后发布给别的用户节点。 别的用户收到并且验证了该清单的真实性后，他们会自动下载和自动更新新的文件，并把更新后的网站内容继续分发给以后的浏览者。</li>
+</ul>
+<h5 id="zeronet_2"><a href="https://docs.google.com/presentation/d/1_2qK1IuOKJ51pgBvllZ9Yu7Au2l551t3XBgyTSvilew/pub?start=false&amp;loop=false&amp;delayms=3000">关于ZeroNet加密技术的幻灯片，包含内容更新机制和多用户站点说明 &raquo;</a></h5>
+<h1 id="_3">截图</h1>
+<p><img alt="截图" src="./img/zerohello.png" /></p>
+<p><img alt="ZeroTalk" src="./img/zerotalk.png" /></p>
+<h5 id="_4"><a href="./using_zeronet/sample_sites/">更多截图 &raquo;</a></h5>
+<h1 id="_5">目前的不足</h1>
+<ul>
+<li>无法像BT种子下载一样，把大文件分割成多块来让用户只缓存一部分。</li>
+<li>文件传输目前不支持压缩 ~~也不支持加密传输~~ (注：已经添加了TLS加密支持)</li>
+<li>不支持私有站点</li>
+</ul>
+<h1 id="_6">帮助这个项目</h1>
+<p>Bitcoin地址: 1QDhxQ6PraUZa21ET5fYUCPgdrwBomnFgX</p>
+<h3 id="_7">谢谢你！</h3>
+<ul>
+<li>欲查询更多信息、帮助、变更日志、ZeroNet站点，请访问 <a href="http://www.reddit.com/r/zeronet/">http://www.reddit.com/r/zeronet/</a></li>
+<li>来，和我们聊一聊: <a href="https://kiwiirc.com/client/irc.freenode.net/zeronet">#zeronet @ FreeNode</a> ，或 <a href="https://gitter.im/HelloZeroNet/ZeroNet">gitter</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="faq/" class="btn btn-neutral float-right" title="Frequently asked questions"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="faq/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.16.3
+Build Date UTC : 2017-07-06 23:41:35
+-->

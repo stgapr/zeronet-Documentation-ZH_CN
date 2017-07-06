@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Contributing to ZeroNet - ZeroNet</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+
+  <link rel="stylesheet" href="../../css/fonts.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../docs.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Contributing to ZeroNet";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../docs.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ZeroNet</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">Frequently asked questions</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Start using ZeroNet</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/installing/">Installing</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/sample_sites/">Sample sites</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/create_new_site/">Create new site</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Site Development</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../site_development/getting_started/">Getting Started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../site_development/zeroframe_api_reference/">ZeroFrame API reference</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../site_development/content_json/">Structure of content.json</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../site_development/dbschema_json/">Structure of dbschema.json</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../site_development/cert_authority/">Certificate authority</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Help ZeroNet development</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Contributing to ZeroNet</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#zeronet">为ZeroNet贡献一份力</a></li>
+                
+                    <li><a class="toctree-l4" href="#_1">你不需要拥有编程技能。</a></li>
+                
+                    <li><a class="toctree-l4" href="#_2">喜欢写文章?</a></li>
+                
+                    <li><a class="toctree-l4" href="#_3">喜欢帮助别人?</a></li>
+                
+                    <li><a class="toctree-l4" href="#_4">想要搭站点?</a></li>
+                
+                    <li><a class="toctree-l4" href="#_5">想要做研究?</a></li>
+                
+                    <li><a class="toctree-l4" href="#_6">想要写代码?</a></li>
+                
+                    <li><a class="toctree-l4" href="#_7">想要提供资金支持?</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#zeronet_1">假如你要参与ZeroNet的开发工作，请使用以下编程风格</a></li>
+                
+                    <li><a class="toctree-l4" href="#_8">命名</a></li>
+                
+                    <li><a class="toctree-l4" href="#_9">变量</a></li>
+                
+                    <li><a class="toctree-l4" href="#_10">源文件、目录和命名</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../network_protocol/">Network protocol</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../donate/">Donation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ZeroNet</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Help ZeroNet development &raquo;</li>
+        
+      
+    
+    <li>Contributing to ZeroNet</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/HelloZeroNet/ZeroNet" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="zeronet">为ZeroNet贡献一份力</h1>
+<p>感谢使用ZeroNet. ZeroNet 是一个超过67名去中心化爱好者协作劳动的成果，就像你一样。 我们感谢所有向我们汇报bug、编纂和更新文档、以及提出并实现新点子和新协议的用户。假如你想要为Zeronet做出贡献，请看看下面的这些指南。</p>
+<h3 id="_1">你不需要拥有编程技能。</h3>
+<p>实际上，这个项目的大部分贡献者并不编写代码，即使我们很喜欢为ZeroNet提供代码的网友，我们也十分欢迎别的方面的贡献者。</p>
+<h3 id="_2">喜欢写文章?</h3>
+<ul>
+<li>写写关于ZeroNet的文章，让更多人知道它。</li>
+<li>写一些教程，让别人容易上手这个软件。</li>
+<li>帮助翻译ZeroNet。</li>
+<li>改进和更新这个参考文档。这个文档由遍布全世界的许多社区成员编写。</li>
+</ul>
+<h3 id="_3">喜欢帮助别人?</h3>
+<ul>
+<li>订阅我们的 <a href="https://github.com/HelloZeroNet/ZeroNet/issues">issue tracker on GitHub</a> and help people solve problems.</li>
+<li>在 <a href="https://gitter.im/HelloZeroNet/ZeroNet">Gitter</a> 上加入我们，或者加入IRC频道<a href="https://kiwiirc.com/client/irc.freenode.net/zeronet">#zeronet @ freenode</a> ，并解决他人的疑惑</li>
+<li>持续运行ZeroNet的一个节点，让整个网络更快。</li>
+</ul>
+<h3 id="_4">想要搭站点?</h3>
+<ul>
+<li>设立新的ZeroNet站点。比如创建你自己的博客。 <a href="../../using_zeronet/create_new_site/">这真的非常简单，而且几乎是免费的</a></li>
+<li>“内容为王！”  我们的整个网络假如没有了内容，就变得没有价值。所以我们邀请你共同带来ZeroNet的繁荣和丰富。</li>
+</ul>
+<h3 id="_5">想要做研究?</h3>
+<ul>
+<li>帮助我们研究<a href="https://github.com/HelloZeroNet/ZeroNet/labels/help%20wanted">复杂的主意</a>.</li>
+<li>加入我们关于设计新的特性和协议的讨论，例如<a href="https://github.com/HelloZeroNet/ZeroNet/issues/45">I2P支持</a> 和 <a href="https://github.com/HelloZeroNet/ZeroNet/issues/57">DHT支持</a>.</li>
+<li>你是否拥有一个 <a href="https://github.com/HelloZeroNet/ZeroNet#linux-terminal">树莓派微型电脑</a>, 或者一个 <a href="http://127.0.0.1:43110/Blog.ZeroNetwork.bit/?Post:94:Running+ZeroNet+on+a+$9%C2%A0computer">C.H.I.P.掌上电脑</a> ，或者一个<a href="https://github.com/HelloZeroNet/ZeroNet/issues/783">开源路由器</a>？试试在这些设备上运行ZeroNet，并且向我们反馈你是如何让ZeroNet在上面跑起来的。</li>
+</ul>
+<h3 id="_6">想要写代码?</h3>
+<ul>
+<li>假如你会Python语言，你可以从我们Github上的<a href="https://github.com/HelloZeroNet/ZeroNet/issues">issue追踪列表</a>上找一个任务，试着挑战实现它。</li>
+<li>假如你自己有一些好点子想要实现，我们也十分欢迎。在你开始动工之前，请<a href="https://github.com/HelloZeroNet/ZeroNet/issues/new">创建一个新的讨论</a> 让社区知道你的好点子，这样大家可以一起头脑风暴，互相分享更深入的主意，把你的点子实现得更棒。</li>
+<li>
+<p>请稍微注意一下代码风格，我们下面列出了一些基本要求。</p>
+</li>
+<li>
+<p><a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a></p>
+</li>
+<li>简洁的代码</li>
+<li>过早优化是万恶之源</li>
+</ul>
+<h3 id="_7">想要提供资金支持?</h3>
+<ul>
+<li>可以通过 <a href="../donate/">捐赠比特币</a> 来赞助 ZeroNet.</li>
+</ul>
+<h1 id="zeronet_1">假如你要参与ZeroNet的开发工作，请使用以下编程风格</h1>
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a></li>
+<li>简洁的代码</li>
+<li>过早优化是万恶之源</li>
+</ul>
+<h3 id="_8">命名</h3>
+<ul>
+<li>类命名: 首字母大写的驼峰命名法</li>
+<li>函数命名: 首字母小写的驼峰命名法</li>
+<li>变量命名: 全部小写，单词间使用下划线</li>
+</ul>
+<h3 id="_9">变量</h3>
+<ul>
+<li>file_path: 通过程序运行路径来引用的文件 (data/17ib6teRqdVgjB698T4cD1zDXKgPqpkrMg/css/all.css)</li>
+<li>inner_path: 通过站点相对路径来引用的文件 (css/all.css)</li>
+<li>file_name: all.css</li>
+<li>file: Python文件对象</li>
+<li>privatekey: 站点的私钥 (without _)</li>
+</ul>
+<h3 id="_10">源文件、目录和命名</h3>
+<ul>
+<li>每个文件最好只有一个类</li>
+<li>源文件名和目录名最好用以类的名称来命名，例如：WorkerManager class = Worker/WorkerManager.py</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../network_protocol/" class="btn btn-neutral float-right" title="Network protocol"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../site_development/cert_authority/" class="btn btn-neutral" title="Certificate authority"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../site_development/cert_authority/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../network_protocol/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

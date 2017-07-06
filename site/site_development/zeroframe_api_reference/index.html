@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ZeroFrame API reference - ZeroNet</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+
+  <link rel="stylesheet" href="../../css/fonts.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../docs.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "ZeroFrame API reference";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../docs.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ZeroNet</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">Frequently asked questions</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Start using ZeroNet</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/installing/">Installing</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/sample_sites/">Sample sites</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/create_new_site/">Create new site</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Site Development</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">Getting Started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">ZeroFrame API reference</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#zeroframe-api">ZeroFrame API 参考文档</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#wrapper">Wrapper</a></li>
+                
+                    <li><a class="toctree-l4" href="#wrapperconfirm-message-button_caption">wrapperConfirm message, [button_caption]</a></li>
+                
+                    <li><a class="toctree-l4" href="#wrapperinnerloaded">wrapperInnerLoaded</a></li>
+                
+                    <li><a class="toctree-l4" href="#wrappergetlocalstorage">wrapperGetLocalStorage</a></li>
+                
+                    <li><a class="toctree-l4" href="#wrappergetstate">wrapperGetState</a></li>
+                
+                    <li><a class="toctree-l4" href="#_1">返回值: 浏览器的当前历史的状态对象</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#uiserver">UiServer</a></li>
+                
+                    <li><a class="toctree-l4" href="#certadd-domain-auth_type-auth_user_name-cert">certAdd domain, auth_type, auth_user_name, cert</a></li>
+                
+                    <li><a class="toctree-l4" href="#certselect-accepted_domains">certSelect accepted_domains</a></li>
+                
+                    <li><a class="toctree-l4" href="#channeljoin-channel">channelJoin channel</a></li>
+                
+                    <li><a class="toctree-l4" href="#dbquery-query">dbQuery query</a></li>
+                
+                    <li><a class="toctree-l4" href="#filedelete-inner_path">fileDelete inner_path</a></li>
+                
+                    <li><a class="toctree-l4" href="#fileget-inner_path-required-format-timeout">fileGet inner_path, [required], [format], [timeout]</a></li>
+                
+                    <li><a class="toctree-l4" href="#filelist-inner_path">fileList inner_path</a></li>
+                
+                    <li><a class="toctree-l4" href="#filequery-dir_inner_path-query">fileQuery dir_inner_path, query</a></li>
+                
+                    <li><a class="toctree-l4" href="#filerules-inner_path">fileRules inner_path</a></li>
+                
+                    <li><a class="toctree-l4" href="#filewrite-inner_path-content">fileWrite inner_path, content</a></li>
+                
+                    <li><a class="toctree-l4" href="#serverinfo">serverInfo</a></li>
+                
+                    <li><a class="toctree-l4" href="#siteinfo">siteInfo</a></li>
+                
+                    <li><a class="toctree-l4" href="#sitepublish-privatekey-inner_path-sign">sitePublish [privatekey], [inner_path], [sign]</a></li>
+                
+                    <li><a class="toctree-l4" href="#sitesign-privatekey-inner_path">siteSign [privatekey], [inner_path]</a></li>
+                
+                    <li><a class="toctree-l4" href="#siteupdate-address">siteUpdate address</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#plugin-cryptmessage">Plugin: CryptMessage</a></li>
+                
+                    <li><a class="toctree-l4" href="#userpublickey-index">userPublickey [index]</a></li>
+                
+                    <li><a class="toctree-l4" href="#eciesencrypt-text-publickey-return_aes_key">eciesEncrypt text, [publickey], [return_aes_key]</a></li>
+                
+                    <li><a class="toctree-l4" href="#eciesdecrypt-params-privatekey">eciesDecrypt params, [privatekey]</a></li>
+                
+                    <li><a class="toctree-l4" href="#aesencrypt-text-key-iv">aesEncrypt text, [key], [iv]</a></li>
+                
+                    <li><a class="toctree-l4" href="#aesdecrypt-iv-encrypted_text-key">aesDecrypt iv, encrypted_text, key</a></li>
+                
+                    <li><a class="toctree-l4" href="#aesdecrypt-encrypted_texts-keys">aesDecrypt encrypted_texts, keys</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#plugin-newsfeed">Plugin: Newsfeed</a></li>
+                
+                    <li><a class="toctree-l4" href="#feedfollow-feeds">feedFollow feeds</a></li>
+                
+                    <li><a class="toctree-l4" href="#feedlistfollow">feedListFollow</a></li>
+                
+                    <li><a class="toctree-l4" href="#feedquery-limit-day_limit">feedQuery [limit], [day_limit]</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#plugin-mergersite">Plugin: MergerSite</a></li>
+                
+                    <li><a class="toctree-l4" href="#mergersiteadd-addresses">mergerSiteAdd addresses</a></li>
+                
+                    <li><a class="toctree-l4" href="#mergersitedelete-address">mergerSiteDelete address</a></li>
+                
+                    <li><a class="toctree-l4" href="#mergersitelist-query_site_info">mergerSiteList [query_site_info]</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#plugin-mute">Plugin: Mute</a></li>
+                
+                    <li><a class="toctree-l4" href="#muteadd-auth_address-cert_user_id-reason">muteAdd auth_address, cert_user_id, reason</a></li>
+                
+                    <li><a class="toctree-l4" href="#muteremove-auth_address">muteRemove auth_address</a></li>
+                
+                    <li><a class="toctree-l4" href="#mutelist">muteList</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#plugin-optionalmanager">Plugin: OptionalManager</a></li>
+                
+                    <li><a class="toctree-l4" href="#optionalfilelist-address-orderby-limit">optionalFileList [address], [orderby], [limit]</a></li>
+                
+                    <li><a class="toctree-l4" href="#optionalfileinfo-inner_path">optionalFileInfo inner_path</a></li>
+                
+                    <li><a class="toctree-l4" href="#optionalfilepin-inner_path-address">optionalFilePin inner_path, [address]</a></li>
+                
+                    <li><a class="toctree-l4" href="#optionalfileunpin-inner_path-address">optionalFileUnpin inner_path, [address]</a></li>
+                
+                    <li><a class="toctree-l4" href="#optionalfiledelete-inner_path-address">optionalFileDelete inner_path, [address]</a></li>
+                
+                    <li><a class="toctree-l4" href="#optionallimitstats">optionalLimitStats</a></li>
+                
+                    <li><a class="toctree-l4" href="#actionoptionallimitset-limit">actionOptionalLimitSet limit</a></li>
+                
+                    <li><a class="toctree-l4" href="#actionoptionalhelplist-address">actionOptionalHelpList [address]</a></li>
+                
+                    <li><a class="toctree-l4" href="#actionoptionalhelp-directory-title-address">actionOptionalHelp directory, title, [address]</a></li>
+                
+                    <li><a class="toctree-l4" href="#actionoptionalhelpremove-directory-address">actionOptionalHelpRemove directory, [address]</a></li>
+                
+                    <li><a class="toctree-l4" href="#actionoptionalhelpall-value-address">actionOptionalHelpAll value, [address]</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#admin-commands">Admin commands</a></li>
+                
+                    <li><a class="toctree-l4" href="#configset-key-value">configSet key, value</a></li>
+                
+                    <li><a class="toctree-l4" href="#certset-domain">certSet domain</a></li>
+                
+                    <li><a class="toctree-l4" href="#channeljoinallsite-channel">channelJoinAllsite channel</a></li>
+                
+                    <li><a class="toctree-l4" href="#serverportcheck">serverPortcheck</a></li>
+                
+                    <li><a class="toctree-l4" href="#servershutdown">serverShutdown</a></li>
+                
+                    <li><a class="toctree-l4" href="#serverupdate">serverUpdate</a></li>
+                
+                    <li><a class="toctree-l4" href="#siteclone-address-root_inner_path">siteClone address, [root_inner_path]</a></li>
+                
+                    <li><a class="toctree-l4" href="#sitelist">siteList</a></li>
+                
+                    <li><a class="toctree-l4" href="#sitepause-address">sitePause address</a></li>
+                
+                    <li><a class="toctree-l4" href="#siteresume-address">siteResume address</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../content_json/">Structure of content.json</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../dbschema_json/">Structure of dbschema.json</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../cert_authority/">Certificate authority</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Help ZeroNet development</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../help_zeronet/contributing/">Contributing to ZeroNet</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../help_zeronet/network_protocol/">Network protocol</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../help_zeronet/donate/">Donation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ZeroNet</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Site Development &raquo;</li>
+        
+      
+    
+    <li>ZeroFrame API reference</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/HelloZeroNet/ZeroNet" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="zeroframe-api">ZeroFrame API 参考文档</h1>
+<h1 id="wrapper">Wrapper</h1>
+<p><em>These commands handled by wrapper frame and does not sent to UiServer using websocket</em></p>
+<h4 id="wrapperconfirm-message-button_caption">wrapperConfirm <em>message, [button_caption]</em></h4>
+<p>按下确认键的时跳出提示消息</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>message</strong></td>
+<td>想要提示的消息</td>
+</tr>
+<tr>
+<td><strong>button_caption</strong> (可选)</td>
+<td>确认键的显示文本 (默认为 OK)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: 假如点击了按钮，返回True</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript"># 删除站点
+siteDelete: (address) -&gt;
+    site = @sites[address]
+    title = site.content.title
+    if title.length &gt; 40
+        title = title.substring(0, 15)+&quot;...&quot;+title.substring(title.length-10)
+    @cmd &quot;wrapperConfirm&quot;, [&quot;Are you sure you sure? &lt;b&gt;#{title}&lt;/b&gt;&quot;, &quot;Delete&quot;], (confirmed) =&gt;
+        @log &quot;Deleting #{site.address}...&quot;, confirmed
+        if confirmed
+            $(&quot;.site-#{site.address}&quot;).addClass(&quot;deleted&quot;)
+            @cmd &quot;siteDelete&quot;, {&quot;address&quot;: address}
+</code></pre>
+
+<hr />
+<h4 id="wrapperinnerloaded">wrapperInnerLoaded</h4>
+<p>适用于页面URL的 windows.location.hash 。 当页面已经加载完成，要跳转到特定定位点时，该事件被触发。</p>
+<hr />
+<h4 id="wrappergetlocalstorage">wrapperGetLocalStorage</h4>
+<p><strong>返回</strong>: 浏览器对本页面的本地存储内容</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">@cmd &quot;wrapperGetLocalStorage&quot;, [], (res) =&gt;
+    res ?= {}
+    @log &quot;本地存储值:&quot;, res
+</code></pre>
+
+<hr />
+<h4 id="wrappergetstate">wrapperGetState</h4>
+<h2 id="_1"><strong>返回值</strong>: 浏览器的当前历史的状态对象</h2>
+<h4 id="wrappernotification-type-message-timeout">wrapperNotification <em>type, message, [timeout]</em></h4>
+<p>显示一条消息</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>type</strong></td>
+<td>可能的值: info, error, done</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td>你想要弹出的消息</td>
+</tr>
+<tr>
+<td><strong>timeout</strong> (optional)</td>
+<td>在多少秒后自动隐藏消息（可选的）（以毫秒计）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值：</strong>: None</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">@cmd &quot;wrapperNotification&quot;, [&quot;done&quot;, &quot;Your registration has been sent!&quot;, 10000]
+</code></pre>
+
+<hr />
+<h4 id="wrapperopenwindow-_url-target-specs">wrapperOpenWindow _url, [target], [specs]</h4>
+<p>跳转，或者打开新弹出窗口</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>url</strong></td>
+<td>已打开页面的URL</td>
+</tr>
+<tr>
+<td><strong>target</strong> (可选)</td>
+<td>目标窗口名称</td>
+</tr>
+<tr>
+<td><strong>specs</strong> (可选)</td>
+<td>打开的窗口的特定属性 (参见<a href="http://www.w3schools.com/jsref/met_win_open.asp">window.open specs</a>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">@cmd &quot;wrapperOpenWindow&quot;, [&quot;https://zeronet.io&quot;, &quot;_blank&quot;, &quot;width=550,height=600,location=no,menubar=no&quot;]
+</code></pre>
+
+<hr />
+<h4 id="wrapperpermissionadd-permission">wrapperPermissionAdd <em>permission</em></h4>
+<p>为网站请求新的授权</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>permission</strong></td>
+<td>授权名 (eg. Merger:ZeroMe)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="wrapperprompt-message-type">wrapperPrompt <em>message, [type]</em></h4>
+<p>用户输入时的提示文本</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>message</strong></td>
+<td>想显示的消息</td>
+</tr>
+<tr>
+<td><strong>type</strong> (optional)</td>
+<td>输入类型 (默认： text)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值：</strong>: 输入的文本</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript"># 提示输入密钥
+@cmd &quot;wrapperPrompt&quot;, [&quot;输入你的密钥：&quot;, &quot;password&quot;], (privatekey) =&gt;
+    $(&quot;.publishbar .button&quot;).addClass(&quot;loading&quot;)
+    # 签署 content.json，然后并且把请求发送给服务器
+    @cmd &quot;sitePublish&quot;, [privatekey], (res) =&gt;
+        $(&quot;.publishbar .button&quot;).removeClass(&quot;loading&quot;)
+        @log &quot;发送结果：&quot;, res
+</code></pre>
+
+<hr />
+<h4 id="wrapperpushstate-state-title-url">wrapperPushState <em>state, title, url</em></h4>
+<p>改变URL，并且在浏览器历史记录中添加新的一行。 参加: <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method">pushState JS 方法</a></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>state</strong></td>
+<td>State javascript object</td>
+</tr>
+<tr>
+<td><strong>title</strong></td>
+<td>页面标题</td>
+</tr>
+<tr>
+<td><strong>url</strong></td>
+<td>页面URL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: None</p>
+<pre><code class="coffeescript">@cmd &quot;wrapperPushState&quot;, [{&quot;scrollY&quot;: 100}, &quot;Profile page&quot;, &quot;Profile&quot;]
+</code></pre>
+
+<hr />
+<h4 id="wrapperreplacestate-state-title-url">wrapperReplaceState <em>state, title, url</em></h4>
+<p>改变URL，然而不在浏览器历史记录中添加新的一行。 参加: <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method">replaceState JS 方法</a></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>state</strong></td>
+<td>State javascript object</td>
+</tr>
+<tr>
+<td><strong>title</strong></td>
+<td>页面标题</td>
+</tr>
+<tr>
+<td><strong>url</strong></td>
+<td>页面URL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: None</p>
+<pre><code class="coffeescript">@cmd &quot;wrapperReplaceState&quot;, [{&quot;scrollY&quot;: 100}, &quot;Profile page&quot;, &quot;Profile&quot;]
+</code></pre>
+
+<hr />
+<h4 id="wrappersetlocalstorage-data">wrapperSetLocalStorage <em>data</em></h4>
+<p>为该网站设置浏览器的本地存储数据</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>data</strong></td>
+<td>你想要保存的任何数据结构</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: None</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">Page.local_storage[&quot;topic.#{@topic_id}_#{@topic_user_id}.visited&quot;] = Time.timestamp()
+Page.cmd &quot;wrapperSetLocalStorage&quot;, Page.local_storage
+</code></pre>
+
+<hr />
+<h4 id="wrappersettitle-title">wrapperSetTitle <em>title</em></h4>
+<p>设置浏览器标题</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>title</strong></td>
+<td>New browser tab title</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: None</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">Page.cmd &quot;wrapperSetTitle&quot;, &quot;newtitle&quot;
+</code></pre>
+
+<hr />
+<h4 id="wrappersetviewport-viewport">wrapperSetViewport <em>viewport</em></h4>
+<p>设置viewport 元标签的内容 (在适配移动版网页时有用)</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>viewport</strong></td>
+<td>viewport元标签内容</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: None</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript"># 提示输入私钥
+@cmd &quot;wrapperSetViewport&quot;, &quot;width=device-width, initial-scale=1.0&quot;
+</code></pre>
+
+<hr />
+<h1 id="uiserver">UiServer</h1>
+<p>The UiServer is for ZeroNet what the LAMP setup is for normal websites.</p>
+<p>The UiServer will do all the 'backend' work (eg: querying the DB, accessing files, etc). This are the API calls you will need to make your site dynamic.</p>
+<h4 id="certadd-domain-auth_type-auth_user_name-cert">certAdd <em>domain, auth_type, auth_user_name, cert</em></h4>
+<p>Add a new certificate to current user.</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>domain</strong></td>
+<td>Certificate issuer domain</td>
+</tr>
+<tr>
+<td><strong>auth_type</strong></td>
+<td>Auth type used on registration</td>
+</tr>
+<tr>
+<td><strong>auth_user_name</strong></td>
+<td>User name used on registration</td>
+</tr>
+<tr>
+<td><strong>cert</strong></td>
+<td>The cert itself: <code>auth_address#auth_type/auth_user_name</code> string signed by the cert site owner</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: "ok", "Not changed" or {"error": error_message}</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">@cmd &quot;certAdd&quot;, [&quot;zeroid.bit&quot;, auth_type, user_name, cert_sign], (res) =&gt;
+    $(&quot;.ui&quot;).removeClass(&quot;flipped&quot;)
+    if res.error
+        @cmd &quot;wrapperNotification&quot;, [&quot;error&quot;, &quot;#{res.error}&quot;]
+</code></pre>
+
+<hr />
+<h4 id="certselect-accepted_domains">certSelect <em>accepted_domains</em></h4>
+<p>Display certificate selector.</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>accepted_domains</strong></td>
+<td>List of domains that accepted by site as authorization provider</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: None</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">@cmd &quot;certSelect&quot;, {&quot;accepted_domains&quot;: [&quot;zeroid.bit&quot;]}
+</code></pre>
+
+<hr />
+<h4 id="channeljoin-channel">channelJoin <em>channel</em></h4>
+<p>Request notifications about sites's events.</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>channel</strong></td>
+<td>Channel to join</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: None</p>
+<p><strong>Channels</strong>:</p>
+<ul>
+<li><strong>siteChanged</strong> (joined by default)<br>Events: peers_added, file_started, file_done, file_failed</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="coffeescript"># Wrapper websocket connection ready
+onOpenWebsocket: (e) =&gt;
+    @cmd &quot;channelJoinAllsite&quot;, {&quot;channel&quot;: &quot;siteChanged&quot;}
+
+# Route incoming requests and messages
+route: (cmd, data) -&gt;
+    if cmd == &quot;setSiteInfo&quot;
+        @log &quot;Site changed&quot;, data
+    else
+        @log &quot;Unknown command&quot;, cmd, data
+</code></pre>
+
+<p><strong>Example event data</strong></p>
+<pre><code class="json">{
+    &quot;tasks&quot;:0,
+    &quot;size_limit&quot;:10,
+    &quot;address&quot;:&quot;1RivERqttrjFqwp9YH1FviduBosQPtdBN&quot;,
+    &quot;next_size_limit&quot;:10,
+    &quot;event&quot;:[ &quot;file_done&quot;, &quot;index.html&quot; ],
+    [...] # Same as siteInfo return dict
+}
+
+</code></pre>
+
+<hr />
+<h4 id="dbquery-query">dbQuery <em>query</em></h4>
+<p>Run a query on the sql cache</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>query</strong></td>
+<td>Sql query command</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: <list> Result of the query</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">@log &quot;Updating user info...&quot;, @my_address
+Page.cmd &quot;dbQuery&quot;, [&quot;SELECT user.*, json.json_id AS data_json_id FROM user LEFT JOIN json USING(path) WHERE path='#{@my_address}/data.json'&quot;], (res) =&gt;
+    if res.error or res.length == 0 # Db not ready yet or No user found
+        $(&quot;.head-user.visitor&quot;).css(&quot;display&quot;, &quot;&quot;)
+        $(&quot;.user_name-my&quot;).text(&quot;Visitor&quot;)
+        if cb then cb()
+        return
+
+    @my_row = res[0]
+    @my_id = @my_row[&quot;user_id&quot;]
+    @my_name = @my_row[&quot;user_name&quot;]
+    @my_max_size = @my_row[&quot;max_size&quot;]
+</code></pre>
+
+<hr />
+<h4 id="filedelete-inner_path">fileDelete <em>inner_path</em></h4>
+<p>Delete a file</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>inner_path</strong></td>
+<td>The file you want to delete</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: "ok" on success else the error message</p>
+<hr />
+<h4 id="fileget-inner_path-required-format-timeout">fileGet <em>inner_path, [required], [format], [timeout]</em></h4>
+<p>Get file content</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>inner_path</strong></td>
+<td>The file you want to get</td>
+</tr>
+<tr>
+<td><strong>required</strong> (optional)</td>
+<td>Try and wait for the file if it's not exists. (default: True)</td>
+</tr>
+<tr>
+<td><strong>format</strong> (optional)</td>
+<td>Encoding of returned data. (text or base64) (default: text)</td>
+</tr>
+<tr>
+<td><strong>timeout</strong> (optional)</td>
+<td>Maximum wait time to data arrive (default: 300)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: <string> The content of the file</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript"># Upvote a topic on ZeroTalk
+submitTopicVote: (e) =&gt;
+    if not Users.my_name # Not registered
+        Page.cmd &quot;wrapperNotification&quot;, [&quot;info&quot;, &quot;Please, request access before posting.&quot;]
+        return false
+
+    elem = $(e.currentTarget)
+    elem.toggleClass(&quot;active&quot;).addClass(&quot;loading&quot;)
+    inner_path = &quot;data/users/#{Users.my_address}/data.json&quot;
+
+    Page.cmd &quot;fileGet&quot;, [inner_path], (data) =&gt;
+        data = JSON.parse(data)
+        data.topic_votes ?= {} # Create if not exits
+        topic_address = elem.parents(&quot;.topic&quot;).data(&quot;topic_address&quot;)
+
+        if elem.hasClass(&quot;active&quot;) # Add upvote to topic
+            data.topic_votes[topic_address] = 1
+        else # Remove upvote from topic
+            delete data.topic_votes[topic_address]
+
+        # Write file and publish to other peers
+        Page.writePublish inner_path, Page.jsonEncode(data), (res) =&gt;
+            elem.removeClass(&quot;loading&quot;)
+            if res == true
+                @log &quot;File written&quot;
+            else # Failed
+                elem.toggleClass(&quot;active&quot;) # Change back
+
+    return false
+</code></pre>
+
+<hr />
+<h4 id="filelist-inner_path">fileList <em>inner_path</em></h4>
+<p>List of files in a directory</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>inner_path</strong></td>
+<td>Directory you want to list</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: List of files in the directory (recursive)</p>
+<hr />
+<h4 id="filequery-dir_inner_path-query">fileQuery <em>dir_inner_path, query</em></h4>
+<p>Simple json file query command</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>dir_inner_path</strong></td>
+<td>Pattern of queried files</td>
+</tr>
+<tr>
+<td><strong>query</strong></td>
+<td>Query command (optional)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: <list> Matched content</p>
+<p><strong>Query examples:</strong></p>
+<ul>
+<li><code>["data/users/*/data.json", "topics"]</code>: Returns all topics node from all user files</li>
+<li><code>["data/users/*/data.json", "comments.1@2"]</code>: Returns <code>user_data["comments"]["1@2"]</code> value from all user files</li>
+<li><code>["data/users/*/data.json", ""]</code>: Returns all data from users files</li>
+<li><code>["data/users/*/data.json"]</code>: Returns all data from users files (same as above)</li>
+</ul>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">@cmd &quot;fileQuery&quot;, [&quot;data/users/*/data.json&quot;, &quot;topics&quot;], (topics) =&gt;
+    topics.sort (a, b) -&gt; # Sort by date
+        return a.added - b.added
+    for topic in topics
+        @log topic.topic_id, topic.inner_path, topic.title
+</code></pre>
+
+<hr />
+<h4 id="filerules-inner_path">fileRules <em>inner_path</em></h4>
+<p>Return the rules for the file.</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>inner_path</strong></td>
+<td>File inner path</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: <list> Matched content</p>
+<p><strong>Example result:</strong></p>
+<pre><code class="json">{
+    &quot;current_size&quot;: 2485,
+    &quot;cert_signers&quot;: {&quot;zeroid.bit&quot;: [&quot;1iD5ZQJMNXu43w1qLB8sfdHVKppVMduGz&quot;]},
+    &quot;files_allowed&quot;: &quot;data.json&quot;,
+    &quot;signers&quot;: [&quot;1J3rJ8ecnwH2EPYa6MrgZttBNc61ACFiCj&quot;],
+    &quot;user_address&quot;: &quot;1J3rJ8ecnwH2EPYa6MrgZttBNc61ACFiCj&quot;,
+    &quot;max_size&quot;: 100000
+}
+</code></pre>
+
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">@cmd &quot;fileRules&quot;, &quot;data/users/1J3rJ8ecnwH2EPYa6MrgZttBNc61ACFiCj/content.json&quot;, (rules) =&gt;
+    @log rules
+</code></pre>
+
+<hr />
+<h4 id="filewrite-inner_path-content">fileWrite <em>inner_path, content</em></h4>
+<p>Write file content</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>inner_path</strong></td>
+<td>Inner path of the file you want to write</td>
+</tr>
+<tr>
+<td><strong>content_base64</strong></td>
+<td>Content you want to write to file (base64 encoded)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: "ok" on success else the error message</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">writeData: (cb=null) -&gt;
+    # Encode to json, encode utf8
+    json_raw = unescape(encodeURIComponent(JSON.stringify({&quot;hello&quot;: &quot;ZeroNet&quot;}, undefined, '\t')))
+    # Convert to to base64 and send
+    @cmd &quot;fileWrite&quot;, [&quot;data.json&quot;, btoa(json_raw)], (res) =&gt;
+        if res == &quot;ok&quot;
+            if cb then cb(true)
+        else
+            @cmd &quot;wrapperNotification&quot;, [&quot;error&quot;, &quot;File write error: #{res}&quot;]
+            if cb then cb(false)
+</code></pre>
+
+<p><em>Note:</em> to write files that not in content.json yet, you must have <code>"own": true</code> in <code>data/sites.json</code> at the site you want to write</p>
+<hr />
+<h4 id="serverinfo">serverInfo</h4>
+<p><strong>Return:</strong> <dict> All information about the server</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">@cmd &quot;serverInfo&quot;, {}, (server_info) =&gt;
+    @log &quot;Server info:&quot;, server_info
+</code></pre>
+
+<p><strong>Example return value:</strong></p>
+<pre><code class="json">{
+    &quot;debug&quot;: true, # Running in debug mode
+    &quot;fileserver_ip&quot;: &quot;*&quot;, # Fileserver binded to
+    &quot;fileserver_port&quot;: 15441, # FileServer port
+    &quot;ip_external&quot;: true, # Active of passive mode
+    &quot;platform&quot;: &quot;win32&quot;, # Operating system
+    &quot;ui_ip&quot;: &quot;127.0.0.1&quot;, # UiServer binded to
+    &quot;ui_port&quot;: 43110, # UiServer port (Web)
+    &quot;version&quot;: &quot;0.2.5&quot; # Version
+}
+</code></pre>
+
+<hr />
+<h4 id="siteinfo">siteInfo</h4>
+<p><strong>返回值</strong>: <dict> All information about the site</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">@cmd &quot;siteInfo&quot;, {}, (site_info) =&gt;
+    @log &quot;Site info:&quot;, site_info
+</code></pre>
+
+<p><strong>Example return value:</strong></p>
+<pre><code class="json">{
+    &quot;tasks&quot;: 0, # Number of files currently under download
+    &quot;size_limit&quot;: 10, # Current site size limit in MB
+    &quot;address&quot;: &quot;1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr&quot;, # Site address
+    &quot;next_size_limit&quot;: 10, # Size limit required by sum of site's files
+    &quot;auth_address&quot;: &quot;2D6xXUmCVAXGrbVUGRRJdS4j1hif1EMfae&quot;, # Current user's bitcoin address
+    &quot;auth_key_sha512&quot;: &quot;269a0f4c1e0c697b9d56ccffd9a9748098e51acc5d2807adc15a587779be13cf&quot;, # Deprecated, dont use
+    &quot;peers&quot;: 14, # Peers of site
+    &quot;auth_key&quot;: &quot;pOBdl00EJ29Ad8OmVIc763k4&quot;, # Deprecated, dont use
+    &quot;settings&quot;:  {
+        &quot;peers&quot;: 13, # Saved peers num for sorting
+        &quot;serving&quot;: true, # Site enabled
+        &quot;modified&quot;: 1425344149.365, # Last modification time of all site's files
+        &quot;own&quot;: true, # Own site
+        &quot;permissions&quot;: [&quot;ADMIN&quot;], # Site's permission
+        &quot;size&quot;: 342165 # Site total size in bytes
+    },
+    &quot;bad_files&quot;: 0, # Files that needs to be download
+    &quot;workers&quot;: 0, # Current concurent downloads
+    &quot;content&quot;: { # Root content.json
+        &quot;files&quot;: 12, # Number of file, detailed file info removed to reduce data transfer and parse time
+        &quot;描述&quot;: &quot;This site&quot;,
+        &quot;title&quot;: &quot;ZeroHello&quot;,
+        &quot;signs_required&quot;: 1,
+        &quot;modified&quot;: 1425344149.365,
+        &quot;ignore&quot;: &quot;(js|css)/(?!all.(js|css))&quot;,
+        &quot;signers_sign&quot;: null,
+        &quot;address&quot;: &quot;1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr&quot;,
+        &quot;zeronet_version&quot;: &quot;0.2.5&quot;,
+        &quot;includes&quot;: 0
+    },
+    &quot;cert_user_id&quot;: &quot;zeronetuser@zeroid.bit&quot;, # Currently selected certificate for the site
+    &quot;started_task_num&quot;: 1, # Last number of files downloaded
+    &quot;content_updated&quot;: 1426008289.71 # Content.json update time
+}
+</code></pre>
+
+<hr />
+<h4 id="sitepublish-privatekey-inner_path-sign">sitePublish <em>[privatekey], [inner_path], [sign]</em></h4>
+<p>Publish a content.json of the site</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>privatekey</strong> (optional)</td>
+<td>Private key used for signing (default: current user's privatekey)</td>
+</tr>
+<tr>
+<td><strong>inner_path</strong> (optional)</td>
+<td>Inner path of the content json you want to publish (default: content.json)</td>
+</tr>
+<tr>
+<td><strong>sign</strong> (optional)</td>
+<td>If True then sign the content.json before publish (default: True)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: "ok" on success else the error message</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript"># Prompt the private key
+@cmd &quot;wrapperPrompt&quot;, [&quot;Enter your private key:&quot;, &quot;password&quot;], (privatekey) =&gt;
+    $(&quot;.publishbar .button&quot;).addClass(&quot;loading&quot;)
+    # Send sign content.json and publish request to server
+    @cmd &quot;sitePublish&quot;, [privatekey], (res) =&gt;
+        $(&quot;.publishbar .button&quot;).removeClass(&quot;loading&quot;)
+        @log &quot;Publish result:&quot;, res
+</code></pre>
+
+<hr />
+<h4 id="sitesign-privatekey-inner_path">siteSign <em>[privatekey], [inner_path]</em></h4>
+<p>Sign a content.json of the site</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>privatekey</strong> (optional)</td>
+<td>Private key used for signing (default: current user's privatekey)</td>
+</tr>
+<tr>
+<td><strong>inner_path</strong> (optional)</td>
+<td>Inner path of the content json you want to sign (default: content.json)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: "ok" on success else the error message</p>
+<blockquote>
+<p><strong>Note:</strong>
+Use "stored" as privatekey if its definied in users.json (eg. cloned sites)</p>
+</blockquote>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">if @site_info[&quot;privatekey&quot;] # Private key stored in users.json
+    @cmd &quot;siteSign&quot;, [&quot;stored&quot;, &quot;content.json&quot;], (res) =&gt;
+        @log &quot;Sign result&quot;, res
+</code></pre>
+
+<hr />
+<h4 id="siteupdate-address">siteUpdate <em>address</em></h4>
+<p>Force check and download changed content from other peers (only necessary if user is in passive mode and using old version of Zeronet)</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>address</strong></td>
+<td>Address of site want to update (only current site allowed without site ADMIN permission)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return:</strong> None</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript"># Manual site update for passive connections
+updateSite: =&gt;
+    $(&quot;#passive_error a&quot;).addClass(&quot;loading&quot;).removeClassLater(&quot;loading&quot;, 1000)
+    @log &quot;Updating site...&quot;
+    @cmd &quot;siteUpdate&quot;, {&quot;address&quot;: @site_info.address}
+</code></pre>
+
+<hr />
+<h1 id="plugin-cryptmessage">Plugin: CryptMessage</h1>
+<h4 id="userpublickey-index">userPublickey <em>[index]</em></h4>
+<p>Get user's site specific publickey</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>index</strong> (optional)</td>
+<td>Sub-publickey within site (default: 0)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: base64 encoded publickey</p>
+<hr />
+<h4 id="eciesencrypt-text-publickey-return_aes_key">eciesEncrypt <em>text, [publickey], [return_aes_key]</em></h4>
+<p>Encrypt a text using a publickey</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>text</strong></td>
+<td>Text to encrypt</td>
+</tr>
+<tr>
+<td><strong>publickey</strong> (optional)</td>
+<td>User's publickey index (int) or base64 encoded publickey (default: 0)</td>
+</tr>
+<tr>
+<td><strong>return_aes_key</strong> (optional)</td>
+<td>Get the AES key used in encryption (default: False)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: Encrypted text in base64 format or [Encrypted text in base64 format, AES key in base64 format]</p>
+<hr />
+<h4 id="eciesdecrypt-params-privatekey">eciesDecrypt <em>params, [privatekey]</em></h4>
+<p>Try to decrypt list of texts</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>params</strong></td>
+<td>A text or list of encrypted texts</td>
+</tr>
+<tr>
+<td><strong>privatekey</strong> (optional)</td>
+<td>User's privatekey index (int) or base64 encoded privatekey (default: 0)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: Decrypted text or list of decrypted texts (null for failed decodings)</p>
+<hr />
+<h4 id="aesencrypt-text-key-iv">aesEncrypt <em>text, [key], [iv]</em></h4>
+<p>Encrypt a text using the key and the iv</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>text</strong></td>
+<td>A text encrypt using AES</td>
+</tr>
+<tr>
+<td><strong>key</strong> (optional)</td>
+<td>Base64 encoded password (default: generate new)</td>
+</tr>
+<tr>
+<td><strong>iv</strong> (optional)</td>
+<td>Base64 encoded iv (default: generate new)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: [base64 encoded key, base64 encoded iv, base64 encoded encrypted text]</p>
+<hr />
+<h4 id="aesdecrypt-iv-encrypted_text-key">aesDecrypt <em>iv, encrypted_text, key</em></h4>
+<h4 id="aesdecrypt-encrypted_texts-keys">aesDecrypt <em>encrypted_texts, keys</em></h4>
+<p>Decrypt text using the IV and AES key</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>iv</strong></td>
+<td>IV in Base64 format</td>
+</tr>
+<tr>
+<td><strong>encrypted_text</strong></td>
+<td>Encrypted text in Base64 format</td>
+</tr>
+<tr>
+<td><strong>encrypted_texts</strong></td>
+<td>List of [base64 encoded iv, base64 encoded encrypted text] pairs</td>
+</tr>
+<tr>
+<td><strong>key</strong></td>
+<td>Base64 encoded password for the text</td>
+</tr>
+<tr>
+<td><strong>keys</strong></td>
+<td>Keys for decoding (tries every one for every pairs)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: Decoded text or list of decoded texts</p>
+<hr />
+<h1 id="plugin-newsfeed">Plugin: Newsfeed</h1>
+<h4 id="feedfollow-feeds">feedFollow <em>feeds</em></h4>
+<p>Set followed sql queries.</p>
+<p>The SQL query should result in rows with cols:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>type</strong></td>
+<td>Type: post, article, comment, mention</td>
+</tr>
+<tr>
+<td><strong>date_added</strong></td>
+<td>Event time</td>
+</tr>
+<tr>
+<td><strong>title</strong></td>
+<td>Event's first line to be displayed</td>
+</tr>
+<tr>
+<td><strong>body</strong></td>
+<td>Event's second and third line</td>
+</tr>
+<tr>
+<td><strong>url</strong></td>
+<td>Link to event's page</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>feeds</strong></td>
+<td>Format: {"query name": [SQL query, [param1, param2, ...], ...}, 参数s will be escaped, joined by <code>,</code> inserted in place of <code>:params</code> in the Sql query.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: ok</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript"># Follow ZeroBlog posts
+query = &quot;
+    SELECT
+     post_id AS event_uri,
+     'post' AS type,
+     date_published AS date_added,
+     title AS title,
+     body AS body,
+     '?Post:' || post_id AS url
+    FROM post
+&quot;
+params = [&quot;&quot;]
+Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
+</code></pre>
+
+<hr />
+<h4 id="feedlistfollow">feedListFollow</h4>
+<p>Return of current followed feeds</p>
+<p><strong>返回值</strong>: The currently followed feeds in the same format as in the feedFollow commands</p>
+<hr />
+<h4 id="feedquery-limit-day_limit">feedQuery <em>[limit], [day_limit]</em></h4>
+<p>Execute all followed sql query</p>
+<p><strong>返回值</strong>: The result of the followed Sql queries</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>limit</strong></td>
+<td>Limit of results per followed site (default: 10)</td>
+</tr>
+<tr>
+<td><strong>day_limit</strong></td>
+<td>Return no older than number of this days (default: 3)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="plugin-mergersite">Plugin: MergerSite</h1>
+<h4 id="mergersiteadd-addresses">mergerSiteAdd <em>addresses</em></h4>
+<p>Start downloading new merger site(s)</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>addresses</strong></td>
+<td>Site address or list of site addresses</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="mergersitedelete-address">mergerSiteDelete <em>address</em></h4>
+<p>Stop seeding and delete a merged site</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>address</strong></td>
+<td>Site address</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="mergersitelist-query_site_info">mergerSiteList <em>[query_site_info]</em></h4>
+<p>Return merged sites.</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>query_site_info</strong></td>
+<td>If True, then gives back detailed site info for merged sites</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="plugin-mute">Plugin: Mute</h1>
+<h4 id="muteadd-auth_address-cert_user_id-reason">muteAdd <em>auth_address</em>, <em>cert_user_id</em>, <em>reason</em></h4>
+<p>Add new user to mute list. (Requires confirmation for non-ADMIN sites)</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>auth_address</strong></td>
+<td>Directory name of the user's data.</td>
+</tr>
+<tr>
+<td><strong>cert_user_id</strong></td>
+<td>Cert user name of the user</td>
+</tr>
+<tr>
+<td><strong>reason</strong></td>
+<td>Reason of the muting</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: ok if confirmed</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">Page.cmd(&quot;muteAdd&quot;, ['1GJUaZMjTfeETdYUhchSkDijv6LVhjekHz','helloworld@kaffie.bit','Spammer'])
+</code></pre>
+
+<hr />
+<h4 id="muteremove-auth_address">muteRemove <em>auth_address</em></h4>
+<p>Remove a user from mute list. (Requires confirmation for non-ADMIN sites)</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>auth_address</strong></td>
+<td>Directory name of the user's data.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: ok if confirmed</p>
+<p><strong>举例：</strong></p>
+<pre><code class="coffeescript">Page.cmd(&quot;muteRemove&quot;, '1GJUaZMjTfeETdYUhchSkDijv6LVhjekHz')
+</code></pre>
+
+<hr />
+<h4 id="mutelist">muteList</h4>
+<p>List muted users. (Requires ADMIN permission on site)</p>
+<p><strong>返回值</strong>: List of muted users</p>
+<hr />
+<h1 id="plugin-optionalmanager">Plugin: OptionalManager</h1>
+<h4 id="optionalfilelist-address-orderby-limit">optionalFileList <em>[address]</em>, <em>[orderby]</em>, <em>[limit]</em></h4>
+<p>Return list of optional files</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>address</strong></td>
+<td>The site address you want to list optional files (default: current site)</td>
+</tr>
+<tr>
+<td><strong>orderby</strong></td>
+<td>Order of returned optional files (default: time_downloaded DESC)</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>Max number of returned optional files (default: 10)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: Database row of optional files: file_id, site_id, inner_path, hash_id, size, peer, uploaded, is_downloaded, is_pinned, time_added, time_downlaoded, time_accessed</p>
+<hr />
+<h4 id="optionalfileinfo-inner_path">optionalFileInfo <em>inner_path</em></h4>
+<p>Query optional file info from database</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>inner_path</strong></td>
+<td>The path of the file</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: Database row of optional file: file_id, site_id, inner_path, hash_id, size, peer, uploaded, is_downloaded, is_pinned, time_added, time_downlaoded, time_accessed</p>
+<hr />
+<h4 id="optionalfilepin-inner_path-address">optionalFilePin <em>inner_path</em>, <em>[address]</em></h4>
+<p>Pin (exclude from automatized optional file cleanup) downloaded optional file</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>inner_path</strong></td>
+<td>The path of the file</td>
+</tr>
+<tr>
+<td><strong>address</strong></td>
+<td>Address for the file (default: current site)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="optionalfileunpin-inner_path-address">optionalFileUnpin <em>inner_path</em>, <em>[address]</em></h4>
+<p>Remove pinning (include from automatized optional file cleanup) of downloaded optional file</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>inner_path</strong></td>
+<td>The path of the file</td>
+</tr>
+<tr>
+<td><strong>address</strong></td>
+<td>Address for the file (default: current site)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="optionalfiledelete-inner_path-address">optionalFileDelete <em>inner_path</em>, <em>[address]</em></h4>
+<p>Query a downloaded optional file</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>inner_path</strong></td>
+<td>The path of the file</td>
+</tr>
+<tr>
+<td><strong>address</strong></td>
+<td>Address for the file (default: current site)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="optionallimitstats">optionalLimitStats</h4>
+<p>Return currently used disk space by optional files</p>
+<p><strong>返回值</strong>: limit, used and free space statistics</p>
+<hr />
+<h4 id="actionoptionallimitset-limit">actionOptionalLimitSet <em>limit</em></h4>
+<p>Set the optional file limit</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>limit</strong></td>
+<td>Max space used by the optional files in gb or percent of used space</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="actionoptionalhelplist-address">actionOptionalHelpList <em>[address]</em></h4>
+<p>List the auto-downloaded directories of optional files</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>address</strong></td>
+<td>Address of site you want to list helped directories (default: current site)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: Dict of auto-downloaded directories and 描述s</p>
+<hr />
+<h4 id="actionoptionalhelp-directory-title-address">actionOptionalHelp directory, title, <em>[address]</em></h4>
+<p>Add directory to auto-download list</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>directory</strong></td>
+<td>Directory you want to add to auto-download list</td>
+</tr>
+<tr>
+<td><strong>title</strong></td>
+<td>Title for the entry (displayed on ZeroHello)</td>
+</tr>
+<tr>
+<td><strong>address</strong></td>
+<td>Address of site you want to add the auto-download directory (default: current site)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="actionoptionalhelpremove-directory-address">actionOptionalHelpRemove directory, <em>[address]</em></h4>
+<p>Remove an auto-download entry</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>directory</strong></td>
+<td>Directory you want to remove from auto-download list</td>
+</tr>
+<tr>
+<td><strong>address</strong></td>
+<td>Address of affected site (default: current site)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="actionoptionalhelpall-value-address">actionOptionalHelpAll value, <em>[address]</em></h4>
+<p>Help download every new uploaded optional file to the site</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>value</strong></td>
+<td>Enable or Disable the auto-download</td>
+</tr>
+<tr>
+<td><strong>address</strong></td>
+<td>Address of affected site (default: current site)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="admin-commands">Admin commands</h1>
+<p><em>(requires ADMIN permission in data/sites.json)</em></p>
+<hr />
+<h4 id="configset-key-value">configSet <em>key, value</em></h4>
+<p>Create or update an entry in ZeroNet config file. (zeronet.conf by default)</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>key</strong></td>
+<td>Configuration entry name</td>
+</tr>
+<tr>
+<td><strong>value</strong></td>
+<td>Configuration entry new value</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: ok</p>
+<hr />
+<h4 id="certset-domain">certSet <em>domain</em></h4>
+<p>Set the used certificate for current site.</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>domain</strong></td>
+<td>Domain of the certificate issuer</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: None</p>
+<hr />
+<h4 id="channeljoinallsite-channel">channelJoinAllsite <em>channel</em></h4>
+<p>Request notifications about every site's events.</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>channel</strong></td>
+<td>Channel to join (see channelJoin)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: None</p>
+<hr />
+<h4 id="serverportcheck">serverPortcheck</h4>
+<p>Start checking if port is opened</p>
+<p><strong>返回值</strong>: True (port opened) or False (port closed)</p>
+<hr />
+<h4 id="servershutdown">serverShutdown</h4>
+<p>Stop running ZeroNet client.</p>
+<p><strong>返回值</strong>: None</p>
+<hr />
+<h4 id="serverupdate">serverUpdate</h4>
+<p>Re-download ZeroNet from github.</p>
+<p><strong>返回值</strong>: None</p>
+<hr />
+<h4 id="siteclone-address-root_inner_path">siteClone <em>address</em>, <em>[root_inner_path]</em></h4>
+<p>Copy site files into a new one.</p>
+<p>Every file and directory will be skipped if it has a <code>-default</code> subfixed version and the subfixed version will be copied instead of it.</p>
+<p>Eg. If you have a <code>data</code> and a <code>data-default</code> directory: The <code>data</code> directory will not be copied and the <code>data-default</code> directory will be renamed to data.</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>address</strong></td>
+<td>Address of site want to clone</td>
+</tr>
+<tr>
+<td><strong>root_inner_path</strong></td>
+<td>The source directory of the new site</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: None, automatically redirects to new site on completion</p>
+<hr />
+<h4 id="sitelist">siteList</h4>
+<p><strong>返回值</strong>: <list> SiteInfo list of all downloaded sites</p>
+<hr />
+<h4 id="sitepause-address">sitePause <em>address</em></h4>
+<p>Pause site serving</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>address</strong></td>
+<td>Address of site want to pause</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: None</p>
+<hr />
+<h4 id="siteresume-address">siteResume <em>address</em></h4>
+<p>Resume site serving</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>address</strong></td>
+<td>Address of site want to resume</td>
+</tr>
+</tbody>
+</table>
+<p><strong>返回值</strong>: None</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../content_json/" class="btn btn-neutral float-right" title="Structure of content.json"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../getting_started/" class="btn btn-neutral" title="Getting Started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../getting_started/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../content_json/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

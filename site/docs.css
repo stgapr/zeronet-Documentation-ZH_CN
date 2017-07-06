@@ -1,0 +1,37 @@
+.toctree-l3 { margin-left: -12px; }
+.wy-menu-vertical span { padding-top: 20px; text-transform: uppercase; }
+.wy-menu-vertical .subnav a { padding: 0.4045em 1.627em }
+li.toctree-l3:first-child { display: none }
+code { padding: 3px 6px; font-size: 80% !important; border-bottom: 2px solid #e1e4e5; color: black }
+code.hljs { font-size: 90% !important }
+pre { margin-bottom: 40px }
+.rst-content .section ul { line-height: 30px }
+
+.section table { margin-bottom: 20px; text-align: left; font-size: 16px; line-height: 20px; }
+.section table th { padding: 8px 15px; border: 1px solid #e1e4e5 }
+.section table td { padding: 8px 15px; border: 1px solid #e1e4e5; background-color: #f3f6f6 }
+.section table tr:nth-child(even) td { background-color: #FFF }
+
+/*li.toctree-l2:first-child { display: none }*/
+
+h4 em { font-style: normal; color: #999 }
+hr { margin: 50px 0 }
+
+/* List font on the same size page text */
+ul { font-size: 16px }
+
+/* Theme default color is the same color as links; Text using the same color of links is bad usability */
+h3, h4, h5, h6 { color: #2980b9 }
+
+.section a { border-bottom: 1px solid #BBB; color: #000 !important }
+.section a:hover { border-bottom: 1px solid #3091d1 }
+
+.section blockquote { background-color: #e7f2fa; margin: 20px 0px; padding: 10px; border-left: 2px solid #2980B9; }
+.section blockquote p { margin: 4px 0px; }
+
+#disqus_thread { margin-bottom: 50px }
+
+.loadcomments {
+	padding: 10px 15px; display: inline-block; border-radius: 2px; border-bottom: 2px solid #CDBD1E; transition: all 0.5s;
+	background-color: #FFF85F; font-size: 20px; line-height: 31px; background-position: left center
+}

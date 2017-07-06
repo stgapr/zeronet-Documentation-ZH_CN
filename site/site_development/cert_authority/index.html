@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Certificate authority - ZeroNet</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+
+  <link rel="stylesheet" href="../../css/fonts.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../docs.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Certificate authority";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../docs.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ZeroNet</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../faq/">Frequently asked questions</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Start using ZeroNet</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/installing/">Installing</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/sample_sites/">Sample sites</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../using_zeronet/create_new_site/">Create new site</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Site Development</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../getting_started/">Getting Started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../zeroframe_api_reference/">ZeroFrame API reference</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../content_json/">Structure of content.json</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../dbschema_json/">Structure of dbschema.json</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Certificate authority</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">认证授权</a></li>
+                
+                    <li><a class="toctree-l4" href="#_2">认证授权是干什么用的?</a></li>
+                
+                    <li><a class="toctree-l4" href="#_3">认证格式</a></li>
+                
+                    <li><a class="toctree-l4" href="#contentjson">在 content.json里的用法</a></li>
+                
+                    <li><a class="toctree-l4" href="#_8">认证授权机制的优点和局限之处</a></li>
+                
+                    <li><a class="toctree-l4" href="#_9">我能够不使用认证授权吗？</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Help ZeroNet development</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../help_zeronet/contributing/">Contributing to ZeroNet</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../help_zeronet/network_protocol/">Network protocol</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../help_zeronet/donate/">Donation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ZeroNet</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Site Development &raquo;</li>
+        
+      
+    
+    <li>Certificate authority</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/HelloZeroNet/ZeroNet" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">认证授权</h1>
+<p>不需要密码的账户？ 为我颁发授权证书？你意识到Zeronet的ID系统看起来如此怪异而格格不入。在这个部分，你将要学到ZeroNet是如何实现用户的认证和信息授权的。</p>
+<h2 id="_2">认证授权是干什么用的?</h2>
+<p>在 ZeroNet中，所有的东西都用比特币key来签名。一个认证意味着为一个比特币地址提供了独特而可记忆的名字 。认证了的授权信息（或者ID提供者）证明了一个比特币地址和一个容易辨认的短名字之间的对应关系。</p>
+<h2 id="_3">认证格式</h2>
+<h3 id="_4">主体</h3>
+<p>认证的主体部分包括了一个比特币地址、一个协议类型和一个可记忆的用户名。</p>
+<pre><code>[比特币地址]#[协议类型]/[用户名]
+</code></pre>
+
+<p><strong>例如:</strong></p>
+<pre><code>1H28iygiKXe3GUMcD77HiifVqtf3858Aft#web/hellozeronet
+</code></pre>
+
+<ul>
+<li>比特币地址: <code>1H28iygiKXe3GUMcD77HiifVqtf3858Aft</code></li>
+<li>协议类型： <code>web</code></li>
+<li>用户名： <code>hellozeronet</code></li>
+</ul>
+<p><strong>一般规则：</strong></p>
+<p>比特币地址、协议类型和用户名<strong>不可以</strong> 包含这些字符 <code>#</code>, <code>@</code> or <code>/</code></p>
+<p>只有 0-9 和 a-z 能够用在用户名里。所有的英文字母<strong>都必须</strong> 是小写的。除此之外的字符<strong>不可以</strong>成为用户名的一部分。一个用户名<strong>不可以</strong> 过长，用户名<strong>必须</strong>足够清晰可读，并且<strong>不和</strong>用户地址标识混淆。 </p>
+<p>一个用户名 <strong>必须不与</strong>所有已注册的用户名重复，它必须是唯一的。</p>
+<h3 id="_5">认证</h3>
+<p>认证签名算法通过签名的密码学私钥为认证信息主体生成了一个明确的比特币签名。</p>
+<p><strong>摘抄自源代码：</strong></p>
+<pre><code class="python">sign = os.popen(&quot;python zeronet.py --debug cryptSign %s#bitmsg/%s %s 2&gt;&amp;1&quot; % (auth_address, user_name, config.site_privatekey)).readlines()[-1].strip()
+</code></pre>
+
+<h3 id="_6">认证</h3>
+<p>看看ZeroID的源代码，我们就知道认证授权信息是存储在公共数据库里的。</p>
+<pre><code class="python">data[&quot;users&quot;][user_name] = &quot;bitmsg,%s,%s&quot; % (auth_address, sign)
+</code></pre>
+
+<p><strong>例子</strong></p>
+<pre><code>&quot;hellozeronet&quot;: &quot;web,1H28iygiKXe3GUMcD77HiifVqtf3858Aft,HA2A+iKekECD3hasrsN8IrR86BnXQ63kPH+9A85JLO9hLUpRJTBn62UfnuuF92B9CIc6+EewAIqzIn9UoVq2LPA=&quot;
+</code></pre>
+
+<p>认证授权可以通过各种格式来存储，但必须包含以下字段：</p>
+<ul>
+<li>比特币地址： <code>1H28iygiKXe3GUMcD77HiifVqtf3858Aft</code></li>
+<li>协议类型: <code>web</code></li>
+<li>用户名: <code>hellozeronet</code></li>
+<li>认证签名: <code>HA2A+iKekECD3hasrsN8IrR86BnXQ63kPH+9A85JLO9hLUpRJTBn62UfnuuF92B9CIc6+EewAIqzIn9UoVq2LPA=</code></li>
+</ul>
+<h2 id="contentjson">在 <code>content.json</code>里的用法</h2>
+<p>站点拥有者可以选择哪些认证授权方是可信的。</p>
+<p>例如 Blue Hub，接收通过ZeroID来签署的认证授权。它的这一规则在它的 <code>data/users/content.json</code>里写明了</p>
+<ul>
+<li>ID 提供者有一个可读的短名字: <code>zeroid.bit</code></li>
+<li>ID提供者的公钥摘要是: <code>1iD5ZQJMNXu43w1qLB8sfdHVKppVMduGz</code></li>
+</ul>
+<pre><code class="json">&quot;user_contents&quot;: {
+  &quot;cert_signers&quot;: {
+   &quot;zeroid.bit&quot;: [
+    &quot;1iD5ZQJMNXu43w1qLB8sfdHVKppVMduGz&quot;
+   ]
+  }
+}
+</code></pre>
+
+<p>每一个用户都在他的比特币目录里的清单文件中留下了授权信息，例如<code>data/users/1J3rJ8ecnwH2EPYa6MrgZttBNc61ACFiCj/content.json</code> 是这样的:</p>
+<pre><code class="json">{
+ &quot;address&quot;: &quot;1BLueGvui1GdbtsjcKqCf4F67uKfritG49&quot;,
+ &quot;cert_auth_type&quot;: &quot;web&quot;,
+ &quot;cert_sign&quot;: &quot;HPiZsWEJ5eLnspUj8nQ75WXbSanLz0YhQf5KJDq+4bWe6wNW98Vv9PXNyPDNu2VX4bCEXhRC65pS3CM7cOrjjik=&quot;,
+ &quot;cert_user_id&quot;: &quot;nofish@zeroid.bit&quot;,
+ &quot;files&quot;: {
+  &quot;data.json&quot;: {
+   &quot;sha512&quot;: &quot;8e597412a2bc2726ac9a1ee85428fb3a94b09f4e7a3f5f589119973231417b15&quot;,
+   &quot;size&quot;: 21422
+  }
+ },
+ &quot;inner_path&quot;: &quot;data/users/1J3rJ8ecnwH2EPYa6MrgZttBNc61ACFiCj/content.json&quot;,
+ &quot;modified&quot;: 1492458379,
+ &quot;signs&quot;: {
+  &quot;1J3rJ8ecnwH2EPYa6MrgZttBNc61ACFiCj&quot;: &quot;G8kaZIGAstsiWLVY20e2ogJQi4OO+QuwqJ9GTj3gz7YleST/jst7RQH7hDn0uf8BJMBjFs35H3LPhNHHj4jueh8=&quot;
+ }
+}
+</code></pre>
+
+<p>Site specific:</p>
+<ul>
+<li>期望的站点地址: <code>"address": "1BLueGvui1GdbtsjcKqCf4F67uKfritG49"</code></li>
+<li>期望的文件路径: <code>"inner_path": "data/users/1J3rJ8ecnwH2EPYa6MrgZttBNc61ACFiCj/content.json"</code></li>
+</ul>
+<p>认证信息:</p>
+<ul>
+<li>ID 提供者: <code>zeroid.bit</code></li>
+<li>用户名: <code>nofish</code></li>
+<li>用户的比特币地址: <code>1J3rJ8ecnwH2EPYa6MrgZttBNc61ACFiCj</code></li>
+<li>登录类型: <code>web</code></li>
+<li>ID提供者提供的签名: <code>HPiZsWEJ5eLnspUj8nQ75WXbSanLz0YhQf5KJDq+4bWe6wNW98Vv9PXNyPDNu2VX4bCEXhRC65pS3CM7cOrjjik=</code></li>
+</ul>
+<h3 id="_7">认证过程</h3>
+<ol>
+<li>
+<p>验证算法读取 <code>data/users/content.json</code> 来确定用户内容应该发送到哪个站点页面上。</p>
+</li>
+<li>
+<p>验证算法读取 <code>data/users/content.json</code> 来查找ID提供者的公钥摘要。</p>
+</li>
+<li>
+<p>已知用户的比特币地址、访问类型和用户名，验证算法就可以拼接出授权信息的主体。</p>
+</li>
+<li>
+<p>验证算法从ID提供者那里检查签名——通过<code>data/users/content.json</code>里记录的公钥，来检查授权信息的授权真实性。</p>
+</li>
+<li>
+<p>验证算法读取用户的公钥，然后检查用户发送内容的授权真实性。</p>
+</li>
+</ol>
+<h2 id="_8">认证授权机制的优点和局限之处</h2>
+<ul>
+<li>
+<p>认证授权机制提供了一个用于替代用户公钥摘要key的、容易辨识记忆的名字。这也有助于缓和垃圾邮件和垃圾信息。</p>
+</li>
+<li>
+<p>用户不需要给出他的私密信息——例如密码。而且，每个用户只需要授权一次。</p>
+</li>
+<li>
+<p>认证授权机制已经被ZeroNet的开发者大力推荐。站点的拥有者可以选择信任部分认证授权，以便于通过用户内容的质量来筛选谁能发言/谁不能发言。</p>
+</li>
+<li>
+<p>认证授权机制有助于维护用户名数据库。</p>
+</li>
+<li>
+<p>ZeroID 不需要撤销或者更新授权。</p>
+</li>
+</ul>
+<h2 id="_9">我能够不使用认证授权吗？</h2>
+<p>一般来说，只有在你向别人的网站上发布东西时才会需要你的认证授权。假如只是修改自己的网站，那么不需要进行这一步骤。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../help_zeronet/contributing/" class="btn btn-neutral float-right" title="Contributing to ZeroNet"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../dbschema_json/" class="btn btn-neutral" title="Structure of dbschema.json"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../dbschema_json/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../help_zeronet/contributing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
