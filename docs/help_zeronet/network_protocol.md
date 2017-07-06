@@ -1,52 +1,52 @@
-# ZeroNet network protocol
+# ZeroNet 网络协议
 
- - Every message is encoded using [MessagePack](http://msgpack.org/)
- - Every request has 3 parameter:
-    * `cmd`: The request command
-    * `req_id`: The request's unique id (simple, incremented nonce), the client has to include this when reply to the command
-    * `params`: Parameters for the request
- - Example request: `{"cmd": "getFile", "req_id": 1, "params:" {"site": "1EU...", "inner_path": "content.json", "location": 0}}`
- - Example response: `{"cmd": "response", "to": 1, "body": "content.json content", "location": 1132, "size": 1132}`
- - Example error response: `{"cmd": "response", "to": 1, "error": "Unknown site"}`
+ - 所有信息都用 [MessagePack](http://msgpack.org/)进行编码
+ - 每一个request都有三个参数:
+    * `cmd`: request的命令
+    * `req_id`: request的标识ID (简单地说，一个一次性数值), 客户端在回应命令的时候需要包括它
+    * `params`: request带的参数
+ - 示例request: `{"cmd": "getFile", "req_id": 1, "params:" {"site": "1EU...", "inner_path": "content.json", "location": 0}}`
+ - 示例response: `{"cmd": "response", "to": 1, "body": "content.json content", "location": 1132, "size": 1132}`
+ - 示例error response: `{"cmd": "response", "to": 1, "error": "Unknown site"}`
 
 
-# Handshake
-Every connection begins with a handshake by sending a request to the target network address:
+# 握手
+每个连接都从发送一个到目标网络地址的request——也就是握手请求——开始：
 
-Parameter            | Description
+参数                 | 描述
                  --- | ---
-**crypt**            | Null/None, only used in respones
-**crypt_supported**  | An array of connection encryption methods supported by the client
-**fileserver_port**  | The client's fileserver port
-**onion**            | (Only used on tor) The client's onion address
-**protocol**         | The protocol version the client uses (v1 or v2)
-**port_opened**      | The client's client port open status
-**peer_id**          | (Not used on tor) The client's peer_id
-**rev**              | The client's revision number
-**version**          | The client's version
-**target_ip**        | The server's network address
+**crypt**            | 空，或者为None， 只在response中用到
+**crypt_supported**  | 连接可用的加密方法的数列，列出了客户端支持的加密方法
+**fileserver_port**  | 客户端的文件服务端口
+**onion**            | (只在Tor上使用) 客户端的onion地址
+**protocol**         | 客户端使用的协议版本 (v1 或者 v2)
+**port_opened**      | 客户端的端口打开状态
+**peer_id**          | (不在Tor上使用) 客户端的peer_id
+**rev**              | 客户端的版本修订号
+**version**          | 客户端的版本号
+**target_ip**        | 客户端的IP地址
 
-The target initialize the encryption on the socket based on `crypt_supported`, then return:
+目标接着通过`crypt_supported`来在socket上初始化加密，返回：
 
-Return key           | Description
+返回值          | 描述 
                  --- | ---
-**crypt**            | The encryption to use
-**crypt_supported**  | An array of connection encryption methods supported by the server
-**fileserver_port**  | The server's fileserver port
-**onion**            | (Only used on tor) The server's onion address
-**protocol**         | The protocol version the server uses (v1 or v2)
-**port_opened**      | The server's client port open status
-**peer_id**          | (Not used on tor) The server's peer_id
-**rev**              | The server's revision number
-**version**          | The server's version
-**target_ip**        | The client's network address
+**crypt**            | 使用的加密方法
+**crypt_supported**  | 连接可用的加密方法的数列，列出了服务端支持的加密方法
+**fileserver_port**  | 服务端的文件服务端口
+**onion**            | (只在Tor上使用) 服务端的onion地址
+**protocol**         | 服务端使用的协议版本 (v1 或者 v2)
+**port_opened**      | 服务端的端口打开状态
+**peer_id**          | (不在Tor上使用) 服务端的peer_id
+**rev**              | 服务端的版本修订号
+**version**          | 服务端的版本号
+**target_ip**        | 服务端的IP地址
 
-> **Note:** No encryption used on .onion connections, as the Tor network provides the transport security by default.
-> **Note:** You can also implicitly initialize SSL before the handshake if you can assume it supported by remote client.
+> **注意：** .onion连接不会使用任何加密算法，因为Tor网络默认自带了传输加密。
+> **注意：** 假如你确定远程客户端也支持的话，可以在握手前启用SSL连接来保证安全性。
 
-**Example**:
+**例子**:
 
-Sent handshake:
+发送请求：
 
 ```json
 {
@@ -67,7 +67,7 @@ Sent handshake:
 }
 ```
 
-Return:
+返回：
 
 ```
 {
@@ -86,36 +86,36 @@ Return:
 }
 ```
 
-# Peer requests
+# 用户请求
 
 #### getFile _site_, _inner_path_, _location_, _[file_size]_
-Request a file from the client
+从客户端请求文件
 
-Parameter            | Description
+参数                | 描述 
                  --- | ---
-**site**             | Site address (example: 1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
-**inner_path**       | File path relative to site directory
-**location**         | Request file from this byte (max 512 bytes got sent in a request, so you need multiple requests for larger files)
-**file_size**        | Total size of the requested file (optional)
+**site**             | 站点地址 (例如: 1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
+**inner_path**       | 用站点相对路径引用的文件位置
+**location**         | 要求从某个字节位置开始传输文件 (一个请求最多发送 512 字节，所以你需要多次request来获得大文件s)
+**file_size**        | 所需文件的总大小（可选参数）
 
-**Return**:
+**返回**:
 
-Return key           | Description
+返回值              | 描述 
                  --- | ---
-**body**             | The requested file content
-**location**         | The location of the last byte sent
-**size**             | Total size of the file
+**body**             | 对方所需的文件数据
+**location**         | 发出去的这些数据的最后一位字节在文件中的位置
+**size**             | 发送出的数据大小
 
 
 ---
 
 
 #### ping
-Checks if the client is still alive
+看看客户端是否仍然在线
 
-**Return**:
+**返回**:
 
-Return key           | Description
+返回值               | 描述 
                  --- | ---
 **body**             | Pong
 
@@ -124,58 +124,57 @@ Return key           | Description
 
 
 #### pex _site_, _peers_, _need_
-Exchange peers with the client.
-Peers packed to 6 bytes (4byte IP using inet_ntoa + 2byte for port)
+和客户端交换用户
+用户标识按照6字节来打包(4字节的 IP 地址——使用inet_ntoa ；再加上2字节端口号)
 
-Parameter            | Description
+参数                | 描述 
                  --- | ---
-**site**             | Site address (example: 1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
-**peers**            | List of peers that the requester has (packed)
-**need**             | Number of peers the requester want
+**site**             | 网站地址 (例如：1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
+**peers**            | 请求者拥有的用户列表 (打包后)
+**need**             | 请求者需要的用户数
 
 **Return**:
 
-Return key           | Description
+返回值          | 描述 
                  --- | ---
-**peers**            | List of peer he has for the site (packed)
+**peers**            | 回应者拥有的用户列表 (打包后)
 
 
 ---
 
 #### update _site_, _inner_path_, _body_
-Update a site file.
+更新站点文件
 
-
-Parameter            | Description
+参数                | 描述 
                  --- | ---
-**site**             | Site address (example: 1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
-**inner_path**       | File path relative to site directory
-**body**             | Full content of the updated file
+**site**             | 网站地址 (例如：1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
+**inner_path**       | 用站点相对路径引用的文件位置
+**body**             | 被上传文件的完整内容
 
 **Return**:
 
-Return key           | Description
+返回值          | 描述 
                  --- | ---
-**ok**               | Thanks message on successful update :)
+**ok**               | 成功更新文件的感谢信息
 
 ---
 
 #### listModified _site_, _since_
-Lists the content.json files modified since the given parameter. It used to fetch the site's user submitted content.
+列出 content.json files 自从给定时间以来的的变动。这个命令一般用来获得该站点用户提交带来的内容更新。
 
 
-Parameter            | Description
+参数                | 描述 
                  --- | ---
-**site**             | Site address (example: 1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
-**since**            | List content.json files since this timestamp.
+**site**             | 网站地址 (例如：1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
+**since**            | 自从这个时间戳之后的 content.json文件（变动）.
 
 **Return**:
 
-Return key           | Description
+返回值          | 描述 
                  --- | ---
-**modified_files**   | Key: content.json inner_path<br>Value: last modification date
+**modified_files**   | （json数据）键: content.json inner_path<br>值: 上一次修改时间
 
-**Example**:
+**例如**:
 
 ```json
 > zeronet.py --silent peerCmd 127.0.0.1 15441 listModified "{'site': '1BLogC9LN4oPDcruNz3qo1ysa133E9AGg8', 'since': 1497507030}"
@@ -212,19 +211,19 @@ Return key           | Description
 
 
 #### getHashfield _site_
-Get the client's downloaded [optional file ids](#optional-file-id).
+获得客户端下载的 [所选文件ID](#optional-file-id).
 
-Parameter            | Description
+参数                | 描述 
                  --- | ---
-**site**             | Site address (example: 1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
+**site**             | 站点地址 (例如：1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
 
 **Return**:
 
-Return key           | Description
+返回值          | 描述 
                  --- | ---
-**hashfield_raw**    | Optional file ids encoded using `array.array("H", [1000, 1001..]).tostring()`
+**hashfield_raw**    | 可选的文件ID。已经被编码过，编码方法是 `array.array("H", [1000, 1001..]).tostring()`
 
-**Example**:
+**举例**:
 ```json
 > zeronet.py --silent peerCmd 192.168.1.13 15441 getHashfield "{'site': '1Gif7PqWTzVWDQ42Mo7np3zXmGAo3DXc7h'}
 {
@@ -238,16 +237,16 @@ Return key           | Description
 
 
 #### setHashfield _site_, _hashfield_raw_
-Set the list of [optional file ids](#optional-file-id) that the requester client has.
+设置请求方具有的 [可选文件ID](#optional-file-id) 列表
 
-Parameter            | Description
+参数                | 描述 
                  --- | ---
-**site**             | Site address (example: 1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
+**site**             | Site address (例如：1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
 **hashfield_raw**    | Optional file ids encoded using `array.array("H", [1000, 1001..]).tostring()`
 
 **Return**:
 
-Return key           | Description
+返回值          | 描述 
                  --- | ---
 **ok**               | Updated
 
@@ -256,21 +255,21 @@ Return key           | Description
 
 
 #### findHashIds _site_, _hash_ids_
-Queries if the client know any peer that has the requested hash_ids
+询问客户端是否知道某个用户拥有所需的文件的hash_ids
 
-Parameter            | Description
+参数                | 描述 
                  --- | ---
-**site**             | Site address (example: 1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
-**hash_ids**         | List of optional file ids the client currently looking for
+**site**             | 站点地址 (例如：1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr)
+**hash_ids**         | 由需要客户端查找的、所选文件id组成的数组。
 
 **Return**:
 
-Return key           | Description
+返回值          | 描述 
                  --- | ---
-**peers**            | Key: Optional file id<br>Value: List of ipv4 peers encoded using `socket.inet_aton(ip) + struct.pack("H", port)`
-**peers_onion**      | Key: Optional file id<br>Value: List of onion peers encoded using `base64.b32decode(onion.replace(".onion", "").upper()) + struct.pack("H", port)`
+**peers**            | （json形式）键: 所选文件id<br>值: ipv4 用户列表，已经被编码，编码方法为  `socket.inet_aton(ip) + struct.pack("H", port)`
+**peers_onion**      | （json形式）键: 所选文件id<br>值: onion 用户列表，已经被编码，编码方法为 `base64.b32decode(onion.replace(".onion", "").upper()) + struct.pack("H", port)`
 
-**Example**:
+**举例**:
 ```json
 > zeronet.py --silent peerCmd 192.168.1.13 15441 findHashIds "{'site': '1Gif7PqWTzVWDQ42Mo7np3zXmGAo3DXc7h', 'hash_ids': [59948, 29811]}"
 {
@@ -301,8 +300,8 @@ Return key           | Description
 ---
 
 
-# Optional file id
-Integer representation of the first 4 character of the hash:
+# 可选文件ID
+文件hash值的前四位的整型值
 ```
 >>> int("ea2c2acb30bd5e1249021976536574dd3f0fd83340e023bb4e78d0d818adf30a"[0:4], 16)
 59948

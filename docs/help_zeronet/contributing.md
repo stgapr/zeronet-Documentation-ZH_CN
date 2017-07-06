@@ -1,64 +1,67 @@
-# Contributing to ZeroNet
+# 为ZeroNet贡献一份力
 
-Thank you for using ZeroNet. ZeroNet is a collaborative effort of 67+ decentralization enthusiasts just like you. We appreciate all users that catch bugs, improve documentation and have good ideas of designing new protocols. Here are a few guidelines we ask you to follow to get started with making your contribution.
+感谢使用ZeroNet. ZeroNet 是一个超过67名去中心化爱好者协作劳动的成果，就像你一样。 我们感谢所有向我们汇报bug、编纂和更新文档、以及提出并实现新点子和新协议的用户。假如你想要为Zeronet做出贡献，请看看下面的这些指南。
 
-### You don’t have to contribute source code
+### 你不需要拥有编程技能。
 
-In fact, a majority of contributors do not submit source code. Even if you like to write programs, other types of contribution are also welcomed.
+实际上，这个项目的大部分贡献者并不编写代码，即使我们很喜欢为ZeroNet提供代码的网友，我们也十分欢迎别的方面的贡献者。
 
-### Do you like to write?
+### 喜欢写文章?
 
-- Write about ZeroNet.
-- Write tutorials to help people set things up.
-- Help translate ZeroNet.
-- Improve this documentation. This documentation is a written by many community members all over the world.
+- 写写关于ZeroNet的文章，让更多人知道它。
+- 写一些教程，让别人容易上手这个软件。
+- 帮助翻译ZeroNet。
+- 改进和更新这个参考文档。这个文档由遍布全世界的许多社区成员编写。
 
-### Do you like helping people?
+### 喜欢帮助别人?
 
-- Subscribe to our [issue tracker on GitHub](https://github.com/HelloZeroNet/ZeroNet/issues) and help people solve problems.
-- Join us on [Gitter](https://gitter.im/HelloZeroNet/ZeroNet) and IRC channel [#zeronet @ freenode](https://kiwiirc.com/client/irc.freenode.net/zeronet) and help answer questions.
-- Set up a seed box and help make the network faster.
+- 订阅我们的 [issue tracker on GitHub](https://github.com/HelloZeroNet/ZeroNet/issues) and help people solve problems.
+- 在 [Gitter](https://gitter.im/HelloZeroNet/ZeroNet) 上加入我们，或者加入IRC频道[#zeronet @ freenode](https://kiwiirc.com/client/irc.freenode.net/zeronet) ，并解决他人的疑惑
+- 持续运行ZeroNet的一个节点，让整个网络更快。
 
-### Do you like to make websites?
+### 想要搭站点?
 
-- Create new ZeroNet sites. Go ahead and make your own blog on ZeroNet. [It is easy and costs little.](../using_zeronet/create_new_site.md)
-- “Content is king!” as NoFish puts. The network is worth nothing without content, so we need You to make it succeed.
+- 设立新的ZeroNet站点。比如创建你自己的博客。 [这真的非常简单，而且几乎是免费的](../using_zeronet/create_new_site.md)
+- “内容为王！”  我们的整个网络假如没有了内容，就变得没有价值。所以我们邀请你共同带来ZeroNet的繁荣和丰富。
 
-### Do you like to do research?
+### 想要做研究?
 
-- Help us investigate our [hard issues](https://github.com/HelloZeroNet/ZeroNet/labels/help%20wanted).
-- Join our discussion of designing new features and protocols, such as [I2P support](https://github.com/HelloZeroNet/ZeroNet/issues/45) and [DHT support](https://github.com/HelloZeroNet/ZeroNet/issues/57).
-- Do you own a [Raspberry Pi](https://github.com/HelloZeroNet/ZeroNet#linux-terminal), a [C.H.I.P.](http://127.0.0.1:43110/Blog.ZeroNetwork.bit/?Post:94:Running+ZeroNet+on+a+$9%C2%A0computer) or an [open router](https://github.com/HelloZeroNet/ZeroNet/issues/783)? Try running ZeroNet on it and tell us how well ZeroNet works on your device.
+- 帮助我们研究[复杂的主意](https://github.com/HelloZeroNet/ZeroNet/labels/help%20wanted).
+- 加入我们关于设计新的特性和协议的讨论，例如[I2P支持](https://github.com/HelloZeroNet/ZeroNet/issues/45) 和 [DHT支持](https://github.com/HelloZeroNet/ZeroNet/issues/57).
+- 你是否拥有一个 [树莓派微型电脑](https://github.com/HelloZeroNet/ZeroNet#linux-terminal), 或者一个 [C.H.I.P.掌上电脑](http://127.0.0.1:43110/Blog.ZeroNetwork.bit/?Post:94:Running+ZeroNet+on+a+$9%C2%A0computer) ，或者一个[开源路由器](https://github.com/HelloZeroNet/ZeroNet/issues/783)？试试在这些设备上运行ZeroNet，并且向我们反馈你是如何让ZeroNet在上面跑起来的。
 
-### Do you like to write code?
+### 想要写代码?
 
-- If you know Python, you can pick a task from our [issue tracker on GitHub](https://github.com/HelloZeroNet/ZeroNet/issues).
-- You are also welcomed develop your own ideas. Before you start, please [open a new discussion](https://github.com/HelloZeroNet/ZeroNet/issues/new) to let the community know, so you can make sure we can share our ideas to make the best out of it.
-- Keep your coding style consistent. We ask you to follow our coding convention below.
+- 假如你会Python语言，你可以从我们Github上的[issue追踪列表](https://github.com/HelloZeroNet/ZeroNet/issues)上找一个任务，试着挑战实现它。
+- 假如你自己有一些好点子想要实现，我们也十分欢迎。在你开始动工之前，请[创建一个新的讨论](https://github.com/HelloZeroNet/ZeroNet/issues/new) 让社区知道你的好点子，这样大家可以一起头脑风暴，互相分享更深入的主意，把你的点子实现得更棒。
+- 请稍微注意一下代码风格，我们下面列出了一些基本要求。
 
-### Do you like to offer financial support?
+ - [PEP8](https://www.python.org/dev/peps/pep-0008/)
+ - 简洁的代码
+ - 过早优化是万恶之源
 
-- You can [donate bitcoins](donate.md) to support ZeroNet.
+### 想要提供资金支持?
+
+- 可以通过 [捐赠比特币](donate.md) 来赞助 ZeroNet.
 
 
-## Coding convention
+# 假如你要参与ZeroNet的开发工作，请使用以下编程风格
+ - [PEP8](https://www.python.org/dev/peps/pep-0008/)
+ - 简洁的代码
+ - 过早优化是万恶之源
 
-- Follow [PEP8](https://www.python.org/dev/peps/pep-0008/)
-- Simple is better than complex
-- Premature optimization is the root of all evil
+### 命名
+ - 类命名: 首字母大写的驼峰命名法
+ - 函数命名: 首字母小写的驼峰命名法
+ - 变量命名: 全部小写，单词间使用下划线
 
-### Naming
-- ClassNames: Capitalized, CamelCased
-- functionNames: starts with lowercase, camelCased
-- variable_names: lowercased, under_scored
+### 变量
+ - file_path: 通过程序运行路径来引用的文件 (data/17ib6teRqdVgjB698T4cD1zDXKgPqpkrMg/css/all.css)
+ - inner_path: 通过站点相对路径来引用的文件 (css/all.css)
+ - file_name: all.css
+ - file: Python文件对象
+ - privatekey: 站点的私钥 (without _)
 
-### Variables
-- file_path: File path relative to working dir (data/17ib6teRqdVgjB698T4cD1zDXKgPqpkrMg/css/all.css)
-- inner_path: File relative to site dir (css/all.css)
-- file_name: all.css
-- file: Python file object
-- privatekey: Private key for the site (without `_`)
-
-### Source files directories and naming
-- One class per file is preferred
-- Source file name and directory comes from ClassName: WorkerManager class = Worker/WorkerManager.py
+### 源文件、目录和命名
+ - 每个文件最好只有一个类
+ - 源文件名和目录名最好用以类的名称来命名，例如：WorkerManager class = Worker/WorkerManager.py
