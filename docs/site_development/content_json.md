@@ -1,4 +1,4 @@
-# Structure of content.json
+# content.json的结构
 
 Every ZeroNet site will have a `content.json` file. ([Example content.json file](https://github.com/HelloZeroNet/ZeroTalk/blob/master/content.json))
 
@@ -7,14 +7,14 @@ This file will carry, among other things, a list of all files on your site and a
 Here is a list of supported keys:
 
 
-# Generated automatically
+# 自动生成
 
 
 ---
 
 ### address
 
-Your site address
+你的站点地址
 
 **Example**: 1TaLk3zM7ZRskJvrh3ZNCDVGXvkJusPKQ
 

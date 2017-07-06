@@ -1,14 +1,14 @@
-# Structure of dbschema.json
+# dbschema.json的结构
 
-[Example dbschema.json file](https://github.com/HelloZeroNet/ZeroTalk/blob/master/dbschema.json)
+[ dbschema.json 一个示例](https://github.com/HelloZeroNet/ZeroTalk/blob/master/dbschema.json)
 
-The code below will do the following:
+代码会做以下这些工作：
 
- - If an updated data/users/*/data.json file is received (eg.: a user posted something):
-   - Every row in `data["topics"]` is loaded to the `topic` table
-   - Every key in `data["comment_votes"]` is loaded to the `comment_vote` table as `comment_hash` col and the values stored in same line as `vote`
- - If an updated data/users/content.json file is received (eg.: new user created):
-   - The `"user_id", "user_name", "max_size", "added"` key in value of `content["include"]` is loaded into the `user` table and the key is stored as `path`
+ - 假如收到了一个更新的 data/users/*/data.json 文件 (例如：某个用户发送了一条评论):
+   -  `data["topics"]` 的每一行都会载入到 `topic` 表中
+   -  `data["comment_votes"]` 的每一个key都会载入到 `comment_vote` 表中，而 `comment_hash` 的栏和值会储存到对应的 `vote`行。
+ - 假如收到了一个更新的 data/users/content.json 文件 (例如：一个新用户完成注册):
+   -  `"user_id", "user_name", "max_size", "added"`的key 连同 `content["include"]`的值 会加载到 `user` 表中，而key会存储为 `path`
 
 ```json
 
@@ -115,7 +115,7 @@ The code below will do the following:
 }
 ```
 
-## Example for data.json file
+##  data.json 的一个示例
 ```json
 {
   "next_topic_id": 2,
@@ -173,7 +173,7 @@ The code below will do the following:
 }
 ```
 
-## Example for content.json file
+## content.json 的一个示例
 
 ```json
 {
