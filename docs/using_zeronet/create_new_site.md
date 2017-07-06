@@ -1,18 +1,18 @@
-# Create new ZeroNet site
+# 创建一个新的ZeroNet站点
 
-## Easy way: Using the web interface
+## 简单方法: 使用浏览器里的web界面
 
- * Click on **⋮** > **"Create new, empty site"** menu item on the site ZeroHello.
- * You will be **redirected** to a completely new site that is only modifiable by you!
- * You can find and modify your site's content in **data/[yoursiteaddress]** directory
- * After the modifications open your site, drag the topright "0" button to left, then press **sign** and **publish** buttons on the bottom
+ * 在ZeroHello里点击 **⋮** > **"创建新的空站点"** 菜单项。
+ * 你会被 **重定向** 到一个全新的网页，只有你能修改它!
+ * 你可以搜索和修改你的站点内容，在 **data/[你的站点地址]** 目录
+ * 每次修改后，你需要在浏览器中打开你的站点，向左拖拽页面右上角的 "0" 标志以打开管理侧栏，然后按下面的 **签名** 和 **发布** 按钮。
 
-## Manual way: Using the command line
+## 手工方法：使用命令行
 
-### 1. Create site structure
+### 1. 创建站点的初始结构
 
-* Shut down ZeroNet if it is running
-* Browse to the folder where ZeroNet is installed and run:
+* 假如ZeroNet正在运行，关闭它。
+* 定位到ZeroNet的安装/运行路径，然后执行
 
 ```bash
 $ zeronet.py siteCreate
@@ -25,15 +25,15 @@ $ zeronet.py
 ...
 ```
 
-- This will create the initial files for your site inside ```data/13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2```.
+- 这样会在目录 ```data/13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2```下，生成你的站点的初始文件。
 
 > __Note:__
-> Windows users using the bundle version must browse into the ZeroBundle/ZeroNet folder and run `"../Python/python.exe" zeronet.py siteCreate`
+> 对于使用安装包的Windows用户：必须定位到ZeroBundle/ZeroNet目录，然后运行`"../Python/python.exe" zeronet.py siteCreate`
 
-### 2. Build/Modify site
+### 2. 新建/修改页面
 
-* Update the site files located in ```data/[your site address key]``` (eg: 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2).
-* When your site is ready run:
+* 在文件夹的这个地方 ```data/[你的站点地址]``` (例如 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2) 修改或者创建新的网页文件
+* 修改完毕之后，运行以下命令：
 
 ```bash
 $ zeronet.py siteSign 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
@@ -41,11 +41,11 @@ $ zeronet.py siteSign 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
 Private key (input hidden):
 ```
 
-* Enter the private key you got when you created the site. This will sign all files so peers can verify that the site owner is who made the changes.
+* 输入你创建这个站点时的私钥。这一步的目的是签署所有文件，以便于别的用户在浏览时确保是站点的所有者——你做了这些变更。
 
-### 3. Publish site changes
+### 3. 发布页面更改
 
-* In order to inform peers about the changes you made you need to run:
+* 为了通知别的用户你已经对页面进行了更改，你需要执行以下命令：
 
 ```bash
 $ zeronet.py sitePublish 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
@@ -55,8 +55,8 @@ Site:13DNDk..bhC2 Successfuly published to 3 peers
 - Serving files....
 ```
 
-* That's it! You've successfully signed and published your modifications.
-* Your site will be accessible from: ```http://localhost:43110/13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2```
+* 大功告成！你已经成功地签署（验证身份）和发布了你修改后的页面。
+* 你的网站可以通过这样来浏览了 ```http://localhost:43110/13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2```
 
 
-**Next steps:** [ZeroNet Developer Documentation](/site_development/getting_started/)
+**下一步：** [ZeroNet 开发者文档](/site_development/getting_started/)
