@@ -1,8 +1,8 @@
 site_name: ZeroNet
-site_url: https://github.com/HelloZeroNet/ZeroNet
+site_url: https://github.com/stgapr/zeronet-Documentation-ZH_CN
 site_description: 使用比特币加密技术和BT机制的去中心化网络
 
-repo_url: https://github.com/HelloZeroNet/ZeroNet
+repo_url: https://github.com/stgapr/zeronet-Documentation-ZH_CN
 
 extra_css: [docs.css]
 extra_javascript: [docs.js]

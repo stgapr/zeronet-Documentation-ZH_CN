@@ -74,10 +74,10 @@ ZeroNet在设计上也支持额外的匿名网络: 你很容易通过洋葱路�
 编辑配置以启用控制协议:
 
  - `mcedit /etc/tor/torrc`
- - Remove the `#` character from lines `ControlPort 9051` and `CookieAuthentication 1` (line ~57)
+ - 把`ControlPort 9051` 和 `CookieAuthentication 1` (大约在 57行) 前面的`#` 号去掉
  - `/etc/init.d/tor restart`
- - Add permission yourself to read the auth cookie by `usermod -a -G debian-tor [yourlinuxuser]`<br>(if you are not on Debian check the file's user group by `ls -al /var/run/tor/control.authcookie`)
- - Logout/Login with your user to apply group changes
+ - 执行 `usermod -a -G debian-tor [yourlinuxuser]`命令，以给你自己添加上读取授权cookie的权限<br>(假如不是Debian发行版，你可能需要查看文件所属的用户组 `ls -al /var/run/tor/control.authcookie`)
+ - 退出并重新登录你的系统账号以应用权限变更操作。
 
 > __提示：__ 你可以通过输入命令 `echo 'PROTOCOLINFO' | nc 127.0.0.1 9051` 来查看Tor是否已经正确运行
 

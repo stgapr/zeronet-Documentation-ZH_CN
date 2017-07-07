@@ -355,7 +355,7 @@
     <li class="wy-breadcrumbs-aside">
       
         
-          <a href="https://github.com/HelloZeroNet/ZeroNet" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/stgapr/zeronet-Documentation-ZH_CN" class="icon icon-github"> Edit on GitHub</a>
         
       
     </li>
@@ -1068,7 +1068,7 @@ submitTopicVote: (e) =&gt;
 
 <hr />
 <h4 id="sitepublish-privatekey-inner_path-sign">sitePublish <em>[privatekey], [inner_path], [sign]</em></h4>
-<p>Publish a content.json of the site</p>
+<p>发布该站点的content.json 文件</p>
 <table>
 <thead>
 <tr>
@@ -1104,7 +1104,7 @@ submitTopicVote: (e) =&gt;
 
 <hr />
 <h4 id="sitesign-privatekey-inner_path">siteSign <em>[privatekey], [inner_path]</em></h4>
-<p>Sign a content.json of the site</p>
+<p>签署该站点的content.json 文件</p>
 <table>
 <thead>
 <tr>
@@ -1136,7 +1136,7 @@ ZeroNet会使用"stored" 作为私钥，假如这个字段定义在users.json中
 
 <hr />
 <h4 id="siteupdate-address">siteUpdate <em>address</em></h4>
-<p>Force check and download changed content from other peers (only necessary if user is in passive mode and using old version of Zeronet)</p>
+<p>从别的用户节点那儿强行检查并下载更改过的内容（当客户端为被动模式且正在使用旧版本的ZeroNet时才有必要使用该命令）</p>
 <table>
 <thead>
 <tr>
@@ -1153,7 +1153,7 @@ ZeroNet会使用"stored" 作为私钥，假如这个字段定义在users.json中
 </table>
 <p><strong>Return:</strong> None</p>
 <p><strong>举例：</strong></p>
-<pre><code class="coffeescript"># Manual site update for passive connections
+<pre><code class="coffeescript"># 对于被动连接，进行手动强制更新
 updateSite: =&gt;
     $(&quot;#passive_error a&quot;).addClass(&quot;loading&quot;).removeClassLater(&quot;loading&quot;, 1000)
     @log &quot;Updating site...&quot;
@@ -1631,7 +1631,7 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>address</strong></td>
-<td>Address of site you want to list helped directories (default: current site)</td>
+<td>你想要帮助分发的、具有可选文件的站点地址 (默认：当前站点)</td>
 </tr>
 </tbody>
 </table>
@@ -1684,8 +1684,7 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 </table>
 <hr />
 <h4 id="actionoptionalhelpall-value-address">actionOptionalHelpAll value, <em>[address]</em></h4>
-<p>帮助下载（和分发）所有新上传到站点的文件
-Help download every new uploaded optional file to the site</p>
+<p>帮助下载（和分发）所有新上传到站点的文件</p>
 <table>
 <thead>
 <tr>

@@ -613,7 +613,7 @@ _提示：_  假如想要写入那些不在content.json里列出的文件，你�
 
 
 #### sitePublish _[privatekey], [inner_path], [sign]_
-Publish a content.json of the site
+发布该站点的content.json 文件
 
 参数                     | 描述
                      --- | ---
@@ -639,7 +639,7 @@ Publish a content.json of the site
 
 
 #### siteSign _[privatekey], [inner_path]_
-Sign a content.json of the site
+签署该站点的content.json 文件
 
 参数                    | 描述
                     --- | ---
@@ -665,7 +665,7 @@ if @site_info["privatekey"] # 定义在users.json中的私钥
 
 #### siteUpdate _address_
 
-Force check and download changed content from other peers (only necessary if user is in passive mode and using old version of Zeronet)
+从别的用户节点那儿强行检查并下载更改过的内容（当客户端为被动模式且正在使用旧版本的ZeroNet时才有必要使用该命令）
 
 参数          | 描述
           --- | ---
@@ -675,7 +675,7 @@ Force check and download changed content from other peers (only necessary if use
 
 **举例：**
 ```coffeescript
-# Manual site update for passive connections
+# 对于被动连接，进行手动强制更新
 updateSite: =>
 	$("#passive_error a").addClass("loading").removeClassLater("loading", 1000)
 	@log "Updating site..."
@@ -1005,7 +1005,7 @@ Remove pinning 已经下载的可选文件(包含自动清理可选文件)
 
 参数                 | 描述
                  --- | ---
-**address**          | Address of site you want to list helped directories (default: current site)
+**address**          | 你想要帮助分发的、具有可选文件的站点地址 (默认：当前站点)
 
 **返回值**: 自动下载目录的列表和描述 （字典）
 
@@ -1038,7 +1038,6 @@ Remove pinning 已经下载的可选文件(包含自动清理可选文件)
 #### actionOptionalHelpAll value, _[address]_
 
 帮助下载（和分发）所有新上传到站点的文件
-Help download every new uploaded optional file to the site
 
 参数                 | 描述
                  --- | ---

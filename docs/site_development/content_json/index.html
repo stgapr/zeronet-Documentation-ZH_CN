@@ -259,7 +259,7 @@
     <li class="wy-breadcrumbs-aside">
       
         
-          <a href="https://github.com/HelloZeroNet/ZeroNet" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/stgapr/zeronet-Documentation-ZH_CN" class="icon icon-github"> Edit on GitHub</a>
         
       
     </li>
@@ -281,19 +281,19 @@
 <hr />
 <h3 id="address_index">address_index</h3>
 <p>The site's address BIP32 sub-key index  of BIP32 种子。在你克隆一个网站时自动生成。你可以从BIP32种子来还原推算出站点的私钥。</p>
-<p><strong>Example</strong>: 30926910</p>
+<p><strong>举例</strong>   : 30926910</p>
 <hr />
 <h3 id="cloned_from">cloned_from</h3>
 <p>克隆来源的那个站点的地址</p>
-<p><strong>Example</strong>: 1BLogC9LN4oPDcruNz3qo1ysa133E9AGg8</p>
+<p><strong>举例</strong>   : 1BLogC9LN4oPDcruNz3qo1ysa133E9AGg8</p>
 <hr />
 <h3 id="clone_root">clone_root</h3>
 <p>克隆来源站点的那个站点的顶层子目录</p>
-<p><strong>Example</strong>: template-new</p>
+<p><strong>举例</strong>   : template-new</p>
 <hr />
 <h3 id="files">files</h3>
 <p>当浏览你的站点时，会自动下载的那些文件的大小和SHA512哈希值。在执行 <code>zeronet.py siteSign siteaddress privatekey</code>操作时，自动生成。</p>
-<p><strong>Example</strong>:</p>
+<p><strong>举例</strong>   :</p>
 <pre><code class="json">    &quot;css/all.css&quot;: {
       &quot;sha512&quot;: &quot;869b09328f07bac538c313c4702baa5276544346418378199fa5cef644c139e8&quot;,
       &quot;size&quot;: 148208
@@ -302,7 +302,7 @@
 <hr />
 <h3 id="files_optional">files_optional</h3>
 <p>当浏览你的站点时，可选下载的那些文件的大小和SHA512哈希值。在执行 <code>zeronet.py siteSign siteaddress privatekey</code>操作时，自动生成。</p>
-<p><strong>Example</strong>:</p>
+<p><strong>举例</strong>   :</p>
 <pre><code class="json">    &quot;data/myvideo.mp4&quot;: {
       &quot;sha512&quot;: &quot;538c09328aa52765443464135cef644c144346418378199fa5cef61837819538&quot;,
       &quot;size&quot;: 832103
@@ -311,12 +311,12 @@
 <hr />
 <h3 id="modified">modified</h3>
 <p>content.json 的最近修改日期</p>
-<p><strong>Example</strong>: 1425857522.076</p>
+<p><strong>举例</strong>   : 1425857522.076</p>
 <hr />
 <h3 id="sign">sign (已废用)</h3>
 <p>content.json 文件内容的ECDSA签名 (按keys排序， without whitespace and the <code>sign</code> and <code>signers_sign</code> nodes)。
 这是为了版本向后兼容保留下来的。很快就会在新版本中移除。</p>
-<p><strong>Example</strong>:</p>
+<p><strong>举例</strong>   :</p>
 <pre><code class="json">  &quot;sign&quot;: [
     43117356513690007125104018825100786623580298637039067305407092800990252156956,
     94139380599940414070721501960181245022427741524702752954181461080408625270000
@@ -325,19 +325,20 @@
 
 <hr />
 <h3 id="signers_sign">signers_sign</h3>
-<p>Possible signers address for the root content.json signed using the site address private key. (Multisig possibility)</p>
-<p><strong>Format of the signed string</strong>: [number_of_signers_required]:[signer address],[signer address]</p>
-<p><strong>Example</strong>: <small>HKNDz9IUHcBc/l2Jm2Bl70XQDL9HYHhJ2hUdg8AMyunACLgxyXBr7EW1/ME4hGkaFZSFmIxlInmxH+BrMVXbnLw=</small></p>
-<p><em>Another Example</em>:</p>
-<pre><code>signs_required: 1:1PcxwuHYxuJEmM4ydtB1vbiAY6WkNgsz9G,1CK6KHY6MHgYvmRQ4PAafKYDrg1ejbH1cE
-signed message: MEUCIQDuz+CzOVvFkv1P2ra9i5E1p1G0/1cOGecm7GpLpMLhuwIgBIbCL0YHXD1S2+x48QS5VO/rISrkdLiUR+o+x1X0y1A=
+<p>使用站点地址的私钥来对根 content.json 签名的可能的签名者的地址规则
+Possible signers address for the rootsigned using the site address private key. (允许多重签名)</p>
+<p><strong>签名规则的格式</strong>: [需要签名者的个数]:[签名者的地址],[签名者的地址]</p>
+<p><strong>举例</strong>: <small>HKNDz9IUHcBc/l2Jm2Bl70XQDL9HYHhJ2hUdg8AMyunACLgxyXBr7EW1/ME4hGkaFZSFmIxlInmxH+BrMVXbnLw=</small></p>
+<p><strong>另一个例子</strong>:</p>
+<pre><code>所需签名的规则: 1:1PcxwuHYxuJEmM4ydtB1vbiAY6WkNgsz9G,1CK6KHY6MHgYvmRQ4PAafKYDrg1ejbH1cE
+被签名信息: MEUCIQDuz+CzOVvFkv1P2ra9i5E1p1G0/1cOGecm7GpLpMLhuwIgBIbCL0YHXD1S2+x48QS5VO/rISrkdLiUR+o+x1X0y1A=
 </code></pre>
 
-<p>The above signed message is signed using the address, "1PcxwuHYxuJEmM4ydtB1vbiAY6WkNgsz9G"</p>
+<p>上面的被签名信息被"1PcxwuHYxuJEmM4ydtB1vbiAY6WkNgsz9G"签名了。</p>
 <hr />
 <h3 id="signs">signs</h3>
-<p>content.json 文件内容的ECDSA签名 (keys sorted, without whitespace and the <code>sign</code> and <code>signers_sign</code> nodes).</p>
-<p><strong>Example</strong>:</p>
+<p>content.json 文件内容的ECDSA签名 (以keys排序，不包括空节点和 <code>sign</code>和<code>signers_sign</code> 节点).</p>
+<p><strong>举例</strong>   :</p>
 <pre><code class="json">  &quot;signs&quot;: {
     &quot;1TaLk3zM7ZRskJvrh3ZNCDVGXvkJusPKQ&quot;: &quot;G6/QXFKvACPQ7LhoZG4fgqmeOSK99vGM2arVWkm9pV/WPCfc2ulv6iuQnuzw4v5z82qWswcRq907VPdBsdb9VRo=&quot;
   },
@@ -346,12 +347,12 @@ signed message: MEUCIQDuz+CzOVvFkv1P2ra9i5E1p1G0/1cOGecm7GpLpMLhuwIgBIbCL0YHXD1S
 <hr />
 <h3 id="zeronet_version">zeronet_version</h3>
 <p>生成 content.json 文件的ZeroNet版本号。</p>
-<p><strong>Example</strong>: 0.2.5</p>
+<p><strong>举例</strong>   : 0.2.5</p>
 <hr />
 <h1 id="settings">Settings</h1>
 <h3 id="background-color">background-color</h3>
 <p>装饰器的背景色</p>
-<p><strong>Example</strong>: #F5F5F5</p>
+<p><strong>举例</strong>   : #F5F5F5</p>
 <hr />
 <h3 id="cloneable">cloneable</h3>
 <p>假如为<strong>true</strong>，则允许该站点被克隆</p>
@@ -393,7 +394,7 @@ signed message: MEUCIQDuz+CzOVvFkv1P2ra9i5E1p1G0/1cOGecm7GpLpMLhuwIgBIbCL0YHXD1S
 <hr />
 <h3 id="optional">optional</h3>
 <p>指定可选下载文件的通配表达式</p>
-<p><strong>Example</strong>: <code>(data/mp4/.*|updater/.*)</code> (在data/mp4 和updater目录中的文件都是可选下载的)</p>
+<p><strong>举例</strong>   : <code>(data/mp4/.*|updater/.*)</code> (在data/mp4 和updater目录中的文件都是可选下载的)</p>
 <hr />
 <h3 id="signs_required">signs_required</h3>
 <p>为了确认一个文件的真实性而需要的有效签名<strong>数量</strong>  (允许多签名)</p>
@@ -405,7 +406,7 @@ signed message: MEUCIQDuz+CzOVvFkv1P2ra9i5E1p1G0/1cOGecm7GpLpMLhuwIgBIbCL0YHXD1S
 <hr />
 <h3 id="translate">translate</h3>
 <p>需要被翻译的文件. (<code>languages</code> 目录里有翻译用的json文件)</p>
-<p><strong>Example</strong>: ["index.html", "js/all.js"]</p>
+<p><strong>举例</strong>   : ["index.html", "js/all.js"]</p>
 <hr />
 <h3 id="favicon">favicon</h3>
 <p>站点的logo。你可以手动设置它，以取代ZeroNet提供的默认站点logo。</p>

@@ -3,7 +3,7 @@
 
     
     <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/</loc>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/</loc>
      <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -11,7 +11,7 @@
 
     
     <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/faq/</loc>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/faq/</loc>
      <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -20,53 +20,19 @@
     
         
     <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/using_zeronet/installing/</loc>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/using_zeronet/installing/</loc>
      <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/using_zeronet/sample_sites/</loc>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/using_zeronet/sample_sites/</loc>
      <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/using_zeronet/create_new_site/</loc>
-     <lastmod>2017-07-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/site_development/getting_started/</loc>
-     <lastmod>2017-07-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/site_development/zeroframe_api_reference/</loc>
-     <lastmod>2017-07-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/site_development/content_json/</loc>
-     <lastmod>2017-07-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/site_development/dbschema_json/</loc>
-     <lastmod>2017-07-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/site_development/cert_authority/</loc>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/using_zeronet/create_new_site/</loc>
      <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -76,19 +42,53 @@
     
         
     <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/help_zeronet/contributing/</loc>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/site_development/getting_started/</loc>
      <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/help_zeronet/network_protocol/</loc>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/site_development/zeroframe_api_reference/</loc>
      <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>https://github.com/HelloZeroNet/ZeroNet/help_zeronet/donate/</loc>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/site_development/content_json/</loc>
+     <lastmod>2017-07-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/site_development/dbschema_json/</loc>
+     <lastmod>2017-07-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/site_development/cert_authority/</loc>
+     <lastmod>2017-07-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/help_zeronet/contributing/</loc>
+     <lastmod>2017-07-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/help_zeronet/network_protocol/</loc>
+     <lastmod>2017-07-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://github.com/stgapr/zeronet-Documentation-ZH_CN/help_zeronet/donate/</loc>
      <lastmod>2017-07-07</lastmod>
      <changefreq>daily</changefreq>
     </url>

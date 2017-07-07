@@ -26,7 +26,7 @@
 
 The site's address BIP32 sub-key index  of BIP32 种子。在你克隆一个网站时自动生成。你可以从BIP32种子来还原推算出站点的私钥。
 
-**Example**: 30926910
+**举例**   : 30926910
 
 ---
 
@@ -35,7 +35,7 @@ The site's address BIP32 sub-key index  of BIP32 种子。在你克隆一个网�
 
 克隆来源的那个站点的地址
 
-**Example**: 1BLogC9LN4oPDcruNz3qo1ysa133E9AGg8
+**举例**   : 1BLogC9LN4oPDcruNz3qo1ysa133E9AGg8
 
 ---
 
@@ -44,7 +44,7 @@ The site's address BIP32 sub-key index  of BIP32 种子。在你克隆一个网�
 
 克隆来源站点的那个站点的顶层子目录
 
-**Example**: template-new
+**举例**   : template-new
 
 
 ---
@@ -54,7 +54,7 @@ The site's address BIP32 sub-key index  of BIP32 种子。在你克隆一个网�
 
 当浏览你的站点时，会自动下载的那些文件的大小和SHA512哈希值。在执行 `zeronet.py siteSign siteaddress privatekey`操作时，自动生成。
 
-**Example**:
+**举例**   :
 ```json
     "css/all.css": {
       "sha512": "869b09328f07bac538c313c4702baa5276544346418378199fa5cef644c139e8",
@@ -69,7 +69,7 @@ The site's address BIP32 sub-key index  of BIP32 种子。在你克隆一个网�
 
 当浏览你的站点时，可选下载的那些文件的大小和SHA512哈希值。在执行 `zeronet.py siteSign siteaddress privatekey`操作时，自动生成。
 
-**Example**:
+**举例**   :
 ```json
     "data/myvideo.mp4": {
       "sha512": "538c09328aa52765443464135cef644c144346418378199fa5cef61837819538",
@@ -85,7 +85,7 @@ The site's address BIP32 sub-key index  of BIP32 种子。在你克隆一个网�
 
 content.json 的最近修改日期
 
-**Example**: 1425857522.076
+**举例**   : 1425857522.076
 
 
 ---
@@ -96,7 +96,7 @@ content.json 的最近修改日期
 content.json 文件内容的ECDSA签名 (按keys排序， without whitespace and the `sign` and `signers_sign` nodes)。
 这是为了版本向后兼容保留下来的。很快就会在新版本中移除。
 
-**Example**:
+**举例**   :
 ```json
   "sign": [
     43117356513690007125104018825100786623580298637039067305407092800990252156956,
@@ -110,27 +110,29 @@ content.json 文件内容的ECDSA签名 (按keys排序， without whitespace and
 
 ### signers_sign
 
-Possible signers address for the root content.json signed using the site address private key. (Multisig possibility)
+使用站点地址的私钥来对根 content.json 签名的可能的签名者的地址规则
+Possible signers address for the rootsigned using the site address private key. (允许多重签名)
 
-**Format of the signed string**: [number_of_signers_required]:[signer address],[signer address]
+**签名规则的格式**: [需要签名者的个数]:[签名者的地址],[签名者的地址]
 
-**Example**: <small>HKNDz9IUHcBc/l2Jm2Bl70XQDL9HYHhJ2hUdg8AMyunACLgxyXBr7EW1/ME4hGkaFZSFmIxlInmxH+BrMVXbnLw=</small>
+**举例**: <small>HKNDz9IUHcBc/l2Jm2Bl70XQDL9HYHhJ2hUdg8AMyunACLgxyXBr7EW1/ME4hGkaFZSFmIxlInmxH+BrMVXbnLw=</small>
 
-*Another Example*:
+**另一个例子**:
 ```
-signs_required: 1:1PcxwuHYxuJEmM4ydtB1vbiAY6WkNgsz9G,1CK6KHY6MHgYvmRQ4PAafKYDrg1ejbH1cE
-signed message: MEUCIQDuz+CzOVvFkv1P2ra9i5E1p1G0/1cOGecm7GpLpMLhuwIgBIbCL0YHXD1S2+x48QS5VO/rISrkdLiUR+o+x1X0y1A=
+所需签名的规则: 1:1PcxwuHYxuJEmM4ydtB1vbiAY6WkNgsz9G,1CK6KHY6MHgYvmRQ4PAafKYDrg1ejbH1cE
+被签名信息: MEUCIQDuz+CzOVvFkv1P2ra9i5E1p1G0/1cOGecm7GpLpMLhuwIgBIbCL0YHXD1S2+x48QS5VO/rISrkdLiUR+o+x1X0y1A=
 ```
-The above signed message is signed using the address, "1PcxwuHYxuJEmM4ydtB1vbiAY6WkNgsz9G"
+
+上面的被签名信息被"1PcxwuHYxuJEmM4ydtB1vbiAY6WkNgsz9G"签名了。
 
 ---
 
 
 ### signs
 
-content.json 文件内容的ECDSA签名 (keys sorted, without whitespace and the `sign` and `signers_sign` nodes).
+content.json 文件内容的ECDSA签名 (以keys排序，不包括空节点和 `sign`和`signers_sign` 节点).
 
-**Example**:
+**举例**   :
 ```json
   "signs": {
     "1TaLk3zM7ZRskJvrh3ZNCDVGXvkJusPKQ": "G6/QXFKvACPQ7LhoZG4fgqmeOSK99vGM2arVWkm9pV/WPCfc2ulv6iuQnuzw4v5z82qWswcRq907VPdBsdb9VRo="
@@ -145,7 +147,7 @@ content.json 文件内容的ECDSA签名 (keys sorted, without whitespace and the
 
 生成 content.json 文件的ZeroNet版本号。
 
-**Example**: 0.2.5
+**举例**   : 0.2.5
 
 
 ---
@@ -158,7 +160,7 @@ content.json 文件内容的ECDSA签名 (keys sorted, without whitespace and the
 
 装饰器的背景色
 
-**Example**: #F5F5F5
+**举例**   : #F5F5F5
 
 
 ---
@@ -245,7 +247,7 @@ content.json 文件内容的ECDSA签名 (keys sorted, without whitespace and the
 
 指定可选下载文件的通配表达式
 
-**Example**: `(data/mp4/.*|updater/.*)` (在data/mp4 和updater目录中的文件都是可选下载的)
+**举例**   : `(data/mp4/.*|updater/.*)` (在data/mp4 和updater目录中的文件都是可选下载的)
 
 
 ---
@@ -276,7 +278,7 @@ content.json 文件内容的ECDSA签名 (keys sorted, without whitespace and the
 
 需要被翻译的文件. (`languages` 目录里有翻译用的json文件)
 
-**Example**: ["index.html", "js/all.js"]
+**举例**   : ["index.html", "js/all.js"]
 
 
 ----

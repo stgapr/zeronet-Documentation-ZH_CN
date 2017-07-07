@@ -235,7 +235,7 @@
     <li class="wy-breadcrumbs-aside">
       
         
-          <a href="https://github.com/HelloZeroNet/ZeroNet" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/stgapr/zeronet-Documentation-ZH_CN" class="icon icon-github"> Edit on GitHub</a>
         
       
     </li>
@@ -296,10 +296,10 @@
 <p>编辑配置以启用控制协议:</p>
 <ul>
 <li><code>mcedit /etc/tor/torrc</code></li>
-<li>Remove the <code>#</code> character from lines <code>ControlPort 9051</code> and <code>CookieAuthentication 1</code> (line ~57)</li>
+<li>把<code>ControlPort 9051</code> 和 <code>CookieAuthentication 1</code> (大约在 57行) 前面的<code>#</code> 号去掉</li>
 <li><code>/etc/init.d/tor restart</code></li>
-<li>Add permission yourself to read the auth cookie by <code>usermod -a -G debian-tor [yourlinuxuser]</code><br>(if you are not on Debian check the file's user group by <code>ls -al /var/run/tor/control.authcookie</code>)</li>
-<li>Logout/Login with your user to apply group changes</li>
+<li>执行 <code>usermod -a -G debian-tor [yourlinuxuser]</code>命令，以给你自己添加上读取授权cookie的权限<br>(假如不是Debian发行版，你可能需要查看文件所属的用户组 <code>ls -al /var/run/tor/control.authcookie</code>)</li>
+<li>退出并重新登录你的系统账号以应用权限变更操作。</li>
 </ul>
 <blockquote>
 <p><strong>提示：</strong> 你可以通过输入命令 <code>echo 'PROTOCOLINFO' | nc 127.0.0.1 9051</code> 来查看Tor是否已经正确运行</p>
