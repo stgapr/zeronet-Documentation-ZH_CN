@@ -125,7 +125,23 @@
                 
                     <li><a class="toctree-l4" href="#wrappergetstate">wrapperGetState</a></li>
                 
-                    <li><a class="toctree-l4" href="#_1">返回值: 浏览器的当前历史的状态对象</a></li>
+                    <li><a class="toctree-l4" href="#wrappernotification-type-message-timeout">wrapperNotification type, message, [timeout]</a></li>
+                
+                    <li><a class="toctree-l4" href="#wrapperopenwindow-_url-target-specs">wrapperOpenWindow _url, [target], [specs]</a></li>
+                
+                    <li><a class="toctree-l4" href="#wrapperpermissionadd-permission">wrapperPermissionAdd permission</a></li>
+                
+                    <li><a class="toctree-l4" href="#wrapperprompt-message-type">wrapperPrompt message, [type]</a></li>
+                
+                    <li><a class="toctree-l4" href="#wrapperpushstate-state-title-url">wrapperPushState state, title, url</a></li>
+                
+                    <li><a class="toctree-l4" href="#wrapperreplacestate-state-title-url">wrapperReplaceState state, title, url</a></li>
+                
+                    <li><a class="toctree-l4" href="#wrappersetlocalstorage-data">wrapperSetLocalStorage data</a></li>
+                
+                    <li><a class="toctree-l4" href="#wrappersettitle-title">wrapperSetTitle title</a></li>
+                
+                    <li><a class="toctree-l4" href="#wrappersetviewport-viewport">wrapperSetViewport viewport</a></li>
                 
             
                 <li class="toctree-l3"><a href="#uiserver">UiServer</a></li>
@@ -401,7 +417,8 @@ siteDelete: (address) -&gt;
 
 <hr />
 <h4 id="wrappergetstate">wrapperGetState</h4>
-<h2 id="_1"><strong>返回值</strong>: 浏览器的当前历史的状态对象</h2>
+<p><strong>返回值</strong>: 浏览器的当前历史的状态对象</p>
+<hr />
 <h4 id="wrappernotification-type-message-timeout">wrapperNotification <em>type, message, [timeout]</em></h4>
 <p>显示一条消息</p>
 <table>
@@ -421,7 +438,7 @@ siteDelete: (address) -&gt;
 <td>你想要弹出的消息</td>
 </tr>
 <tr>
-<td><strong>timeout</strong> (optional)</td>
+<td><strong>timeout</strong> （可选）</td>
 <td>在多少秒后自动隐藏消息（可选的）（以毫秒计）</td>
 </tr>
 </tbody>
@@ -493,7 +510,7 @@ siteDelete: (address) -&gt;
 <td>想显示的消息</td>
 </tr>
 <tr>
-<td><strong>type</strong> (optional)</td>
+<td><strong>type</strong> （可选）</td>
 <td>输入类型 (默认： text)</td>
 </tr>
 </tbody>
@@ -522,7 +539,7 @@ siteDelete: (address) -&gt;
 <tbody>
 <tr>
 <td><strong>state</strong></td>
-<td>State javascript object</td>
+<td>状态的js对象</td>
 </tr>
 <tr>
 <td><strong>title</strong></td>
@@ -540,7 +557,7 @@ siteDelete: (address) -&gt;
 
 <hr />
 <h4 id="wrapperreplacestate-state-title-url">wrapperReplaceState <em>state, title, url</em></h4>
-<p>改变URL，然而不在浏览器历史记录中添加新的一行。 参加: <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method">replaceState JS 方法</a></p>
+<p>改变URL，然而不在浏览器历史记录中添加新的一行。 参见: <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method">replaceState JS 方法</a></p>
 <table>
 <thead>
 <tr>
@@ -551,7 +568,7 @@ siteDelete: (address) -&gt;
 <tbody>
 <tr>
 <td><strong>state</strong></td>
-<td>State javascript object</td>
+<td>状态的js对象</td>
 </tr>
 <tr>
 <td><strong>title</strong></td>
@@ -603,7 +620,7 @@ Page.cmd &quot;wrapperSetLocalStorage&quot;, Page.local_storage
 <tbody>
 <tr>
 <td><strong>title</strong></td>
-<td>New browser tab title</td>
+<td>新的浏览器窗口/标签页标题</td>
 </tr>
 </tbody>
 </table>
@@ -637,10 +654,10 @@ Page.cmd &quot;wrapperSetLocalStorage&quot;, Page.local_storage
 
 <hr />
 <h1 id="uiserver">UiServer</h1>
-<p>The UiServer is for ZeroNet what the LAMP setup is for normal websites.</p>
-<p>The UiServer will do all the 'backend' work (eg: querying the DB, accessing files, etc). This are the API calls you will need to make your site dynamic.</p>
+<p>UiServer 对于ZeroNet的意义，和LAMP（Linux Apache mySQL和PHP）对普通网站的意义差不多。</p>
+<p>UiServer 实现了所有后端处理工作 (例如在数据库中查询，处理文件等），这些API让你能创建动态网站。</p>
 <h4 id="certadd-domain-auth_type-auth_user_name-cert">certAdd <em>domain, auth_type, auth_user_name, cert</em></h4>
-<p>Add a new certificate to current user.</p>
+<p>为当前用户添加新的认证</p>
 <table>
 <thead>
 <tr>
@@ -655,19 +672,19 @@ Page.cmd &quot;wrapperSetLocalStorage&quot;, Page.local_storage
 </tr>
 <tr>
 <td><strong>auth_type</strong></td>
-<td>Auth type used on registration</td>
+<td>注册时的认证类型</td>
 </tr>
 <tr>
 <td><strong>auth_user_name</strong></td>
-<td>User name used on registration</td>
+<td>注册时的用户名</td>
 </tr>
 <tr>
 <td><strong>cert</strong></td>
-<td>The cert itself: <code>auth_address#auth_type/auth_user_name</code> string signed by the cert site owner</td>
+<td>证书主体，即为授权站点方签署的 <code>auth_address#auth_type/auth_user_name</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: "ok", "Not changed" or {"error": error_message}</p>
+<p><strong>返回值</strong>: "ok", "Not changed" 或 {"error": error_message}</p>
 <p><strong>举例：</strong></p>
 <pre><code class="coffeescript">@cmd &quot;certAdd&quot;, [&quot;zeroid.bit&quot;, auth_type, user_name, cert_sign], (res) =&gt;
     $(&quot;.ui&quot;).removeClass(&quot;flipped&quot;)
@@ -677,7 +694,7 @@ Page.cmd &quot;wrapperSetLocalStorage&quot;, Page.local_storage
 
 <hr />
 <h4 id="certselect-accepted_domains">certSelect <em>accepted_domains</em></h4>
-<p>Display certificate selector.</p>
+<p>显示认证选择器</p>
 <table>
 <thead>
 <tr>
@@ -699,7 +716,7 @@ Page.cmd &quot;wrapperSetLocalStorage&quot;, Page.local_storage
 
 <hr />
 <h4 id="channeljoin-channel">channelJoin <em>channel</em></h4>
-<p>Request notifications about sites's events.</p>
+<p>请求一个站点事件的通知消息</p>
 <table>
 <thead>
 <tr>
@@ -710,7 +727,7 @@ Page.cmd &quot;wrapperSetLocalStorage&quot;, Page.local_storage
 <tbody>
 <tr>
 <td><strong>channel</strong></td>
-<td>Channel to join</td>
+<td>要加入的频道</td>
 </tr>
 </tbody>
 </table>
@@ -719,7 +736,7 @@ Page.cmd &quot;wrapperSetLocalStorage&quot;, Page.local_storage
 <ul>
 <li><strong>siteChanged</strong> (joined by default)<br>Events: peers_added, file_started, file_done, file_failed</li>
 </ul>
-<p><strong>Example</strong>:</p>
+<p><strong>举例</strong>   </p>
 <pre><code class="coffeescript"># Wrapper websocket connection ready
 onOpenWebsocket: (e) =&gt;
     @cmd &quot;channelJoinAllsite&quot;, {&quot;channel&quot;: &quot;siteChanged&quot;}
@@ -732,7 +749,7 @@ route: (cmd, data) -&gt;
         @log &quot;Unknown command&quot;, cmd, data
 </code></pre>
 
-<p><strong>Example event data</strong></p>
+<p><strong>事件数据(event data)示例</strong></p>
 <pre><code class="json">{
     &quot;tasks&quot;:0,
     &quot;size_limit&quot;:10,
@@ -746,7 +763,7 @@ route: (cmd, data) -&gt;
 
 <hr />
 <h4 id="dbquery-query">dbQuery <em>query</em></h4>
-<p>Run a query on the sql cache</p>
+<p>在SQL缓存上运行一个查询语句</p>
 <table>
 <thead>
 <tr>
@@ -757,13 +774,13 @@ route: (cmd, data) -&gt;
 <tbody>
 <tr>
 <td><strong>query</strong></td>
-<td>Sql query command</td>
+<td>SQL语句</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: <list> Result of the query</p>
+<p><strong>返回值</strong>: <list> 查询结果</p>
 <p><strong>举例：</strong></p>
-<pre><code class="coffeescript">@log &quot;Updating user info...&quot;, @my_address
+<pre><code class="coffeescript">@log &quot;更新用户信息...&quot;, @my_address
 Page.cmd &quot;dbQuery&quot;, [&quot;SELECT user.*, json.json_id AS data_json_id FROM user LEFT JOIN json USING(path) WHERE path='#{@my_address}/data.json'&quot;], (res) =&gt;
     if res.error or res.length == 0 # Db not ready yet or No user found
         $(&quot;.head-user.visitor&quot;).css(&quot;display&quot;, &quot;&quot;)
@@ -779,7 +796,7 @@ Page.cmd &quot;dbQuery&quot;, [&quot;SELECT user.*, json.json_id AS data_json_id
 
 <hr />
 <h4 id="filedelete-inner_path">fileDelete <em>inner_path</em></h4>
-<p>Delete a file</p>
+<p>删除一个文件</p>
 <table>
 <thead>
 <tr>
@@ -794,10 +811,10 @@ Page.cmd &quot;dbQuery&quot;, [&quot;SELECT user.*, json.json_id AS data_json_id
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: "ok" on success else the error message</p>
+<p><strong>返回值</strong>: 假如成功，返回"ok"；否则返回error message</p>
 <hr />
 <h4 id="fileget-inner_path-required-format-timeout">fileGet <em>inner_path, [required], [format], [timeout]</em></h4>
-<p>Get file content</p>
+<p>获取文件内容</p>
 <table>
 <thead>
 <tr>
@@ -808,25 +825,25 @@ Page.cmd &quot;dbQuery&quot;, [&quot;SELECT user.*, json.json_id AS data_json_id
 <tbody>
 <tr>
 <td><strong>inner_path</strong></td>
-<td>The file you want to get</td>
+<td>想获取的文件</td>
 </tr>
 <tr>
-<td><strong>required</strong> (optional)</td>
-<td>Try and wait for the file if it's not exists. (default: True)</td>
+<td><strong>required</strong> （可选）</td>
+<td>假如文件不存在，继续尝试，并且等待该文件 (默认: True)</td>
 </tr>
 <tr>
-<td><strong>format</strong> (optional)</td>
-<td>Encoding of returned data. (text or base64) (default: text)</td>
+<td><strong>format</strong> （可选）</td>
+<td>返回的文件的编码形式 (text 或 base64) （默认： text）</td>
 </tr>
 <tr>
-<td><strong>timeout</strong> (optional)</td>
-<td>Maximum wait time to data arrive (default: 300)</td>
+<td><strong>timeout</strong> （可选）</td>
+<td>超时时长 (默认： 300)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: <string> The content of the file</p>
+<p><strong>返回值</strong>: <string> 文件内容</p>
 <p><strong>举例：</strong></p>
-<pre><code class="coffeescript"># Upvote a topic on ZeroTalk
+<pre><code class="coffeescript"># 在ZeroTalk里赞一个话题
 submitTopicVote: (e) =&gt;
     if not Users.my_name # Not registered
         Page.cmd &quot;wrapperNotification&quot;, [&quot;info&quot;, &quot;Please, request access before posting.&quot;]
@@ -859,7 +876,7 @@ submitTopicVote: (e) =&gt;
 
 <hr />
 <h4 id="filelist-inner_path">fileList <em>inner_path</em></h4>
-<p>List of files in a directory</p>
+<p>目录里的文件列表</p>
 <table>
 <thead>
 <tr>
@@ -870,11 +887,11 @@ submitTopicVote: (e) =&gt;
 <tbody>
 <tr>
 <td><strong>inner_path</strong></td>
-<td>Directory you want to list</td>
+<td>想要列出文件列表的目录</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: List of files in the directory (recursive)</p>
+<p><strong>返回值</strong>: 目录里的文件列表 (递归的)</p>
 <hr />
 <h4 id="filequery-dir_inner_path-query">fileQuery <em>dir_inner_path, query</em></h4>
 <p>Simple json file query command</p>
@@ -888,16 +905,16 @@ submitTopicVote: (e) =&gt;
 <tbody>
 <tr>
 <td><strong>dir_inner_path</strong></td>
-<td>Pattern of queried files</td>
+<td>想要的文件的通配符</td>
 </tr>
 <tr>
 <td><strong>query</strong></td>
-<td>Query command (optional)</td>
+<td>查询语句命令 （可选）</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: <list> Matched content</p>
-<p><strong>Query examples:</strong></p>
+<p><strong>返回值</strong>: <list> 匹配的内容</p>
+<p><strong>查询例子</strong></p>
 <ul>
 <li><code>["data/users/*/data.json", "topics"]</code>: Returns all topics node from all user files</li>
 <li><code>["data/users/*/data.json", "comments.1@2"]</code>: Returns <code>user_data["comments"]["1@2"]</code> value from all user files</li>
@@ -914,7 +931,7 @@ submitTopicVote: (e) =&gt;
 
 <hr />
 <h4 id="filerules-inner_path">fileRules <em>inner_path</em></h4>
-<p>Return the rules for the file.</p>
+<p>返回文件的规则。</p>
 <table>
 <thead>
 <tr>
@@ -925,12 +942,12 @@ submitTopicVote: (e) =&gt;
 <tbody>
 <tr>
 <td><strong>inner_path</strong></td>
-<td>File inner path</td>
+<td>文件路径</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: <list> Matched content</p>
-<p><strong>Example result:</strong></p>
+<p><strong>返回值</strong>: <list> 匹配的结果</p>
+<p><strong>示例结果</strong></p>
 <pre><code class="json">{
     &quot;current_size&quot;: 2485,
     &quot;cert_signers&quot;: {&quot;zeroid.bit&quot;: [&quot;1iD5ZQJMNXu43w1qLB8sfdHVKppVMduGz&quot;]},
@@ -948,7 +965,7 @@ submitTopicVote: (e) =&gt;
 
 <hr />
 <h4 id="filewrite-inner_path-content">fileWrite <em>inner_path, content</em></h4>
-<p>Write file content</p>
+<p>写入文件内容</p>
 <table>
 <thead>
 <tr>
@@ -959,20 +976,20 @@ submitTopicVote: (e) =&gt;
 <tbody>
 <tr>
 <td><strong>inner_path</strong></td>
-<td>Inner path of the file you want to write</td>
+<td>想写入的文件路径</td>
 </tr>
 <tr>
 <td><strong>content_base64</strong></td>
-<td>Content you want to write to file (base64 encoded)</td>
+<td>想写入的文件内容 (base64编码)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: "ok" on success else the error message</p>
+<p><strong>返回值</strong>: 假如写入成功，返回"ok"。否则返回 error message</p>
 <p><strong>举例：</strong></p>
 <pre><code class="coffeescript">writeData: (cb=null) -&gt;
-    # Encode to json, encode utf8
+    # json格式，utf8编码
     json_raw = unescape(encodeURIComponent(JSON.stringify({&quot;hello&quot;: &quot;ZeroNet&quot;}, undefined, '\t')))
-    # Convert to to base64 and send
+    # 转换为base64并发送
     @cmd &quot;fileWrite&quot;, [&quot;data.json&quot;, btoa(json_raw)], (res) =&gt;
         if res == &quot;ok&quot;
             if cb then cb(true)
@@ -981,59 +998,59 @@ submitTopicVote: (e) =&gt;
             if cb then cb(false)
 </code></pre>
 
-<p><em>Note:</em> to write files that not in content.json yet, you must have <code>"own": true</code> in <code>data/sites.json</code> at the site you want to write</p>
+<p><em>提示：</em>  假如想要写入那些不在content.json里列出的文件，你必须在  <code>data/sites.json</code>中在想操作的站点那一块写入一行<code>"own": true</code></p>
 <hr />
 <h4 id="serverinfo">serverInfo</h4>
-<p><strong>Return:</strong> <dict> All information about the server</p>
+<p><strong>Return:</strong> <dict> 服务端的所有消息</p>
 <p><strong>举例：</strong></p>
 <pre><code class="coffeescript">@cmd &quot;serverInfo&quot;, {}, (server_info) =&gt;
-    @log &quot;Server info:&quot;, server_info
+    @log &quot;服务端信息:&quot;, server_info
 </code></pre>
 
-<p><strong>Example return value:</strong></p>
+<p><strong>示例返回值</strong></p>
 <pre><code class="json">{
-    &quot;debug&quot;: true, # Running in debug mode
-    &quot;fileserver_ip&quot;: &quot;*&quot;, # Fileserver binded to
-    &quot;fileserver_port&quot;: 15441, # FileServer port
-    &quot;ip_external&quot;: true, # Active of passive mode
-    &quot;platform&quot;: &quot;win32&quot;, # Operating system
-    &quot;ui_ip&quot;: &quot;127.0.0.1&quot;, # UiServer binded to
-    &quot;ui_port&quot;: 43110, # UiServer port (Web)
-    &quot;version&quot;: &quot;0.2.5&quot; # Version
+    &quot;debug&quot;: true, # 调试模式
+    &quot;fileserver_ip&quot;: &quot;*&quot;, # 绑定的文件服务IP
+    &quot;fileserver_port&quot;: 15441, # 绑定的文件服务端口
+    &quot;ip_external&quot;: true, # 启用被动模式
+    &quot;platform&quot;: &quot;win32&quot;, # OS
+    &quot;ui_ip&quot;: &quot;127.0.0.1&quot;, # 绑定的UiServer 
+    &quot;ui_port&quot;: 43110, # UiServer端口 (web)
+    &quot;version&quot;: &quot;0.2.5&quot; # ZeroNet版本号
 }
 </code></pre>
 
 <hr />
 <h4 id="siteinfo">siteInfo</h4>
-<p><strong>返回值</strong>: <dict> All information about the site</p>
+<p><strong>返回值</strong>: <dict> 本站点的所有信息</p>
 <p><strong>举例：</strong></p>
 <pre><code class="coffeescript">@cmd &quot;siteInfo&quot;, {}, (site_info) =&gt;
     @log &quot;Site info:&quot;, site_info
 </code></pre>
 
-<p><strong>Example return value:</strong></p>
+<p><strong>示例返回值</strong></p>
 <pre><code class="json">{
-    &quot;tasks&quot;: 0, # Number of files currently under download
-    &quot;size_limit&quot;: 10, # Current site size limit in MB
-    &quot;address&quot;: &quot;1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr&quot;, # Site address
-    &quot;next_size_limit&quot;: 10, # Size limit required by sum of site's files
-    &quot;auth_address&quot;: &quot;2D6xXUmCVAXGrbVUGRRJdS4j1hif1EMfae&quot;, # Current user's bitcoin address
-    &quot;auth_key_sha512&quot;: &quot;269a0f4c1e0c697b9d56ccffd9a9748098e51acc5d2807adc15a587779be13cf&quot;, # Deprecated, dont use
-    &quot;peers&quot;: 14, # Peers of site
-    &quot;auth_key&quot;: &quot;pOBdl00EJ29Ad8OmVIc763k4&quot;, # Deprecated, dont use
+    &quot;tasks&quot;: 0, # 目前正在下载的文件数
+    &quot;size_limit&quot;: 10, # 该站点的磁盘大小限额
+    &quot;address&quot;: &quot;1EU1tbG9oC1A8jz2ouVwGZyQ5asrNsE4Vr&quot;, # 站点地址
+    &quot;next_size_limit&quot;: 10, # 站点文件数限额（？）
+    &quot;auth_address&quot;: &quot;2D6xXUmCVAXGrbVUGRRJdS4j1hif1EMfae&quot;, # 当前用户的比特币地址
+    &quot;auth_key_sha512&quot;: &quot;269a0f4c1e0c697b9d56ccffd9a9748098e51acc5d2807adc15a587779be13cf&quot;, # （该字段已经废弃，请勿使用）
+    &quot;peers&quot;: 14, # 连接到该站点的用户节点数
+    &quot;auth_key&quot;: &quot;pOBdl00EJ29Ad8OmVIc763k4&quot;, #（该字段已经废弃，请勿使用）
     &quot;settings&quot;:  {
-        &quot;peers&quot;: 13, # Saved peers num for sorting
-        &quot;serving&quot;: true, # Site enabled
-        &quot;modified&quot;: 1425344149.365, # Last modification time of all site's files
-        &quot;own&quot;: true, # Own site
-        &quot;permissions&quot;: [&quot;ADMIN&quot;], # Site's permission
-        &quot;size&quot;: 342165 # Site total size in bytes
+        &quot;peers&quot;: 13, # 为了排序用的用户节点编号
+        &quot;serving&quot;: true, # 是否帮助站点进行内容分发
+        &quot;modified&quot;: 1425344149.365, # 所有站点文件的最新修改时间
+        &quot;own&quot;: true, # 是否是自己的站点
+        &quot;permissions&quot;: [&quot;ADMIN&quot;], # 站点权限
+        &quot;size&quot;: 342165 # 站点总大小（以字节计）
     },
-    &quot;bad_files&quot;: 0, # Files that needs to be download
-    &quot;workers&quot;: 0, # Current concurent downloads
+    &quot;bad_files&quot;: 0, # 需要下载的文件
+    &quot;workers&quot;: 0, # 下载并发数
     &quot;content&quot;: { # Root content.json
         &quot;files&quot;: 12, # Number of file, detailed file info removed to reduce data transfer and parse time
-        &quot;描述&quot;: &quot;This site&quot;,
+        &quot;descrption&quot;: &quot;This site&quot;,
         &quot;title&quot;: &quot;ZeroHello&quot;,
         &quot;signs_required&quot;: 1,
         &quot;modified&quot;: 1425344149.365,
@@ -1061,28 +1078,28 @@ submitTopicVote: (e) =&gt;
 </thead>
 <tbody>
 <tr>
-<td><strong>privatekey</strong> (optional)</td>
-<td>Private key used for signing (default: current user's privatekey)</td>
+<td><strong>privatekey</strong> （可选）</td>
+<td>用于签名的私钥 (默认为当前用户的私钥)</td>
 </tr>
 <tr>
-<td><strong>inner_path</strong> (optional)</td>
-<td>Inner path of the content json you want to publish (default: content.json)</td>
+<td><strong>inner_path</strong> （可选）</td>
+<td>想要发布的content.json的路径和名称 (默认： content.json)</td>
 </tr>
 <tr>
-<td><strong>sign</strong> (optional)</td>
-<td>If True then sign the content.json before publish (default: True)</td>
+<td><strong>sign</strong> （可选）</td>
+<td>假如为True，则在发布前执行对content.json的签名 (默认： True)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: "ok" on success else the error message</p>
+<p><strong>返回值</strong>: 假如执行成功，返回"ok"；否则返回error message</p>
 <p><strong>举例：</strong></p>
-<pre><code class="coffeescript"># Prompt the private key
-@cmd &quot;wrapperPrompt&quot;, [&quot;Enter your private key:&quot;, &quot;password&quot;], (privatekey) =&gt;
+<pre><code class="coffeescript"># 提示输入私钥
+@cmd &quot;wrapperPrompt&quot;, [&quot;请输入你的私钥:&quot;, &quot;password&quot;], (privatekey) =&gt;
     $(&quot;.publishbar .button&quot;).addClass(&quot;loading&quot;)
-    # Send sign content.json and publish request to server
+    # 对content.json 进行签名并发布给服务端
     @cmd &quot;sitePublish&quot;, [privatekey], (res) =&gt;
         $(&quot;.publishbar .button&quot;).removeClass(&quot;loading&quot;)
-        @log &quot;Publish result:&quot;, res
+        @log &quot;发布结果：&quot;, res
 </code></pre>
 
 <hr />
@@ -1097,22 +1114,22 @@ submitTopicVote: (e) =&gt;
 </thead>
 <tbody>
 <tr>
-<td><strong>privatekey</strong> (optional)</td>
-<td>Private key used for signing (default: current user's privatekey)</td>
+<td><strong>privatekey</strong> （可选）</td>
+<td>用于签名的私钥 (默认为当前用户的私钥)</td>
 </tr>
 <tr>
-<td><strong>inner_path</strong> (optional)</td>
-<td>Inner path of the content json you want to sign (default: content.json)</td>
+<td><strong>inner_path</strong> （可选）</td>
+<td>想要发布的content.json的路径和名称 (默认： content.json)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: "ok" on success else the error message</p>
+<p><strong>返回值</strong>: 假如执行成功，返回"ok"；否则返回error message</p>
 <blockquote>
-<p><strong>Note:</strong>
-Use "stored" as privatekey if its definied in users.json (eg. cloned sites)</p>
+<p><strong>提示</strong>
+ZeroNet会使用"stored" 作为私钥，假如这个字段定义在users.json中 (比如克隆站点的情况)</p>
 </blockquote>
 <p><strong>举例：</strong></p>
-<pre><code class="coffeescript">if @site_info[&quot;privatekey&quot;] # Private key stored in users.json
+<pre><code class="coffeescript">if @site_info[&quot;privatekey&quot;] # 定义在users.json中的私钥
     @cmd &quot;siteSign&quot;, [&quot;stored&quot;, &quot;content.json&quot;], (res) =&gt;
         @log &quot;Sign result&quot;, res
 </code></pre>
@@ -1156,7 +1173,7 @@ updateSite: =&gt;
 </thead>
 <tbody>
 <tr>
-<td><strong>index</strong> (optional)</td>
+<td><strong>index</strong> （可选）</td>
 <td>Sub-publickey within site (default: 0)</td>
 </tr>
 </tbody>
@@ -1178,11 +1195,11 @@ updateSite: =&gt;
 <td>Text to encrypt</td>
 </tr>
 <tr>
-<td><strong>publickey</strong> (optional)</td>
+<td><strong>publickey</strong> （可选）</td>
 <td>User's publickey index (int) or base64 encoded publickey (default: 0)</td>
 </tr>
 <tr>
-<td><strong>return_aes_key</strong> (optional)</td>
+<td><strong>return_aes_key</strong> （可选）</td>
 <td>Get the AES key used in encryption (default: False)</td>
 </tr>
 </tbody>
@@ -1190,7 +1207,7 @@ updateSite: =&gt;
 <p><strong>返回值</strong>: Encrypted text in base64 format or [Encrypted text in base64 format, AES key in base64 format]</p>
 <hr />
 <h4 id="eciesdecrypt-params-privatekey">eciesDecrypt <em>params, [privatekey]</em></h4>
-<p>Try to decrypt list of texts</p>
+<p>解密文本列表</p>
 <table>
 <thead>
 <tr>
@@ -1204,7 +1221,7 @@ updateSite: =&gt;
 <td>A text or list of encrypted texts</td>
 </tr>
 <tr>
-<td><strong>privatekey</strong> (optional)</td>
+<td><strong>privatekey</strong> （可选）</td>
 <td>User's privatekey index (int) or base64 encoded privatekey (default: 0)</td>
 </tr>
 </tbody>
@@ -1212,7 +1229,7 @@ updateSite: =&gt;
 <p><strong>返回值</strong>: Decrypted text or list of decrypted texts (null for failed decodings)</p>
 <hr />
 <h4 id="aesencrypt-text-key-iv">aesEncrypt <em>text, [key], [iv]</em></h4>
-<p>Encrypt a text using the key and the iv</p>
+<p>使用key和iv来加密一段文本</p>
 <table>
 <thead>
 <tr>
@@ -1223,14 +1240,14 @@ updateSite: =&gt;
 <tbody>
 <tr>
 <td><strong>text</strong></td>
-<td>A text encrypt using AES</td>
+<td>打算用 AES来加密的文本</td>
 </tr>
 <tr>
-<td><strong>key</strong> (optional)</td>
+<td><strong>key</strong> （可选）</td>
 <td>Base64 encoded password (default: generate new)</td>
 </tr>
 <tr>
-<td><strong>iv</strong> (optional)</td>
+<td><strong>iv</strong> （可选）</td>
 <td>Base64 encoded iv (default: generate new)</td>
 </tr>
 </tbody>
@@ -1343,8 +1360,8 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <p><strong>返回值</strong>: The currently followed feeds in the same format as in the feedFollow commands</p>
 <hr />
 <h4 id="feedquery-limit-day_limit">feedQuery <em>[limit], [day_limit]</em></h4>
-<p>Execute all followed sql query</p>
-<p><strong>返回值</strong>: The result of the followed Sql queries</p>
+<p>执行所有堆积的SQL请求</p>
+<p><strong>返回值</strong>: 所有堆积的SQL请求的结果</p>
 <table>
 <thead>
 <tr>
@@ -1355,18 +1372,18 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>limit</strong></td>
-<td>Limit of results per followed site (default: 10)</td>
+<td>Limit of results per followed site （默认： 10）</td>
 </tr>
 <tr>
 <td><strong>day_limit</strong></td>
-<td>Return no older than number of this days (default: 3)</td>
+<td>Return no older than number of this days （默认： 3）</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h1 id="plugin-mergersite">Plugin: MergerSite</h1>
 <h4 id="mergersiteadd-addresses">mergerSiteAdd <em>addresses</em></h4>
-<p>Start downloading new merger site(s)</p>
+<p>开始下载新的合并站点</p>
 <table>
 <thead>
 <tr>
@@ -1377,13 +1394,13 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>addresses</strong></td>
-<td>Site address or list of site addresses</td>
+<td>站点地址，或者站点地址的列表</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h4 id="mergersitedelete-address">mergerSiteDelete <em>address</em></h4>
-<p>Stop seeding and delete a merged site</p>
+<p>停止为合并站点做种，并且删除合并站点</p>
 <table>
 <thead>
 <tr>
@@ -1394,13 +1411,13 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>address</strong></td>
-<td>Site address</td>
+<td>攒点地址</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h4 id="mergersitelist-query_site_info">mergerSiteList <em>[query_site_info]</em></h4>
-<p>Return merged sites.</p>
+<p>返回合并的站点</p>
 <table>
 <thead>
 <tr>
@@ -1411,14 +1428,14 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>query_site_info</strong></td>
-<td>If True, then gives back detailed site info for merged sites</td>
+<td>假如为 True，则返回一个合并站点的详细信息列表</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h1 id="plugin-mute">Plugin: Mute</h1>
 <h4 id="muteadd-auth_address-cert_user_id-reason">muteAdd <em>auth_address</em>, <em>cert_user_id</em>, <em>reason</em></h4>
-<p>Add new user to mute list. (Requires confirmation for non-ADMIN sites)</p>
+<p>把用户添加到禁言列表中。 (对于非管理员站点，需要确认)</p>
 <table>
 <thead>
 <tr>
@@ -1429,26 +1446,26 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>auth_address</strong></td>
-<td>Directory name of the user's data.</td>
+<td>用户数据的目录名</td>
 </tr>
 <tr>
 <td><strong>cert_user_id</strong></td>
-<td>Cert user name of the user</td>
+<td>用户的认证用户名</td>
 </tr>
 <tr>
 <td><strong>reason</strong></td>
-<td>Reason of the muting</td>
+<td>禁言理由</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: ok if confirmed</p>
+<p><strong>返回值</strong>: 假如被确认，则为ok </p>
 <p><strong>举例：</strong></p>
 <pre><code class="coffeescript">Page.cmd(&quot;muteAdd&quot;, ['1GJUaZMjTfeETdYUhchSkDijv6LVhjekHz','helloworld@kaffie.bit','Spammer'])
 </code></pre>
 
 <hr />
 <h4 id="muteremove-auth_address">muteRemove <em>auth_address</em></h4>
-<p>Remove a user from mute list. (Requires confirmation for non-ADMIN sites)</p>
+<p>把一个用户从禁言用户列表中移除。 (对于非管理员站点，需要确认)</p>
 <table>
 <thead>
 <tr>
@@ -1459,23 +1476,23 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>auth_address</strong></td>
-<td>Directory name of the user's data.</td>
+<td>用户数据的目录名</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: ok if confirmed</p>
+<p><strong>返回值</strong>: 假如被确认，则为ok</p>
 <p><strong>举例：</strong></p>
 <pre><code class="coffeescript">Page.cmd(&quot;muteRemove&quot;, '1GJUaZMjTfeETdYUhchSkDijv6LVhjekHz')
 </code></pre>
 
 <hr />
 <h4 id="mutelist">muteList</h4>
-<p>List muted users. (Requires ADMIN permission on site)</p>
-<p><strong>返回值</strong>: List of muted users</p>
+<p>禁言用户列表 (需要站点的管理员权限)</p>
+<p><strong>返回值</strong>: 禁言用户列表</p>
 <hr />
 <h1 id="plugin-optionalmanager">Plugin: OptionalManager</h1>
 <h4 id="optionalfilelist-address-orderby-limit">optionalFileList <em>[address]</em>, <em>[orderby]</em>, <em>[limit]</em></h4>
-<p>Return list of optional files</p>
+<p>返回可选文件的列表</p>
 <table>
 <thead>
 <tr>
@@ -1498,10 +1515,10 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: Database row of optional files: file_id, site_id, inner_path, hash_id, size, peer, uploaded, is_downloaded, is_pinned, time_added, time_downlaoded, time_accessed</p>
+<p><strong>返回值</strong>: Database 的可选文件记录行: file_id, site_id, inner_path, hash_id, size, peer, uploaded, is_downloaded, is_pinned, time_added, time_downlaoded, time_accessed</p>
 <hr />
 <h4 id="optionalfileinfo-inner_path">optionalFileInfo <em>inner_path</em></h4>
-<p>Query optional file info from database</p>
+<p>从数据库中请求可选文件的信息</p>
 <table>
 <thead>
 <tr>
@@ -1512,14 +1529,14 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>inner_path</strong></td>
-<td>The path of the file</td>
+<td>文件路径</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: Database row of optional file: file_id, site_id, inner_path, hash_id, size, peer, uploaded, is_downloaded, is_pinned, time_added, time_downlaoded, time_accessed</p>
+<p><strong>返回值</strong>: Database 的可选文件记录行: file_id, site_id, inner_path, hash_id, size, peer, uploaded, is_downloaded, is_pinned, time_added, time_downlaoded, time_accessed</p>
 <hr />
 <h4 id="optionalfilepin-inner_path-address">optionalFilePin <em>inner_path</em>, <em>[address]</em></h4>
-<p>Pin (exclude from automatized optional file cleanup) downloaded optional file</p>
+<p>Pin 已经下载的可选文件(不包含自动清理可选文件)</p>
 <table>
 <thead>
 <tr>
@@ -1540,7 +1557,7 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 </table>
 <hr />
 <h4 id="optionalfileunpin-inner_path-address">optionalFileUnpin <em>inner_path</em>, <em>[address]</em></h4>
-<p>Remove pinning (include from automatized optional file cleanup) of downloaded optional file</p>
+<p>Remove pinning 已经下载的可选文件(包含自动清理可选文件)</p>
 <table>
 <thead>
 <tr>
@@ -1551,17 +1568,17 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>inner_path</strong></td>
-<td>The path of the file</td>
+<td>文件路径</td>
 </tr>
 <tr>
 <td><strong>address</strong></td>
-<td>Address for the file (default: current site)</td>
+<td>文件的来源地址(默认：当前站点)</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h4 id="optionalfiledelete-inner_path-address">optionalFileDelete <em>inner_path</em>, <em>[address]</em></h4>
-<p>Query a downloaded optional file</p>
+<p>请求删除一个已经下载的可选文件</p>
 <table>
 <thead>
 <tr>
@@ -1572,21 +1589,21 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>inner_path</strong></td>
-<td>The path of the file</td>
+<td>文件路径</td>
 </tr>
 <tr>
 <td><strong>address</strong></td>
-<td>Address for the file (default: current site)</td>
+<td>文件的来源地址(默认：当前站点)</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h4 id="optionallimitstats">optionalLimitStats</h4>
-<p>Return currently used disk space by optional files</p>
-<p><strong>返回值</strong>: limit, used and free space statistics</p>
+<p>返回目前可选文件占用的磁盘空间</p>
+<p><strong>返回值</strong>: 限额大小、已使用大小和空闲大小的状态</p>
 <hr />
 <h4 id="actionoptionallimitset-limit">actionOptionalLimitSet <em>limit</em></h4>
-<p>Set the optional file limit</p>
+<p>设置可选文件的空间限制</p>
 <table>
 <thead>
 <tr>
@@ -1597,13 +1614,13 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>limit</strong></td>
-<td>Max space used by the optional files in gb or percent of used space</td>
+<td>可选文件的最大大小限制（以GB计算，或已使用空间的百分比）</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h4 id="actionoptionalhelplist-address">actionOptionalHelpList <em>[address]</em></h4>
-<p>List the auto-downloaded directories of optional files</p>
+<p>可选下载文件的自动下载列表</p>
 <table>
 <thead>
 <tr>
@@ -1618,10 +1635,10 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: Dict of auto-downloaded directories and 描述s</p>
+<p><strong>返回值</strong>: 自动下载目录的列表和描述 （字典）</p>
 <hr />
 <h4 id="actionoptionalhelp-directory-title-address">actionOptionalHelp directory, title, <em>[address]</em></h4>
-<p>Add directory to auto-download list</p>
+<p>把目录添加到自动下载列表中</p>
 <table>
 <thead>
 <tr>
@@ -1632,21 +1649,21 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>directory</strong></td>
-<td>Directory you want to add to auto-download list</td>
+<td>想要自动下载的目录</td>
 </tr>
 <tr>
 <td><strong>title</strong></td>
-<td>Title for the entry (displayed on ZeroHello)</td>
+<td>条目标题(在ZeroHello里显示)</td>
 </tr>
 <tr>
 <td><strong>address</strong></td>
-<td>Address of site you want to add the auto-download directory (default: current site)</td>
+<td>所生效的站点 (默认是当前站点)</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h4 id="actionoptionalhelpremove-directory-address">actionOptionalHelpRemove directory, <em>[address]</em></h4>
-<p>Remove an auto-download entry</p>
+<p>从自动下载列表中移除掉某些目录</p>
 <table>
 <thead>
 <tr>
@@ -1657,17 +1674,18 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>directory</strong></td>
-<td>Directory you want to remove from auto-download list</td>
+<td>想要从自动下载列表中移除的目录</td>
 </tr>
 <tr>
 <td><strong>address</strong></td>
-<td>Address of affected site (default: current site)</td>
+<td>所生效的站点 (默认是当前站点)</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h4 id="actionoptionalhelpall-value-address">actionOptionalHelpAll value, <em>[address]</em></h4>
-<p>Help download every new uploaded optional file to the site</p>
+<p>帮助下载（和分发）所有新上传到站点的文件
+Help download every new uploaded optional file to the site</p>
 <table>
 <thead>
 <tr>
@@ -1678,20 +1696,20 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>value</strong></td>
-<td>Enable or Disable the auto-download</td>
+<td>开启/关闭自动下载</td>
 </tr>
 <tr>
 <td><strong>address</strong></td>
-<td>Address of affected site (default: current site)</td>
+<td>所生效的站点 (默认是当前站点)</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h1 id="admin-commands">Admin commands</h1>
-<p><em>(requires ADMIN permission in data/sites.json)</em></p>
+<p><em>(需要data/sites.json的管理员批准)</em></p>
 <hr />
 <h4 id="configset-key-value">configSet <em>key, value</em></h4>
-<p>Create or update an entry in ZeroNet config file. (zeronet.conf by default)</p>
+<p>修改ZeroNet的配置文件 (默认是修改zeronet.conf)</p>
 <table>
 <thead>
 <tr>
@@ -1702,18 +1720,18 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>key</strong></td>
-<td>Configuration entry name</td>
+<td>配置条目的键名</td>
 </tr>
 <tr>
 <td><strong>value</strong></td>
-<td>Configuration entry new value</td>
+<td>配置条目的值</td>
 </tr>
 </tbody>
 </table>
 <p><strong>返回值</strong>: ok</p>
 <hr />
 <h4 id="certset-domain">certSet <em>domain</em></h4>
-<p>Set the used certificate for current site.</p>
+<p>为当前站点设置已生成的证书</p>
 <table>
 <thead>
 <tr>
@@ -1724,14 +1742,14 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>domain</strong></td>
-<td>Domain of the certificate issuer</td>
+<td>certificate issuer的域名</td>
 </tr>
 </tbody>
 </table>
 <p><strong>返回值</strong>: None</p>
 <hr />
 <h4 id="channeljoinallsite-channel">channelJoinAllsite <em>channel</em></h4>
-<p>Request notifications about every site's events.</p>
+<p>请求每一个站点事件的消息通知</p>
 <table>
 <thead>
 <tr>
@@ -1742,28 +1760,28 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>channel</strong></td>
-<td>Channel to join (see channelJoin)</td>
+<td>想要加入的频道 (参见channelJoin)</td>
 </tr>
 </tbody>
 </table>
 <p><strong>返回值</strong>: None</p>
 <hr />
 <h4 id="serverportcheck">serverPortcheck</h4>
-<p>Start checking if port is opened</p>
-<p><strong>返回值</strong>: True (port opened) or False (port closed)</p>
+<p>检查端口是否开放</p>
+<p><strong>返回值</strong>: True (端口打开) 或者 False (端口关闭)</p>
 <hr />
 <h4 id="servershutdown">serverShutdown</h4>
-<p>Stop running ZeroNet client.</p>
+<p>停止运行ZeroNet客户端</p>
 <p><strong>返回值</strong>: None</p>
 <hr />
 <h4 id="serverupdate">serverUpdate</h4>
-<p>Re-download ZeroNet from github.</p>
+<p>从github上重新下载ZeroNet</p>
 <p><strong>返回值</strong>: None</p>
 <hr />
 <h4 id="siteclone-address-root_inner_path">siteClone <em>address</em>, <em>[root_inner_path]</em></h4>
-<p>Copy site files into a new one.</p>
-<p>Every file and directory will be skipped if it has a <code>-default</code> subfixed version and the subfixed version will be copied instead of it.</p>
-<p>Eg. If you have a <code>data</code> and a <code>data-default</code> directory: The <code>data</code> directory will not be copied and the <code>data-default</code> directory will be renamed to data.</p>
+<p>把站点文件克隆到新的网站。</p>
+<p>所有带有 <code>-default</code>后缀的文件和文件夹都会被跳过。而相对地， subfixed 版本会被拷贝。</p>
+<p>例如：假如你有一个 <code>data</code> 和一个 <code>data-default</code> 目录， <code>data</code> 目录不会被拷贝，而<code>data-default</code> 目录会被考别并且重命名为<code>data</code>。</p>
 <table>
 <thead>
 <tr>
@@ -1774,21 +1792,21 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>address</strong></td>
-<td>Address of site want to clone</td>
+<td>想克隆的站点地址</td>
 </tr>
 <tr>
 <td><strong>root_inner_path</strong></td>
-<td>The source directory of the new site</td>
+<td>新站点的源目录</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: None, automatically redirects to new site on completion</p>
+<p><strong>返回值</strong>: None,  （完成时自动重定向到新站点）</p>
 <hr />
 <h4 id="sitelist">siteList</h4>
-<p><strong>返回值</strong>: <list> SiteInfo list of all downloaded sites</p>
+<p><strong>返回值</strong>: <list> 所有已经下载的站点的站点信息列表</p>
 <hr />
 <h4 id="sitepause-address">sitePause <em>address</em></h4>
-<p>Pause site serving</p>
+<p>暂停为站点分发数据</p>
 <table>
 <thead>
 <tr>
@@ -1799,14 +1817,14 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>address</strong></td>
-<td>Address of site want to pause</td>
+<td>打算停止为之分发数据的站点地址</td>
 </tr>
 </tbody>
 </table>
 <p><strong>返回值</strong>: None</p>
 <hr />
 <h4 id="siteresume-address">siteResume <em>address</em></h4>
-<p>Resume site serving</p>
+<p>继续为站点分发数据</p>
 <table>
 <thead>
 <tr>
@@ -1817,7 +1835,7 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>address</strong></td>
-<td>Address of site want to resume</td>
+<td>打算继续为之分发数据的站点地址</td>
 </tr>
 </tbody>
 </table>
