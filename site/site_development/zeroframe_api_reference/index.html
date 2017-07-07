@@ -192,7 +192,7 @@
                     <li><a class="toctree-l4" href="#aesdecrypt-encrypted_texts-keys">aesDecrypt encrypted_texts, keys</a></li>
                 
             
-                <li class="toctree-l3"><a href="#plugin-newsfeed">Plugin: Newsfeed</a></li>
+                <li class="toctree-l3"><a href="#_1">插件：消息流</a></li>
                 
                     <li><a class="toctree-l4" href="#feedfollow-feeds">feedFollow feeds</a></li>
                 
@@ -1147,7 +1147,7 @@ ZeroNet会使用"stored" 作为私钥，假如这个字段定义在users.json中
 <tbody>
 <tr>
 <td><strong>address</strong></td>
-<td>Address of site want to update (only current site allowed without site ADMIN permission)</td>
+<td>想要更新的站点地址 (除非有ADMIN许可，否则只能在当前站点上执行)</td>
 </tr>
 </tbody>
 </table>
@@ -1163,7 +1163,7 @@ updateSite: =&gt;
 <hr />
 <h1 id="plugin-cryptmessage">Plugin: CryptMessage</h1>
 <h4 id="userpublickey-index">userPublickey <em>[index]</em></h4>
-<p>Get user's site specific publickey</p>
+<p>获取用户的站点标识key</p>
 <table>
 <thead>
 <tr>
@@ -1174,14 +1174,14 @@ updateSite: =&gt;
 <tbody>
 <tr>
 <td><strong>index</strong> （可选）</td>
-<td>Sub-publickey within site (default: 0)</td>
+<td>站点内的Sub-publickey  (默认： 0)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: base64 encoded publickey</p>
+<p><strong>返回值</strong>: base64编码过的用户标识公钥</p>
 <hr />
 <h4 id="eciesencrypt-text-publickey-return_aes_key">eciesEncrypt <em>text, [publickey], [return_aes_key]</em></h4>
-<p>Encrypt a text using a publickey</p>
+<p>使用公钥加密一段文本</p>
 <table>
 <thead>
 <tr>
@@ -1192,19 +1192,19 @@ updateSite: =&gt;
 <tbody>
 <tr>
 <td><strong>text</strong></td>
-<td>Text to encrypt</td>
+<td>要加密的文本</td>
 </tr>
 <tr>
 <td><strong>publickey</strong> （可选）</td>
-<td>User's publickey index (int) or base64 encoded publickey (default: 0)</td>
+<td>用户的公钥 (int) 或者base64编码过的用户公钥 (默认为0)</td>
 </tr>
 <tr>
 <td><strong>return_aes_key</strong> （可选）</td>
-<td>Get the AES key used in encryption (default: False)</td>
+<td>返回加密用的AES key (默认为False)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: Encrypted text in base64 format or [Encrypted text in base64 format, AES key in base64 format]</p>
+<p><strong>返回值</strong>: 用base64编码的加密后的文本，或者[base64编码的加密后的文本，加密用的AES key]</p>
 <hr />
 <h4 id="eciesdecrypt-params-privatekey">eciesDecrypt <em>params, [privatekey]</em></h4>
 <p>解密文本列表</p>
@@ -1218,15 +1218,15 @@ updateSite: =&gt;
 <tbody>
 <tr>
 <td><strong>params</strong></td>
-<td>A text or list of encrypted texts</td>
+<td>要加密的文本或文本列表</td>
 </tr>
 <tr>
 <td><strong>privatekey</strong> （可选）</td>
-<td>User's privatekey index (int) or base64 encoded privatekey (default: 0)</td>
+<td>用户的私钥 (int) 或者base64编码过的用户私钥 (默认为0)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: Decrypted text or list of decrypted texts (null for failed decodings)</p>
+<p><strong>返回值</strong>:解码后的文本，或者解码后的文本列表（假如解码失败，返回null）</p>
 <hr />
 <h4 id="aesencrypt-text-key-iv">aesEncrypt <em>text, [key], [iv]</em></h4>
 <p>使用key和iv来加密一段文本</p>
@@ -1244,19 +1244,19 @@ updateSite: =&gt;
 </tr>
 <tr>
 <td><strong>key</strong> （可选）</td>
-<td>Base64 encoded password (default: generate new)</td>
+<td>Base64编码后的密码 (默认：产生一个新的)</td>
 </tr>
 <tr>
 <td><strong>iv</strong> （可选）</td>
-<td>Base64 encoded iv (default: generate new)</td>
+<td>Base64编码后的iv (默认：产生一个新的)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: [base64 encoded key, base64 encoded iv, base64 encoded encrypted text]</p>
+<p><strong>返回值</strong>: [base64 编码后的key, base64 编码后的iv, base64 编码后的加密过的文本]</p>
 <hr />
 <h4 id="aesdecrypt-iv-encrypted_text-key">aesDecrypt <em>iv, encrypted_text, key</em></h4>
 <h4 id="aesdecrypt-encrypted_texts-keys">aesDecrypt <em>encrypted_texts, keys</em></h4>
-<p>Decrypt text using the IV and AES key</p>
+<p>使用 IV 和 AES key来解码文本</p>
 <table>
 <thead>
 <tr>
@@ -1267,32 +1267,32 @@ updateSite: =&gt;
 <tbody>
 <tr>
 <td><strong>iv</strong></td>
-<td>IV in Base64 format</td>
+<td>Base64编码后的iv</td>
 </tr>
 <tr>
 <td><strong>encrypted_text</strong></td>
-<td>Encrypted text in Base64 format</td>
+<td>Base64编码后的加密过的文本</td>
 </tr>
 <tr>
 <td><strong>encrypted_texts</strong></td>
-<td>List of [base64 encoded iv, base64 encoded encrypted text] pairs</td>
+<td>[Base64编码后的iv, Base64编码后的加密过的文本] 列表对</td>
 </tr>
 <tr>
 <td><strong>key</strong></td>
-<td>Base64 encoded password for the text</td>
+<td>用于该文本的Base64编码后的密码</td>
 </tr>
 <tr>
 <td><strong>keys</strong></td>
-<td>Keys for decoding (tries every one for every pairs)</td>
+<td>用于解码的密码列表 (每对都尝试)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>返回值</strong>: Decoded text or list of decoded texts</p>
+<p><strong>返回值</strong>: 解码后的文本，或者解码后的文本列表</p>
 <hr />
-<h1 id="plugin-newsfeed">Plugin: Newsfeed</h1>
+<h1 id="_1">插件：消息流</h1>
 <h4 id="feedfollow-feeds">feedFollow <em>feeds</em></h4>
-<p>Set followed sql queries.</p>
-<p>The SQL query should result in rows with cols:</p>
+<p>设置要处理的SQL查询</p>
+<p>SQL查询语句结果会按行列返回:</p>
 <table>
 <thead>
 <tr>
@@ -1303,23 +1303,23 @@ updateSite: =&gt;
 <tbody>
 <tr>
 <td><strong>type</strong></td>
-<td>Type: post, article, comment, mention</td>
+<td>类型: post, article, comment, mention</td>
 </tr>
 <tr>
 <td><strong>date_added</strong></td>
-<td>Event time</td>
+<td>事件时间</td>
 </tr>
 <tr>
 <td><strong>title</strong></td>
-<td>Event's first line to be displayed</td>
+<td>事件的标题主要行</td>
 </tr>
 <tr>
 <td><strong>body</strong></td>
-<td>Event's second and third line</td>
+<td>事件的第二、三简介行</td>
 </tr>
 <tr>
 <td><strong>url</strong></td>
-<td>Link to event's page</td>
+<td>通向事件页面的链接</td>
 </tr>
 </tbody>
 </table>
@@ -1333,13 +1333,13 @@ updateSite: =&gt;
 <tbody>
 <tr>
 <td><strong>feeds</strong></td>
-<td>Format: {"query name": [SQL query, [param1, param2, ...], ...}, 参数s will be escaped, joined by <code>,</code> inserted in place of <code>:params</code> in the Sql query.</td>
+<td>格式： {"query name": [SQL query, [param1, param2, ...], ...}, 参数 will be escaped, joined by <code>,</code> inserted in place of <code>:params</code> in the Sql query.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>返回值</strong>: ok</p>
 <p><strong>举例：</strong></p>
-<pre><code class="coffeescript"># Follow ZeroBlog posts
+<pre><code class="coffeescript"># 跟踪ZeroBlog的新博文
 query = &quot;
     SELECT
      post_id AS event_uri,
@@ -1356,7 +1356,7 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 
 <hr />
 <h4 id="feedlistfollow">feedListFollow</h4>
-<p>Return of current followed feeds</p>
+<p>返回当前的关注/跟踪的消息流</p>
 <p><strong>返回值</strong>: The currently followed feeds in the same format as in the feedFollow commands</p>
 <hr />
 <h4 id="feedquery-limit-day_limit">feedQuery <em>[limit], [day_limit]</em></h4>
@@ -1411,7 +1411,7 @@ Page.cmd feedFollow [{&quot;Posts&quot;: [query, params]}]
 <tbody>
 <tr>
 <td><strong>address</strong></td>
-<td>攒点地址</td>
+<td>站点地址</td>
 </tr>
 </tbody>
 </table>
