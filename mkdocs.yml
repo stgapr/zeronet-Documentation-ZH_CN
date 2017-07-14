@@ -9,12 +9,12 @@ extra_javascript: [docs.js]
 
 
 pages:
-- Introduction: "index.md"
-- Frequently asked questions: "faq.md"
-- Start using ZeroNet:
-  - "安装": using_zeronet/installing.md
-  - "网站示例": using_zeronet/sample_sites.md
-  - "创建新站点": using_zeronet/create_new_site.md
+- "介绍": "index.md"
+- "FAQ 常见问题": "faq.md"
+- "开始使用ZeroNet":
+  - "安装": "using_zeronet/installing.md"
+  - "网站示例": "using_zeronet/sample_sites.md"
+  - "创建新站点": "using_zeronet/create_new_site.md"
 - "站点开发":
   - "入门": "site_development/getting_started.md"
   - "ZeroFrame API 参考文档": "site_development/zeroframe_api_reference.md"
